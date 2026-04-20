@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\game">
+      <UniqueIdentifier>{a2d9dfd9-ef85-4f89-8533-16478f02cfa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\game">
+      <UniqueIdentifier>{47cd0133-c53e-432b-a7ab-420d7403f36f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\lib">
+      <UniqueIdentifier>{13e6b700-dd1b-4557-9f41-d6359010a610}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\lib">
+      <UniqueIdentifier>{79bf602c-3361-47c0-a672-dd556cf27cdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\lib\collision">
+      <UniqueIdentifier>{47370506-fba6-40e9-9d23-c3a40157a095}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\lib\data">
+      <UniqueIdentifier>{0eda193f-d7fc-443e-9a7d-4d2bcc086558}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\lib\debug">
+      <UniqueIdentifier>{7c7e58ce-84b0-44c7-a7df-8c317c13b574}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\lib\input">
+      <UniqueIdentifier>{3ed655c4-aa6e-4cf2-842e-733e9e5b2cca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\lib\MyMath">
+      <UniqueIdentifier>{3d6a9196-6e93-4f80-b3c4-d90bbc1a3f78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\game\Player">
+      <UniqueIdentifier>{2a745d32-4142-4cd5-9b88-510b5f5ef197}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\lib\collision">
+      <UniqueIdentifier>{1603f0f1-74ff-4e32-b00b-a5260863cd34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\lib\data">
+      <UniqueIdentifier>{f2429b35-08fb-40f0-bf50-8621404718cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\lib\debug">
+      <UniqueIdentifier>{fb582c03-138a-4dd0-a5f4-6f59569cc2b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\lib\input">
+      <UniqueIdentifier>{48fdad71-efa9-479f-8ec7-5a2f61719b3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\lib\MyMath">
+      <UniqueIdentifier>{02fc4f41-50d1-44a3-8853-7f91cec96bfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\game\player">
+      <UniqueIdentifier>{adf901ca-2c2f-4ad2-bf98-3fea8f57fb93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\game\scene">
+      <UniqueIdentifier>{5d95933e-48fb-40dc-b2d5-ef6e289a2386}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\game\scene">
+      <UniqueIdentifier>{ea2d39a3-8e9f-4d06-80bc-6a45cf6705ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\lib\Object">
+      <UniqueIdentifier>{fdcd13c3-7cb2-4224-b3de-c10f8d1d6f5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\lib\Object">
+      <UniqueIdentifier>{9f34a6ab-c45b-452c-bcbe-a373c028766c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\game\camera">
+      <UniqueIdentifier>{3e51f97a-ec8c-4455-a210-c338fb461c09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\game\camera">
+      <UniqueIdentifier>{4c375b3f-61e4-42ed-9947-758b02e7fbdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\game\stage">
+      <UniqueIdentifier>{975d63c5-2261-47a2-ae81-2effe02fe7b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\game\stage\sky">
+      <UniqueIdentifier>{4569a50d-c740-4e3f-a9e7-cb4d1d45bef0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\game\Trap">
+      <UniqueIdentifier>{ad2a1fb3-52f5-4519-8d74-35b71e9c9c6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\game\Trap">
+      <UniqueIdentifier>{7330b630-f089-4f61-8bca-100edd44d1e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\game\collision">
+      <UniqueIdentifier>{afaaa378-adf6-4127-9fd7-2d350ad08fcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\game\collision">
+      <UniqueIdentifier>{0cd589c1-25d1-47ac-b679-1e94b8c55714}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\game\stage\field">
+      <UniqueIdentifier>{4f47ce17-9687-4299-b851-e8f7e615007b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\game\stage">
+      <UniqueIdentifier>{4a143b80-8ca1-4eeb-803a-60943483a6bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\game\stage\sky">
+      <UniqueIdentifier>{9e72cecd-2906-436c-a64a-511fd72fd52e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\game\stage\field">
+      <UniqueIdentifier>{3f60dc81-cffe-47ff-b33c-3750f3cabe36}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\lib\collision\collision.cpp">
+      <Filter>ソース ファイル\lib\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\debug\fps.cpp">
+      <Filter>ソース ファイル\lib\debug</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\input\input.cpp">
+      <Filter>ソース ファイル\lib\input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\input\PadInput.cpp">
+      <Filter>ソース ファイル\lib\input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\MyMath\MyMath.cpp">
+      <Filter>ソース ファイル\lib\MyMath</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Player\Player.cpp">
+      <Filter>ソース ファイル\game\player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Main.cpp">
+      <Filter>ソース ファイル\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\scene\SceneManager.cpp">
+      <Filter>ソース ファイル\game\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\scene\PlayScene.cpp">
+      <Filter>ソース ファイル\game\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\scene\TitleScene.cpp">
+      <Filter>ソース ファイル\game\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\scene\ResultScene.cpp">
+      <Filter>ソース ファイル\game\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\Object\Object3D.cpp">
+      <Filter>ソース ファイル\lib\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Camera\PlayCamera.cpp">
+      <Filter>ソース ファイル\game\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Camera\CameraManager.cpp">
+      <Filter>ソース ファイル\game\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Camera\DebugCamera.cpp">
+      <Filter>ソース ファイル\game\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\stage\sky\sky.cpp">
+      <Filter>ソース ファイル\game\stage\sky</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Trap\Trap.cpp">
+      <Filter>ソース ファイル\game\Trap</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\collision\collisionManager.cpp">
+      <Filter>ソース ファイル\game\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\stage\field\field.cpp">
+      <Filter>ソース ファイル\game\stage\field</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\scene\scenebase.cpp">
+      <Filter>ソース ファイル\game\scene</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\lib\collision\collision.h">
+      <Filter>ヘッダー ファイル\lib\collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\debug\fps.h">
+      <Filter>ヘッダー ファイル\lib\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\input\input.h">
+      <Filter>ヘッダー ファイル\lib\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\input\PadInput.h">
+      <Filter>ヘッダー ファイル\lib\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\MyMath\MyMath.h">
+      <Filter>ヘッダー ファイル\lib\MyMath</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\common.h">
+      <Filter>ヘッダー ファイル\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\scene\SceneManager.h">
+      <Filter>ヘッダー ファイル\game\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\scene\PlayScene.h">
+      <Filter>ヘッダー ファイル\game\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\scene\TitleScene.h">
+      <Filter>ヘッダー ファイル\game\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\scene\ResultScene.h">
+      <Filter>ヘッダー ファイル\game\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\scene\scenebase.h">
+      <Filter>ヘッダー ファイル\game\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Player\Player.h">
+      <Filter>ヘッダー ファイル\game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\Object\Object3D.h">
+      <Filter>ヘッダー ファイル\lib\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Camera\CameraManager.h">
+      <Filter>ヘッダー ファイル\game\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Camera\PlayCamera.h">
+      <Filter>ヘッダー ファイル\game\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Camera\DebugCamera.h">
+      <Filter>ヘッダー ファイル\game\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Trap\Trap.h">
+      <Filter>ヘッダー ファイル\game\Trap</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\collision\collisionManager.h">
+      <Filter>ヘッダー ファイル\game\collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\stage\sky\sky.h">
+      <Filter>ヘッダー ファイル\game\stage\sky</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\stage\field\field.h">
+      <Filter>ヘッダー ファイル\game\stage\field</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
