@@ -14,7 +14,9 @@ private:
 	CPlayer m_player;
 	CSky m_sky;
 	CField m_field;
-
+	float dt;
+	int m_prevTime;
+	int m_nowTime;
 public:
 	CPlayScene();
 	~CPlayScene();

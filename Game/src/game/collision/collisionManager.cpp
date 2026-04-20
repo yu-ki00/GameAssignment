@@ -82,15 +82,15 @@ void CCollisionManager::CheckHitPlayerToStage(CPlayer& player,CField field) {
 	MV1CollResultPolyDimTerminate(col);
 }
 
-void CCollisionManager::CheckHitPlayerToStage(CPlayer& player, CField field) {
-	VECTOR result{ 0.0f };
-	bool isHitFlag = false;
-	VECTOR pl_pos = player.GetPos();
-	float pl_rad = PLAYER_RADIUS;
-	float scale = 0.0f;
-	MV1_COLL_RESULT_POLY_DIM col;
-
-	col = MV1CollCheck_Sphere(field.GetHndl(), -1, pl_pos, pl_rad);
-
-
-}
+//void CCollisionManager::CheckHitPlayerToStage(CPlayer& player, CField field) {
+//	VECTOR result{ 0.0f };
+//	bool isHitFlag = false;
+//	VECTOR pl_pos = player.GetPos();
+//	float pl_rad = PLAYER_RADIUS;
+//	float scale = 0.0f;
+//	MV1_COLL_RESULT_POLY_DIM col;
+//
+//	col = MV1CollCheck_Sphere(field.GetHndl(), -1, pl_pos, pl_rad);
+//
+//
+//}

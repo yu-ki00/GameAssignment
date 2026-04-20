@@ -92,7 +92,7 @@ void CPlayScene::Load()
 //----------------------
 int CPlayScene::Step()
 {
-
+	dt = (m_nowTime - m_prevTime) / 1000.0f;
 	CInput::Update();
 	switch (m_state)
 	{
@@ -103,7 +103,7 @@ int CPlayScene::Step()
 	case CPlayScene::MAIN:
 		
 		if (m_camera.GetID() == m_camera.ID_PLAY) {
-			m_player.Step(m_camera.GetRot());
+			m_player.Step(m_camera.GetRot(),dt);
 
 		}
 		m_camera.Step(m_player.GetTop());

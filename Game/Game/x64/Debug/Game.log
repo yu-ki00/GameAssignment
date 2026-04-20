@@ -1,2 +1,2 @@
-﻿  field.cpp
-  Game.vcxproj -> C:\Users\2409419\Desktop\Game-\Game\x64\Debug\Game.exe
+﻿PlayScene.obj : error LNK2019: 未解決の外部シンボル "public: __cdecl CPlayer::~CPlayer(void)" (??1CPlayer@@QEAA@XZ) が関数 "int `public: __cdecl CPlayScene::CPlayScene(void)'::`1'::dtor$1" (?dtor$1@?0???0CPlayScene@@QEAA@XZ@4HA) で参照されました
+C:\Users\2409419\Desktop\GameAssignment\Game\x64\Debug\Game.exe : fatal error LNK1120: 1 件の未解決の外部参照
