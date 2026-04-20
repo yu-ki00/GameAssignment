@@ -10,6 +10,9 @@ using namespace std;
 CPlayer::CPlayer() {
 	Init();
 }
+CPlayer::~CPlayer() {
+	Exit();
+}
 //‰Šú‰»
 void CPlayer::Init() {
 

@@ -27,13 +27,19 @@ CPlayScene::~CPlayScene()
 }
 
 int CPlayScene::Loop() {
-	return CSceneBase::Loop();
+	m_nowTime = GetNowCount();
+	dt = (m_nowTime - m_prevTime) / 1000.0f;
+	m_result = CSceneBase::Loop();
+	m_prevTime = GetNowCount();
+	return m_result;
 }
 //----------------------
 // ï`âÊèàóù
 //----------------------
 void CPlayScene::Draw()
 {
+	m_nowTime = GetNowCount();
+	dt = (m_nowTime - m_prevTime) / 1000.0f;
 	switch (m_state)
 	{
 	case CPlayScene::INIT:
@@ -74,6 +80,10 @@ void CPlayScene::Init()
 
 	m_field.Init();
 
+	m_nowTime = 0;
+	m_prevTime = 0;
+	dt = 0;
+
 }
 
 //----------------------
@@ -92,7 +102,7 @@ void CPlayScene::Load()
 //----------------------
 int CPlayScene::Step()
 {
-	dt = (m_nowTime - m_prevTime) / 1000.0f;
+
 	CInput::Update();
 	switch (m_state)
 	{
