@@ -86,7 +86,7 @@ void CPlayer::MoveExec(float dt) {
 	}
 	if (CInput::IsRep(KEY_UP) && CInput::IsRep(KEY_RIGHT)) {
 
-		ACCEL = -MOVE_ACCEL;
+		ACCEL = MOVE_ACCEL;
 
 		float move_deg = 45.0f;
 
@@ -96,7 +96,7 @@ void CPlayer::MoveExec(float dt) {
 	}
 	else if (CInput::IsRep(KEY_UP) && CInput::IsRep(KEY_LEFT)) {
 
-		ACCEL = MOVE_ACCEL;
+		ACCEL = -MOVE_ACCEL;
 
 		float move_deg = 135.0f;
 
@@ -105,7 +105,7 @@ void CPlayer::MoveExec(float dt) {
 
 	else if (CInput::IsRep(KEY_DOWN) && CInput::IsRep(KEY_RIGHT)) {
 
-		ACCEL = -MOVE_ACCEL;
+		ACCEL = MOVE_ACCEL;
 
 		float move_deg = 135.0f;
 
@@ -115,7 +115,7 @@ void CPlayer::MoveExec(float dt) {
 
 	else if (CInput::IsRep(KEY_DOWN) && CInput::IsRep(KEY_LEFT)) {
 
-		ACCEL = MOVE_ACCEL;
+		ACCEL = -MOVE_ACCEL;
 
 		float move_deg = 45.0f;
 
@@ -126,17 +126,17 @@ void CPlayer::MoveExec(float dt) {
 	else if (CInput::IsRep(KEY_UP))
 	{
 
-		ACCEL = -MOVE_ACCEL;
+		ACCEL = MOVE_ACCEL;
 	}
 
 	else if (CInput::IsRep(KEY_DOWN))
 	{
-		ACCEL = MOVE_ACCEL;
+		ACCEL = -MOVE_ACCEL;
 	}
 
 	else if (CInput::IsRep(KEY_RIGHT))
 	{
-		ACCEL = -MOVE_ACCEL;
+		ACCEL = MOVE_ACCEL;
 
 		float move_deg = 90.0f;
 
@@ -146,7 +146,7 @@ void CPlayer::MoveExec(float dt) {
 
 	else if (CInput::IsRep(KEY_LEFT))
 	{
-		ACCEL = MOVE_ACCEL;
+		ACCEL = -MOVE_ACCEL;
 
 		float move_deg = 90.0f;
 

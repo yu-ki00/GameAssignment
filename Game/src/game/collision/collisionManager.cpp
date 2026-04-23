@@ -1,11 +1,12 @@
 #include"collisionManager.h"
-bool isGround;
 void CCollisionManager::CheckHitPlayerToStage(CPlayer& player,CField field) {
+	bool isGround;
 	VECTOR result{ 0.0f };
 	bool isHitFlag = false;
 	VECTOR pl_pos = player.GetPos();
 	float pl_rad = PLAYER_RADIUS;
 	float scale = 0.0f;
+	int hndl = field.GetHndl();
 	//ìñÇΩÇËîªíËèÓïÒÇ™äiî[Ç≥ÇÍÇÈç\ë¢ëÃ
 	MV1_COLL_RESULT_POLY_DIM col;
 
@@ -51,34 +52,15 @@ void CCollisionManager::CheckHitPlayerToStage(CPlayer& player,CField field) {
 
 				scale = nowsize;
 			}
-
-		}
-		if (isGround == true) {
-
-			player.SetIsGround(true);
-
-		}
-		else {
-
-			player.SetIsGround(false);
-		}
-
-		player.SetPos(VAdd(result, player.GetPos()));
-
-	}
-	else {
-		if (isGround == true) {
-
-			player.SetIsGround(true);
-
-		}
-		else if (isGround == false) {
-
-			player.SetIsGround(false);
-
+			if (isGround) {
+				player.SetIsGround(true);
+			}
+			else
+				player.SetIsGround(false);
 		}
 	}
-
+	else
+		player.SetIsGround(false);
 	MV1CollResultPolyDimTerminate(col);
 }
 

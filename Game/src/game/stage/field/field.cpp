@@ -10,7 +10,7 @@ CField::~CField() {
 
 void CField::Init() {
 	CObject3D::Init();
-	m_pos.y = -100;
+	m_pos.y = -20;
 }
 
 void CField::Load() {

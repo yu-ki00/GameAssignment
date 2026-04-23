@@ -105,6 +105,12 @@
     <Filter Include="ヘッダー ファイル\game\stage\field">
       <UniqueIdentifier>{3f60dc81-cffe-47ff-b33c-3750f3cabe36}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\game\enemy">
+      <UniqueIdentifier>{04714a3d-ec8d-49dc-9ba1-a4ed7ae99108}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\game\enemy">
+      <UniqueIdentifier>{f88e73cf-c57a-4f43-b030-8c305084bedb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\collision\collision.cpp">
@@ -167,6 +173,15 @@
     <ClCompile Include="src\game\scene\scenebase.cpp">
       <Filter>ソース ファイル\game\scene</Filter>
     </ClCompile>
+    <ClCompile Include="src\game\Enemy\EnemyBase.cpp">
+      <Filter>ソース ファイル\game\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Enemy\EnemyManager.cpp">
+      <Filter>ソース ファイル\game\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Enemy\Enemy.cpp">
+      <Filter>ソース ファイル\game\enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\lib\collision\collision.h">
@@ -228,6 +243,15 @@
     </ClInclude>
     <ClInclude Include="src\game\stage\field\field.h">
       <Filter>ヘッダー ファイル\game\stage\field</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Enemy\EnemyManager.h">
+      <Filter>ヘッダー ファイル\game\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Enemy\EnemyBase.h">
+      <Filter>ヘッダー ファイル\game\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Enemy\Enemy.h">
+      <Filter>ヘッダー ファイル\game\enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

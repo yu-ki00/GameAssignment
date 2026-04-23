@@ -2,6 +2,9 @@ C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Camera\CameraManager.cpp;C
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Camera\DebugCamera.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\DebugCamera.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Camera\PlayCamera.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\PlayCamera.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\collisionManager.obj
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Enemy\Enemy.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\Enemy.obj
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Enemy\EnemyBase.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\EnemyBase.obj
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Enemy\EnemyManager.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\EnemyManager.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Main.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\Main.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Player\Player.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\Player.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\scene\PlayScene.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\PlayScene.obj
