@@ -46,4 +46,6 @@ public:
 
 	void ReticuleHit(bool hit) { m_Play.ReticuleHit(hit); }
 	void Reset() { m_Play.Reset(); }
+
+	PlayCamera& GetPlay() { return m_Play; }
 };

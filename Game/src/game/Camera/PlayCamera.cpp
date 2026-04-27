@@ -166,7 +166,7 @@ VECTOR PlayCamera::GetVec() {
 
 	ret.z *= -1;
 
-	return ret;
+	return VScale(ret,-1);
 }
 
 void PlayCamera::Exit() {

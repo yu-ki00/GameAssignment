@@ -161,7 +161,7 @@
     <ClCompile Include="src\game\stage\sky\sky.cpp">
       <Filter>ソース ファイル\game\stage\sky</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\Trap\Trap.cpp">
+    <ClCompile Include="src\game\Trap\TrapBase.cpp">
       <Filter>ソース ファイル\game\Trap</Filter>
     </ClCompile>
     <ClCompile Include="src\game\collision\collisionManager.cpp">
@@ -181,6 +181,12 @@
     </ClCompile>
     <ClCompile Include="src\game\Enemy\Enemy.cpp">
       <Filter>ソース ファイル\game\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Trap\TrapManager.cpp">
+      <Filter>ソース ファイル\game\Trap</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Trap\Trap.cpp">
+      <Filter>ソース ファイル\game\Trap</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -232,7 +238,7 @@
     <ClInclude Include="src\game\Camera\DebugCamera.h">
       <Filter>ヘッダー ファイル\game\camera</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\Trap\Trap.h">
+    <ClInclude Include="src\game\Trap\TrapBase.h">
       <Filter>ヘッダー ファイル\game\Trap</Filter>
     </ClInclude>
     <ClInclude Include="src\game\collision\collisionManager.h">
@@ -252,6 +258,12 @@
     </ClInclude>
     <ClInclude Include="src\game\Enemy\Enemy.h">
       <Filter>ヘッダー ファイル\game\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Trap\TrapManager.h">
+      <Filter>ヘッダー ファイル\game\Trap</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Trap\Trap.h">
+      <Filter>ヘッダー ファイル\game\Trap</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

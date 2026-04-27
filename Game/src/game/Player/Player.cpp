@@ -48,7 +48,12 @@ void CPlayer::Step(VECTOR camera_rot, float dt) {
 
 	m_rot.y = camera_rot.y;
 
+	if (m_isGround) {
+		m_velocity.y = 0.0f;
+	}
+
 	MoveExec(dt);
+
 
 
 

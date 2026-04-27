@@ -36,6 +36,8 @@
     <ClCompile Include="src\game\stage\field\field.cpp" />
     <ClCompile Include="src\game\stage\sky\sky.cpp" />
     <ClCompile Include="src\game\Trap\Trap.cpp" />
+    <ClCompile Include="src\game\Trap\TrapBase.cpp" />
+    <ClCompile Include="src\game\Trap\TrapManager.cpp" />
     <ClCompile Include="src\lib\collision\collision.cpp" />
     <ClCompile Include="src\lib\debug\fps.cpp" />
     <ClCompile Include="src\lib\input\input.cpp" />
@@ -61,6 +63,8 @@
     <ClInclude Include="src\game\stage\field\field.h" />
     <ClInclude Include="src\game\stage\sky\sky.h" />
     <ClInclude Include="src\game\Trap\Trap.h" />
+    <ClInclude Include="src\game\Trap\TrapBase.h" />
+    <ClInclude Include="src\game\Trap\TrapManager.h" />
     <ClInclude Include="src\lib\collision\collision.h" />
     <ClInclude Include="src\lib\debug\fps.h" />
     <ClInclude Include="src\lib\input\input.h" />

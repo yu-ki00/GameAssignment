@@ -52,7 +52,14 @@ void CPlayScene::Draw()
 		m_sky.Draw();
 		DrawFormatString(10, 10, RED, "ÉQÅ[ÉÄ");
 
-		DrawFormatString(10, 32, RED, "%f,%f,%f", m_player.GetPos().x, m_player.GetPos().y, m_player.GetPos().z);
+		DrawFormatString(10, 32, RED, "%f,%f,%f", m_player.GetTop().x, m_player.GetTop().y, m_player.GetTop().z);
+		VECTOR pos=CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
+		DrawFormatString(10, 64, RED, "%f,%f,%f", pos.x, pos.y, pos.z);
+
+		VECTOR eye_pos = m_camera.GetPlay().GetTarget();
+		VECTOR eye_end = VAdd(eye_pos, VScale(m_camera.GetPlay().GetVec(), 300));
+
+		DrawLine3D(eye_pos, eye_end, RED);
 		break;
 	case CPlayScene::END:
 		break;

@@ -1,6 +1,6 @@
 #include"collisionManager.h"
-void CCollisionManager::CheckHitPlayerToStage(CPlayer& player,CField field) {
-	bool isGround;
+void CCollisionManager::CheckHitPlayerToStage(CPlayer& player,CField& field) {
+	bool isGround=false;
 	VECTOR result{ 0.0f };
 	bool isHitFlag = false;
 	VECTOR pl_pos = player.GetPos();
@@ -48,7 +48,7 @@ void CCollisionManager::CheckHitPlayerToStage(CPlayer& player,CField field) {
 
 				result = nownorm;
 
-				result.y = (int)result.y;
+				result.y = result.y;
 
 				scale = nowsize;
 			}
@@ -64,15 +64,27 @@ void CCollisionManager::CheckHitPlayerToStage(CPlayer& player,CField field) {
 	MV1CollResultPolyDimTerminate(col);
 }
 
-//void CCollisionManager::CheckHitPlayerToStage(CPlayer& player, CField field) {
-//	VECTOR result{ 0.0f };
-//	bool isHitFlag = false;
-//	VECTOR pl_pos = player.GetPos();
-//	float pl_rad = PLAYER_RADIUS;
-//	float scale = 0.0f;
-//	MV1_COLL_RESULT_POLY_DIM col;
-//
-//	col = MV1CollCheck_Sphere(field.GetHndl(), -1, pl_pos, pl_rad);
-//
-//
-//}
+VECTOR CCollisionManager::CheckHitEyeToStage(CPlayer& player, CField& field, CameraManager& camera) {
+	bool isHit = false;
+
+	//カメラマネージャーからプレイカメラを取得
+	PlayCamera& play = camera.GetPlay();
+
+	//カメラの現在地を取得
+	VECTOR eye_pos = play.GetTarget();
+
+	//カメラの視線の終点を取得
+	VECTOR eye_end = VAdd(eye_pos,VScale(play.GetVec(), 300));
+
+	//当たり判定情報が格納される構造体
+	MV1_COLL_RESULT_POLY col;
+
+	//カメラの視線とステージの当たり判定
+	col = MV1CollCheck_Line(field.GetHndl(), -1, eye_pos, eye_end);
+
+	if (col.HitFlag) {
+		//衝突地点を取得して値を返す
+		return col.HitPosition;
+	}
+
+}
