@@ -14,7 +14,7 @@ void CEnemyBase::Init() {
 	CObject3D::Init();
 }
 
-void CEnemyBase::Load() {
+void CEnemyBase::Load(int originHndl) {
 
 }
 

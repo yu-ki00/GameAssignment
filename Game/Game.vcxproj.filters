@@ -185,7 +185,7 @@
     <ClCompile Include="src\game\Trap\TrapManager.cpp">
       <Filter>ソース ファイル\game\Trap</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\Trap\Trap.cpp">
+    <ClCompile Include="src\game\Trap\Spike.cpp">
       <Filter>ソース ファイル\game\Trap</Filter>
     </ClCompile>
   </ItemGroup>
@@ -262,7 +262,7 @@
     <ClInclude Include="src\game\Trap\TrapManager.h">
       <Filter>ヘッダー ファイル\game\Trap</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\Trap\Trap.h">
+    <ClInclude Include="src\game\Trap\Spike.h">
       <Filter>ヘッダー ファイル\game\Trap</Filter>
     </ClInclude>
   </ItemGroup>

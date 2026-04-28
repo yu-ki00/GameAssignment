@@ -8,7 +8,7 @@ public:
 	CEnemyBase();
 	~CEnemyBase();
 	virtual void Init();
-	virtual void Load();
+	virtual void Load(int originHndl);
 	virtual void Step();
 	virtual void Draw();
 	virtual void Exit();
