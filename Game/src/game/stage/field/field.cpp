@@ -14,8 +14,13 @@ void CField::Init() {
 }
 
 void CField::Load() {
-	if(m_hndl==-1)
-	m_hndl = MV1LoadModel(FIELD_PATH);
+	if (m_hndl == -1) {
+		m_hndl = MV1LoadModel(FIELD_PATH);
+	}
+
+	if (m_hndl != -1) {
+
+	}
 	MV1SetupCollInfo(m_hndl);	// ƒRƒŠƒWƒ‡ƒ“î•ñ\’z
 
 }

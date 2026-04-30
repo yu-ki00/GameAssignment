@@ -3,7 +3,9 @@
 static const char FIELD_PATH[] = { "Data/Model/field/field.mv1" };
 class CField :public CObject3D {
 private:
-
+	typedef struct {
+		
+	};
 public:
 	CField();
 	~CField();

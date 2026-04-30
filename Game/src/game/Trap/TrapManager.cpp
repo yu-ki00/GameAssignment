@@ -8,4 +8,22 @@ CTrapManager::~CTrapManager() {
 
 }
 
-void 
+void CTrapManager::Init() {
+
+}
+
+void CTrapManager::Load() {
+
+}
+
+void CTrapManager::Step() {
+
+}
+
+void CTrapManager::Draw() {
+
+}
+
+void CTrapManager::Exit() {
+
+}
