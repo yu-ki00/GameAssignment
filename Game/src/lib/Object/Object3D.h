@@ -33,7 +33,6 @@ public:
 
 	void SetActive(bool active) { m_isActive = active; }
 
-
 	void SetRot(VECTOR rot) { m_rot = rot; }
 
 };

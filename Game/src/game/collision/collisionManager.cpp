@@ -1,69 +1,61 @@
 #include"collisionManager.h"
-void CCollisionManager::CheckHitPlayerToStage(CPlayer& player,CField& field) {
-	bool isGround=false;
-	VECTOR result{ 0.0f };
-	bool isHitFlag = false;
-	VECTOR pl_pos = player.GetPos();
-	float pl_rad = PLAYER_RADIUS;
-	float scale = 0.0f;
-	int hndl = field.GetHndl();
-	//当たり判定情報が格納される構造体
-	MV1_COLL_RESULT_POLY_DIM col;
+void CCollisionManager::CheckHitPlayerToStage(CPlayer& player, CField& field) {
 
-	col = MV1CollCheck_Sphere(field.GetHndl(), -1, pl_pos, pl_rad);
+    bool isGround = false;
+    VECTOR result = VGet(0, 0, 0);
 
-	if (col.HitNum != 0) {
+    VECTOR pl_pos = player.GetPos();
+    float pl_rad = PLAYER_RADIUS;
 
-		isHitFlag = true;
+    float maxPush = 0.0f;
 
-		VECTOR nownorm = { 0 };
+    VECTOR pos = pl_pos;
 
-		float nowsize = 0.0f;
+    for (int loop = 0; loop < 3; loop++) {
 
-		for (int i = 0; i < col.HitNum; i++) {
+        VECTOR totalPush = VGet(0, 0, 0);
 
-			VECTOR Normal = col.Dim[i].Normal;
+        for (auto& data : field.GetStage()) {
 
-			VECTOR v = VSub(pl_pos, col.Dim[i].HitPosition);
-			float len = VSize(v);
+            if (!data.m_isActive) continue;
+            float len = VSize(VSub(pos, data.m_pos));
+            if (len > 200)continue;
 
-			len = pl_rad - len;
+            MV1_COLL_RESULT_POLY_DIM col;
+            col = MV1CollCheck_Sphere(data.m_hndl, -1, pos, pl_rad);
 
-			v = VScale(Normal, len);
+            if (col.HitNum != 0) {
 
-			nownorm = VAdd(nownorm, v);
-			if (Normal.y >= 0.5) {
+                for (int i = 0; i < col.HitNum; i++) {
 
+                    VECTOR Normal = col.Dim[i].Normal;
 
+                    VECTOR v = VSub(pos, col.Dim[i].HitPosition);
+                    float len = VSize(v);
 
-				isGround = true;
-			}
-			else if (Normal.y <= -0.7) {
+                    len = pl_rad - len;
 
-			}
+                    VECTOR push = VScale(Normal, len);
 
-			nowsize = VSize(result);
+                    totalPush = VAdd(totalPush, push);
 
-			if (nowsize >= scale) {
+                    if (Normal.y >= 0.5f) {
+                        isGround = true;
+                    }
+                }
+            }
 
-				result = nownorm;
+            MV1CollResultPolyDimTerminate(col);
+        }
 
-				result.y = result.y;
+        pos = VAdd(pos, totalPush);
+    }
+    // プレイヤーを押し出す
+    player.SetPos(pos);
 
-				scale = nowsize;
-			}
-			if (isGround) {
-				player.SetIsGround(true);
-			}
-			else
-				player.SetIsGround(false);
-		}
-	}
-	else
-		player.SetIsGround(false);
-	MV1CollResultPolyDimTerminate(col);
+    // 接地判定
+    player.SetIsGround(isGround);
 }
-
 VECTOR CCollisionManager::CheckHitEyeToStage(CPlayer& player, CField& field, CameraManager& camera) {
 	bool isHit = false;
 
@@ -75,16 +67,27 @@ VECTOR CCollisionManager::CheckHitEyeToStage(CPlayer& player, CField& field, Cam
 
 	//カメラの視線の終点を取得
 	VECTOR eye_end = VAdd(eye_pos,VScale(play.GetVec(), 300));
+    for (int loop = 0; loop < 3; loop++) {
 
-	//当たり判定情報が格納される構造体
-	MV1_COLL_RESULT_POLY col;
+        VECTOR totalPush = VGet(0, 0, 0);
 
-	//カメラの視線とステージの当たり判定
-	col = MV1CollCheck_Line(field.GetHndl(), -1, eye_pos, eye_end);
+        for (auto& data : field.GetStage()) {
+            float len = VSize(VSub(eye_pos, data.m_pos));
+            if (len > 300)continue;
 
-	if (col.HitFlag) {
-		//衝突地点を取得して値を返す
-		return col.HitPosition;
-	}
+            if (!data.m_isActive) continue;
+            //当たり判定情報が格納される構造体
+            MV1_COLL_RESULT_POLY col;
+
+            //カメラの視線とステージの当たり判定
+            col = MV1CollCheck_Line(data.m_hndl, -1, eye_pos, eye_end);
+
+            if (col.HitFlag) {
+                //衝突地点を取得して値を返す
+                return col.HitPosition;
+            }
+        }
+    }
+    return VGet(0.0f, 0.0f, 0.0f);
 
 }
