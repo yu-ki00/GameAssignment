@@ -6,7 +6,11 @@
 
 class CCollisionManager {
 public:
+	struct HitResult {
+		bool isHit;
+		VECTOR position;
+	};
 	static void CheckHitPlayerToStage(CPlayer& player,CField& field);
 
-	static VECTOR CheckHitEyeToStage(CPlayer& player, CField& field,CameraManager& camera);
+	static HitResult CheckHitEyeToStage(CPlayer& player, CField& field,CameraManager& camera);
 };

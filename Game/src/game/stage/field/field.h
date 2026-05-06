@@ -22,6 +22,10 @@ private:
 		bool m_isActive;	//¶‘¶”»’è
 
 		int m_tileID;		//ƒ^ƒCƒ‹‚Ì¯•Ê
+
+		int m_cellX;
+
+		int m_cellZ;
 	}STAGE_DATA;
 	map<int, int> m_modelTable;
 

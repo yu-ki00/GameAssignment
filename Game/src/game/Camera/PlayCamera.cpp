@@ -18,7 +18,7 @@ PlayCamera::PlayCamera()
 
 	m_UpVec = ZERO;
 
-	m_rot = ZERO;
+	m_rot = VGet(0.0f,DX_PI_F,0.0f);
 
 	m_reticuleHit = false;
 

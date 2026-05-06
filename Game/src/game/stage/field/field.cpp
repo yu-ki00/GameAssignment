@@ -36,6 +36,8 @@ void CField::Load() {
                 data.m_pos = VGet(x * TILE_SIZE, 0, z * TILE_SIZE);
                 data.m_scale = VGet(1, 1, 1);
                 data.m_rot = VGet(0, 0, 0);
+                data.m_cellX = x;
+                data.m_cellZ = z;
 
                 // ÅöÇ±Ç±Ç™èdóv
                 data.m_hndl = MV1DuplicateModel(m_modelTable[tile]);

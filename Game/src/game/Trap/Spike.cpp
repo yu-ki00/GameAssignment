@@ -15,7 +15,7 @@ void CSpike::Init() {
 
 void CSpike::Load(int originHndl) {
 	if (m_hndl == -1) {
-		MV1DuplicateModel(originHndl);
+		m_hndl=MV1DuplicateModel(originHndl);
 	}
 
 	MV1SetupCollInfo(m_hndl);	// ƒRƒŠƒWƒ‡ƒ“î•ñ\’z

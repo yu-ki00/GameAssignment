@@ -1,5 +1,6 @@
 #pragma once
 #include<DxLib.h>
+#define DEBUG
 static const int WINDOW_SIZE_X = 1600;
 
 static const int WINDOW_SIZE_Y = 900;

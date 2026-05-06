@@ -47,6 +47,7 @@ void CCollisionManager::CheckHitPlayerToStage(CPlayer& player, CField& field) {
 
             MV1CollResultPolyDimTerminate(col);
         }
+        totalPush.y = (int)totalPush.y;
 
         pos = VAdd(pos, totalPush);
     }
@@ -56,7 +57,7 @@ void CCollisionManager::CheckHitPlayerToStage(CPlayer& player, CField& field) {
     // 接地判定
     player.SetIsGround(isGround);
 }
-VECTOR CCollisionManager::CheckHitEyeToStage(CPlayer& player, CField& field, CameraManager& camera) {
+CCollisionManager::HitResult CCollisionManager::CheckHitEyeToStage(CPlayer& player, CField& field, CameraManager& camera) {
 	bool isHit = false;
 
 	//カメラマネージャーからプレイカメラを取得
@@ -67,7 +68,7 @@ VECTOR CCollisionManager::CheckHitEyeToStage(CPlayer& player, CField& field, Cam
 
 	//カメラの視線の終点を取得
 	VECTOR eye_end = VAdd(eye_pos,VScale(play.GetVec(), 300));
-    for (int loop = 0; loop < 3; loop++) {
+    for (int tileID = 0; tileID < 3; tileID++) {
 
         VECTOR totalPush = VGet(0, 0, 0);
 
@@ -84,10 +85,10 @@ VECTOR CCollisionManager::CheckHitEyeToStage(CPlayer& player, CField& field, Cam
 
             if (col.HitFlag) {
                 //衝突地点を取得して値を返す
-                return col.HitPosition;
+                return { true, data.m_pos };
             }
         }
     }
-    return VGet(0.0f, 0.0f, 0.0f);
+   return { false, VGet(0.0f, 0.0f, 0.0f) };
 
 }
