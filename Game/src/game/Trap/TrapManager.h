@@ -8,13 +8,6 @@ class CTrapManager {
 private:
 
 	CSpike m_spike[SPIKE_NUM];
-	enum tagTrap {
-		SPIKE,
-
-		TRAP_NUM
-	};
-
-	CTrapBase* m_trap[TRAP_NUM];
 
 public:
 	CTrapManager();
