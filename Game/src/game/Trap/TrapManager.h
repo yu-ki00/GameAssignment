@@ -27,4 +27,6 @@ public:
 	void Update();
 
 	void Request(VECTOR pos, bool hit);
+
+	CSpike& GetSpike(int i) { return m_spike[i]; }
 };

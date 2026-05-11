@@ -18,7 +18,6 @@ void CSpike::Load(int originHndl) {
 		m_hndl=MV1DuplicateModel(originHndl);
 	}
 
-	MV1SetupCollInfo(m_hndl);	// ƒRƒŠƒWƒ‡ƒ“î•ñ\’z
 }
 
 void CSpike::Step() {
@@ -37,4 +36,10 @@ void CSpike::Exit(){
 		
 		m_hndl = -1;
 	}
+}
+
+void CSpike::Request(VECTOR pos) {
+	m_isActive = true;
+	m_pos = pos;
+
 }

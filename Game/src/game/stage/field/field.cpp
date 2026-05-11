@@ -39,7 +39,6 @@ void CField::Load() {
                 data.m_cellX = x;
                 data.m_cellZ = z;
 
-                // ÅöÇ±Ç±Ç™èdóv
                 data.m_hndl = MV1DuplicateModel(m_modelTable[tile]);
 
                 data.m_isActive = true;
@@ -94,4 +93,22 @@ void CField::Exit() {
 
     m_stage.clear();
     m_modelTable.clear();
+}
+
+VECTOR CField::GetSpawnPos() {
+    for (auto& data : m_stage) {
+
+        if (data.m_tileID == 2) {
+            return data.m_pos;
+       }
+    }
+}
+
+VECTOR CField::GetStartPos() {
+    for (auto& data : m_stage) {
+
+        if (data.m_tileID == 3) {
+            return data.m_pos;
+        }
+    }
 }

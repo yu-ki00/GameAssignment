@@ -19,4 +19,7 @@ public:
 	void Draw();
 
 	void Exit();
+
+	int GetHndl() { return m_hndl; }
+	void Request(VECTOR pos);
 };

@@ -53,6 +53,8 @@ void CPlayScene::Draw()
 
 		m_trap.Draw();
 
+		m_enemy.Draw();
+
 		auto hit = CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
 
 		VECTOR eye_pos = m_camera.GetPlay().GetTarget();
@@ -102,6 +104,8 @@ void CPlayScene::Init()
 
 	m_field.Init();
 
+	m_enemy.Init();
+
 	m_nowTime = 0;
 	m_prevTime = 0;
 	dt = 0;
@@ -119,6 +123,7 @@ void CPlayScene::Load()
 
 	m_trap.Load();
 
+	m_enemy.Load();
 }
 
 //----------------------
@@ -146,11 +151,14 @@ int CPlayScene::Step()
 
 		m_trap.Step();
 
+		m_enemy.Step(m_field.GetSpawnPos(),m_field.GetStartPos());
+
 		auto hit = CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
 		if(CInput::IsTrg(KEY_SHOT))
 			m_trap.Request(hit.position,hit.isHit);
 
 		CCollisionManager::CheckHitPlayerToStage(m_player, m_field);
+		CCollisionManager::CheckHitEnemyToSpike(m_enemy, m_trap);
 		m_sky.Update();
 
 		m_field.Update();
@@ -158,6 +166,8 @@ int CPlayScene::Step()
 		m_trap.Update();
 
 		m_camera.Update();
+
+		m_enemy.Update();
 
 		if (CInput::IsTrg(KEY_SELECT))
 		{
@@ -188,5 +198,7 @@ void CPlayScene::Exit()
 	m_trap.Exit();
 
 	m_field.Exit();
+
+	m_enemy.Exit();
 
 }

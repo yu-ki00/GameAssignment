@@ -50,4 +50,7 @@ public:
 		return m_stage;
 	}
 
+	VECTOR GetSpawnPos();
+
+	VECTOR GetStartPos();
 };

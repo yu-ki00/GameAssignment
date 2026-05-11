@@ -60,8 +60,7 @@ void CTrapManager::Request(VECTOR pos,bool hit) {
 	if (hit) {
 		for (int i = 0; i < SPIKE_NUM; i++) {
 			if (!m_spike[i].GetActive()) {
-				m_spike[i].SetActive(true);
-				m_spike[i].SetPos(pos);
+				m_spike[i].Request(pos);
 				break;
 			}
 		}

@@ -43,9 +43,10 @@ void CCollisionManager::CheckHitPlayerToStage(CPlayer& player, CField& field) {
                         isGround = true;
                     }
                 }
+                MV1CollResultPolyDimTerminate(col);
             }
 
-            MV1CollResultPolyDimTerminate(col);
+
         }
         totalPush.y = (int)totalPush.y;
 
@@ -87,8 +88,34 @@ CCollisionManager::HitResult CCollisionManager::CheckHitEyeToStage(CPlayer& play
                 //Õ“Ë’n“_‚ğæ“¾‚µ‚Ä’l‚ğ•Ô‚·
                 return { true, data.m_pos };
             }
+           
         }
     }
    return { false, VGet(0.0f, 0.0f, 0.0f) };
+
+}
+
+void CCollisionManager::CheckHitEnemyToSpike(CEnemyManager& enemy, CTrapManager& spike) {
+    for (int enemyID = 0;enemyID < ENEMY_NUM;enemyID++) {
+        CEnemy& OneEne = enemy.GetEnemy(enemyID);
+        if (!OneEne.GetActive())continue;
+        VECTOR ene_pos = OneEne.GetPos();
+
+
+        for (int spikeID = 0;spikeID < SPIKE_NUM;spikeID++) {
+            CSpike& OneSpi = spike.GetSpike(spikeID);
+            if (!OneSpi.GetActive())continue;
+            MV1_COLL_RESULT_POLY_DIM col;
+            col = MV1CollCheck_Sphere(OneSpi.GetHndl(), -1, ene_pos, ENEMY_RADIUS);
+            
+            if (col.HitNum != 0) {
+                 OneEne.SubHp(1);
+                 MV1CollResultPolyDimTerminate(col);
+            }
+
+
+
+        }
+    }
 
 }

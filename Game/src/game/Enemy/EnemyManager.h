@@ -1,11 +1,14 @@
 #pragma once
 #include"Enemy.h"
-static const char ENEMY_MODEL_PATH[] = { "Data/Model/trap/spike.mv1" };
+static const char ENEMY_MODEL_PATH[] = { "Data/Model/enemy/enemy.mv1" };
 static const int ENEMY_NUM = 10;
+static const int WAIT_TIME=60;
 class CEnemyManager {
 private:
 
 	CEnemy m_enemy[ENEMY_NUM];
+
+	int m_waitTime;
 
 public:
 	CEnemyManager();
@@ -16,7 +19,7 @@ public:
 
 	void Load();
 
-	void Step();
+	void Step(VECTOR startpos,VECTOR endpos);
 
 	void Draw();
 
@@ -24,5 +27,6 @@ public:
 
 	void Update();
 
-	void Request(VECTOR pos, bool hit);
+	CEnemy& GetEnemy(int i) { return m_enemy[i]; }
+
 };

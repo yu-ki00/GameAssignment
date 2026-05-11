@@ -14,28 +14,46 @@ CEnemyManager::~CEnemyManager() {
 
 void CEnemyManager::Init() {
 	for (int i = 0; i < ENEMY_NUM; i++) {
+
 		m_enemy[i].Init();
 
 	}
+	m_waitTime = 0;
 }
 
 void CEnemyManager::Load() {
-	int hndl = MV1LoadModel(ENEMY_MODEL_PATH);
-	for (int i = 0; i < ENEMY_NUM; i++) {
-		m_enemy[i].Load(hndl);
 
+	int hndl = MV1LoadModel(ENEMY_MODEL_PATH);
+
+	for (int i = 0; i < ENEMY_NUM; i++) {
+
+		m_enemy[i].Load(hndl);
 	}
 	MV1DeleteModel(hndl);
 }
 
-void CEnemyManager::Step() {
+void CEnemyManager::Step(VECTOR startpos, VECTOR endpos) {
+
+	m_waitTime++;
 	for (int i = 0; i < ENEMY_NUM; i++) {
-		m_enemy[i].Step();
+
+		if (m_waitTime >= WAIT_TIME && !m_enemy[i].GetActive()) {
+			m_waitTime = 0;
+
+			m_enemy[i].Request(startpos);
+			break;
+		}
+	}
+	for (int i = 0; i < ENEMY_NUM; i++) {
+
+
+		m_enemy[i].Step(endpos);
 
 	}
 }
 
 void CEnemyManager::Draw() {
+
 	for (int i = 0; i < ENEMY_NUM; i++) {
 		m_enemy[i].Draw();
 
@@ -53,17 +71,5 @@ void CEnemyManager::Exit() {
 	for (int i = 0; i < ENEMY_NUM; i++) {
 		m_enemy[i].Exit();
 
-	}
-}
-
-void CEnemyManager::Request(VECTOR pos, bool hit) {
-	if (hit) {
-		for (int i = 0; i < ENEMY_NUM; i++) {
-			if (!m_enemy[i].GetActive()) {
-				m_enemy[i].SetActive(true);
-				m_enemy[i].SetPos(pos);
-				break;
-			}
-		}
 	}
 }
