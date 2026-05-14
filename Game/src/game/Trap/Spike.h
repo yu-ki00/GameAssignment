@@ -18,6 +18,8 @@ public:
 
 	void Draw();
 
+	void Update();
+
 	void Exit();
 
 	int GetHndl() { return m_hndl; }

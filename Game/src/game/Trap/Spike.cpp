@@ -16,6 +16,7 @@ void CSpike::Init() {
 void CSpike::Load(int originHndl) {
 	if (m_hndl == -1) {
 		m_hndl=MV1DuplicateModel(originHndl);
+		MV1SetupCollInfo(m_hndl);
 	}
 
 }
@@ -30,6 +31,11 @@ void CSpike::Draw() {
 	}
 }
 
+void CSpike::Update() {
+	CObject3D::Update();
+	MV1RefreshCollInfo(m_hndl);
+}
+
 void CSpike::Exit(){
 	if (m_hndl != -1) {
 		MV1DeleteModel(m_hndl);
@@ -40,6 +46,8 @@ void CSpike::Exit(){
 
 void CSpike::Request(VECTOR pos) {
 	m_isActive = true;
+
 	m_pos = pos;
+
 
 }

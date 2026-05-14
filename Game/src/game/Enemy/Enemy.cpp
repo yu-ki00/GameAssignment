@@ -10,7 +10,7 @@ CEnemy::~CEnemy() {
 
 void CEnemy::Init() {
 	CObject3D::Init();
-	m_hp = 200;
+	m_hp = ENEMY_HP;
 	m_isActive = false;
 }
 
@@ -24,7 +24,7 @@ void CEnemy::Load(int originHndl) {
 
 void CEnemy::Step(VECTOR endpos) {
 	if (m_isActive) {
-		VECTOR SPEED = VScale(VNorm(VSub(endpos,m_pos)), 3);
+		VECTOR SPEED = VScale(VNorm(VSub(endpos, m_pos)), 3);
 		m_pos = VAdd(m_pos, SPEED);
 		if (m_hp <= 0) {
 			m_isActive = false;
@@ -52,12 +52,14 @@ void CEnemy::Request(VECTOR pos) {
 
 	m_isActive = true;
 
-	m_pos=pos;
+	m_pos = pos;
+
+	m_hp = ENEMY_HP;
 
 }
 
 VECTOR CEnemy::GetCenter() {
-	VECTOR center=m_pos;
+	VECTOR center = m_pos;
 	center.y += ENEMY_RADIUS;
 	return center;
 

@@ -84,11 +84,13 @@ void CField::Exit() {
     // 配置モデル削除
     for (auto& data : m_stage) {
         MV1DeleteModel(data.m_hndl);
+        
     }
 
     // 元モデル削除
     for (auto& m : m_modelTable) {
         MV1DeleteModel(m.second);
+        
     }
 
     m_stage.clear();
