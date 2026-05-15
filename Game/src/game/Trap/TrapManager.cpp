@@ -3,17 +3,17 @@
 using namespace std;
 
 
-CTrapManager::CTrapManager() {
+CSpikeManager::CSpikeManager() {
 
 	Init();
 
 }
 
-CTrapManager::~CTrapManager() {
+CSpikeManager::~CSpikeManager() {
 
 }
 
-void CTrapManager::Init() {
+void CSpikeManager::Init() {
 
 
 	for (int i = 0; i < SPIKE_NUM; i++) {
@@ -22,7 +22,7 @@ void CTrapManager::Init() {
 	}
 }
 
-void CTrapManager::Load() {
+void CSpikeManager::Load() {
 	int hndl = MV1LoadModel(SPIKE_MODEL_PATH);
 	for (int i = 0; i < SPIKE_NUM; i++) {
 		m_spike[i].Load(hndl);
@@ -31,35 +31,35 @@ void CTrapManager::Load() {
 	MV1DeleteModel(hndl);
 }
 
-void CTrapManager::Step() {
+void CSpikeManager::Step() {
 	for (int i = 0; i < SPIKE_NUM; i++) {
 		m_spike[i].Step();
 
 	}
 }
 
-void CTrapManager::Draw() {
+void CSpikeManager::Draw() {
 	for (int i = 0; i < SPIKE_NUM; i++) {
 		m_spike[i].Draw();
 
 	}
 }
 
-void CTrapManager::Update() {
+void CSpikeManager::Update() {
 	for (int i = 0; i < SPIKE_NUM; i++) {
 		m_spike[i].Update();
 
 	}
 }
 
-void CTrapManager::Exit() {
+void CSpikeManager::Exit() {
 	for (int i = 0; i < SPIKE_NUM; i++) {
 		m_spike[i].Exit();
 
 	}
 }
 
-void CTrapManager::Request(VECTOR pos,bool hit) {
+void CSpikeManager::Request(VECTOR pos,bool hit) {
 	if (hit) {
 		for (int i = 0; i < SPIKE_NUM; i++) {
 			if (!m_spike[i].GetActive()) {

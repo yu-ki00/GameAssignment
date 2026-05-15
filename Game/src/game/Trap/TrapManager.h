@@ -4,15 +4,15 @@
 
 static const char SPIKE_MODEL_PATH[] = { "Data/Model/trap/spike.mv1" };
 static const int SPIKE_NUM = 10;
-class CTrapManager {
+class CSpikeManager {
 private:
 
 	CSpike m_spike[SPIKE_NUM];
 
 public:
-	CTrapManager();
+	CSpikeManager();
 	
-	~CTrapManager();
+	~CSpikeManager();
 
 	void Init();
 

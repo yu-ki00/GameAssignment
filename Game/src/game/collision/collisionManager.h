@@ -15,6 +15,6 @@ public:
 
 	static HitResult CheckHitEyeToStage(CPlayer& player, CField& field,CameraManager& camera);
 
-	static void CheckHitEnemyToSpike(CEnemyManager& enemy, CTrapManager& spike);
+	static void CheckHitEnemyToSpike(CEnemyManager& enemy, CSpikeManager& spike);
 
 };

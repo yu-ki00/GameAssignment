@@ -6,7 +6,13 @@ static const float ENEMY_RADIUS = 100;
 static const int ENEMY_HP = 200;
 class CEnemy :public CEnemyBase {
 private:
+	enum tagState {
+		NORMAL,
+		FIRE,
+		DAMAGE
+	};
 	int m_hp;
+
 public:
 	CEnemy();
 	~CEnemy();

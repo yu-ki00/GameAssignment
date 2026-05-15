@@ -96,7 +96,7 @@ CCollisionManager::HitResult CCollisionManager::CheckHitEyeToStage(CPlayer& play
 
 }
 
-void CCollisionManager::CheckHitEnemyToSpike(CEnemyManager& enemy, CTrapManager& spike) {
+void CCollisionManager::CheckHitEnemyToSpike(CEnemyManager& enemy, CSpikeManager& spike) {
 	for (int enemyID = 0;enemyID < ENEMY_NUM;enemyID++) {
 		CEnemy& OneEne = enemy.GetEnemy(enemyID);
 		if (!OneEne.GetActive())continue;

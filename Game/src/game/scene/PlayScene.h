@@ -22,7 +22,7 @@ private:
 
 	CField m_field;
 
-	CTrapManager m_trap;
+	CSpikeManager m_spike;
 
 	CEnemyManager m_enemy;
 
