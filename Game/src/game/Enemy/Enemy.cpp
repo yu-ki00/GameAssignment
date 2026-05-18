@@ -23,8 +23,12 @@ void CEnemy::Load(int originHndl) {
 }
 
 void CEnemy::Step(VECTOR endpos) {
+	float speed = ENEMY_SPEED;
+	if (m_slow) {
+		speed /= 2;
+	}
 	if (m_isActive) {
-		VECTOR SPEED = VScale(VNorm(VSub(endpos, m_pos)), 3);
+		VECTOR SPEED = VScale(VNorm(VSub(endpos, m_pos)), speed);
 		m_pos = VAdd(m_pos, SPEED);
 		if (m_hp <= 0) {
 			m_isActive = false;

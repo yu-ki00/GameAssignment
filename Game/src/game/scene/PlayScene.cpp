@@ -51,7 +51,7 @@ void CPlayScene::Draw()
 
 		m_sky.Draw();
 
-		m_spike.Draw();
+		m_trap.Draw();
 
 		m_enemy.Draw();
 
@@ -102,7 +102,7 @@ void CPlayScene::Init()
 
 	m_sky.Init();
 
-	m_spike.Init();
+	m_trap.Init();
 
 	m_field.Init();
 
@@ -125,7 +125,7 @@ void CPlayScene::Load()
 
 	m_field.Load();
 
-	m_spike.Load();
+	m_trap.Load();
 
 	m_enemy.Load();
 }
@@ -153,7 +153,7 @@ int CPlayScene::Step()
 
 		m_sky.Step(m_player.GetPos());
 
-		m_spike.Step();
+		m_trap.Step();
 
 		m_enemy.Step(m_field.GetSpawnPos(),m_field.GetStartPos());
 
@@ -161,15 +161,16 @@ int CPlayScene::Step()
 
 		auto hit = CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
 		if(CInput::IsTrg(KEY_SHOT))
-			m_spike.Request(hit.position,hit.isHit);
+			m_trap.Request(hit.position,hit.isHit,m_inventory.GetTrap());
 
 		CCollisionManager::CheckHitPlayerToStage(m_player, m_field);
-		CCollisionManager::CheckHitEnemyToSpike(m_enemy, m_spike);
+		CCollisionManager::CheckHitEnemyToSpike(m_enemy, m_trap);
+		CCollisionManager::CheckHitEnemyToNet(m_enemy, m_trap);
 		m_sky.Update();
 
 		m_field.Update();
 		
-		m_spike.Update();
+		m_trap.Update();
 
 		m_camera.Update();
 
@@ -182,8 +183,6 @@ int CPlayScene::Step()
 			return 1;
 
 		}
-		break;
-
 		break;
 	case CPlayScene::END:
 
@@ -201,10 +200,11 @@ void CPlayScene::Exit()
 {
 	m_sky.Exit();
 
-	m_spike.Exit();
+	m_trap.Exit();
 
 	m_field.Exit();
 
 	m_enemy.Exit();
+
 
 }

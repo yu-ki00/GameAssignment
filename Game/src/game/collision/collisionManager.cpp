@@ -58,6 +58,8 @@ void CCollisionManager::CheckHitPlayerToStage(CPlayer& player, CField& field) {
 	// ê⁄ínîªíË
 	player.SetIsGround(isGround);
 }
+
+
 CCollisionManager::HitResult CCollisionManager::CheckHitEyeToStage(CPlayer& player, CField& field, CameraManager& camera) {
 	bool isHit = false;
 
@@ -96,7 +98,7 @@ CCollisionManager::HitResult CCollisionManager::CheckHitEyeToStage(CPlayer& play
 
 }
 
-void CCollisionManager::CheckHitEnemyToSpike(CEnemyManager& enemy, CSpikeManager& spike) {
+void CCollisionManager::CheckHitEnemyToSpike(CEnemyManager& enemy, CTrapManager& trap) {
 	for (int enemyID = 0;enemyID < ENEMY_NUM;enemyID++) {
 		CEnemy& OneEne = enemy.GetEnemy(enemyID);
 		if (!OneEne.GetActive())continue;
@@ -105,7 +107,7 @@ void CCollisionManager::CheckHitEnemyToSpike(CEnemyManager& enemy, CSpikeManager
 
 		for (int spikeID = 0;spikeID < SPIKE_NUM;spikeID++) {
 
-			CSpike& OneSpi = spike.GetSpike(spikeID);
+			CSpike& OneSpi = trap.GetSpike(spikeID);
 
 			if (!OneSpi.GetActive())continue;
 
@@ -128,3 +130,38 @@ void CCollisionManager::CheckHitEnemyToSpike(CEnemyManager& enemy, CSpikeManager
 
 }
 
+void CCollisionManager::CheckHitEnemyToNet(CEnemyManager& enemy, CTrapManager& trap) {
+	for (int enemyID = 0;enemyID < ENEMY_NUM;enemyID++) {
+		CEnemy& OneEne = enemy.GetEnemy(enemyID);
+		if (!OneEne.GetActive())continue;
+		VECTOR ene_pos = OneEne.GetPos();
+
+
+		for (int spikeID = 0;spikeID < NET_NUM;spikeID++) {
+
+			CNet& OneSpi = trap.GetNet(spikeID);
+
+			if (!OneSpi.GetActive())continue;
+
+			MV1_COLL_RESULT_POLY_DIM col;
+
+			col = MV1CollCheck_Sphere(OneSpi.GetHndl(), -1, ene_pos, ENEMY_RADIUS);
+
+			VECTOR aa = MV1GetPosition(OneSpi.GetHndl());
+
+			if (col.HitNum != 0) {
+
+				OneEne.SetSlow(true);
+
+				MV1CollResultPolyDimTerminate(col);
+				break;
+
+			}
+			else {
+				OneEne.SetSlow(false);
+			}
+
+		}
+	}
+
+}

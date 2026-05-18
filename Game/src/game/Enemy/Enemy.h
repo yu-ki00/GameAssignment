@@ -4,6 +4,8 @@
 static const float ENEMY_RADIUS = 100;
 
 static const int ENEMY_HP = 200;
+
+static const float ENEMY_SPEED = 3;
 class CEnemy :public CEnemyBase {
 private:
 	enum tagState {
@@ -13,6 +15,9 @@ private:
 	};
 	int m_hp;
 
+	float m_speed;
+
+	bool m_slow;
 public:
 	CEnemy();
 	~CEnemy();
@@ -24,4 +29,8 @@ public:
 	void Request(VECTOR pos);
 	VECTOR GetCenter();
 	void SubHp(int sub) { m_hp-=sub; }
+
+	void SetSlow(bool slow) { m_slow = slow; }
+
+	bool GetSlow() { return m_slow; }
 };

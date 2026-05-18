@@ -10,7 +10,8 @@ void CInventory::Load() {
 }
 
 void CInventory::Step() {
-	if (GetMouseWheelRotVol() > 0) {
+	int wheel = GetMouseWheelRotVol();
+	if (wheel > 0) {
 		switch (m_trapNumber)
 		{
 		case Spike:
@@ -23,7 +24,7 @@ void CInventory::Step() {
 			break;
 		}
 	}
-	if (GetMouseWheelRotVol() < 0) {
+	if (wheel < 0) {
 		switch (m_trapNumber)
 		{
 		case Spike:

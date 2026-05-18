@@ -111,6 +111,24 @@
     <Filter Include="ヘッダー ファイル\game\enemy">
       <UniqueIdentifier>{f88e73cf-c57a-4f43-b030-8c305084bedb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\lib\effekseer">
+      <UniqueIdentifier>{3bc125c5-648c-4ea5-aff9-5e8f36e35729}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\lib\effekseer">
+      <UniqueIdentifier>{17ff5326-20c6-474e-9c99-ef648d48acab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\game\system">
+      <UniqueIdentifier>{37da5971-4027-4ae5-8354-ee8f18deae02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\game\system">
+      <UniqueIdentifier>{0befa17c-0b9d-449b-89e7-4074679dbf9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\game\system\effectData">
+      <UniqueIdentifier>{0278b38f-a478-49f7-a825-78ec7ceeb133}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\game\system\effectData">
+      <UniqueIdentifier>{316e9c81-914f-4a70-bfb8-2c8943000443}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\collision\collision.cpp">
@@ -199,6 +217,12 @@
     </ClCompile>
     <ClCompile Include="src\game\Player\Inventory.cpp">
       <Filter>ソース ファイル\game\player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\effekseer\effekseer.cpp">
+      <Filter>ソース ファイル\lib\effekseer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\system\effectData\effectData.cpp">
+      <Filter>ソース ファイル\game\system\effectData</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -291,6 +315,12 @@
     </ClInclude>
     <ClInclude Include="src\game\Trap\TrapManagerbase.h">
       <Filter>ヘッダー ファイル\game\Trap</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\effekseer\effekseer.h">
+      <Filter>ヘッダー ファイル\lib\effekseer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\system\effectData\effectData.h">
+      <Filter>ヘッダー ファイル\game\system\effectData</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

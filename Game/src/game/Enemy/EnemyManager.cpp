@@ -46,7 +46,6 @@ void CEnemyManager::Step(VECTOR startpos, VECTOR endpos) {
 	}
 	for (int i = 0; i < ENEMY_NUM; i++) {
 
-
 		m_enemy[i].Step(endpos);
 
 	}

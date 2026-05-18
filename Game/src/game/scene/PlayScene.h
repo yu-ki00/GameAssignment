@@ -7,6 +7,7 @@
 #include"../Trap/SpikeManager.h"
 #include"../Enemy/EnemyManager.h"
 #include"../Player/Inventory.h"
+#include"../Trap/TrapManager.h"
 
 class CPlayScene :CSceneBase{
 private:
@@ -28,6 +29,8 @@ private:
 	CEnemyManager m_enemy;
 
 	CInventory m_inventory;
+
+	CTrapManager m_trap;
 
 	float dt;
 

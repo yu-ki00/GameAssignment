@@ -6,6 +6,7 @@
 #include"../Camera/CameraManager.h"
 #include"../Trap/SpikeManager.h"
 #include"../Player/Inventory.h"
+#include"../Trap/TrapManager.h"
 class CCollisionManager {
 public:
 	struct HitResult {
@@ -16,6 +17,8 @@ public:
 
 	static HitResult CheckHitEyeToStage(CPlayer& player, CField& field,CameraManager& camera);
 
-	static void CheckHitEnemyToSpike(CEnemyManager& enemy, CSpikeManager& spike);
+	static void CheckHitEnemyToSpike(CEnemyManager& enemy, CTrapManager& trap);
+
+	static void CheckHitEnemyToNet(CEnemyManager& enemy, CTrapManager& trap);
 
 };

@@ -1,5 +1,7 @@
 #pragma once
 #include"TrapManagerbase.h"
+#include"SpikeManager.h"
+#include"NetManager.h"
 enum TrapType {
 	Spike,
 	Net,
@@ -28,4 +30,8 @@ public:
 	void Update();
 
 	void Request(VECTOR pos, bool hit,TrapType type);
+
+	CSpike& GetSpike(int i);
+
+	CNet& GetNet(int i);
 };

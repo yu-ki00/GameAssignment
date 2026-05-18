@@ -17,4 +17,6 @@ public:
 	void Exit();
 
 	void SubGold();
+
+	TrapType GetTrap() { return m_trapNumber; }
 };

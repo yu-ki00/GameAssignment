@@ -1,6 +1,5 @@
 #include"TrapManager.h"
-#include"SpikeManager.h"
-#include"NetManager.h"
+
 
 CTrapManager::CTrapManager() {
 	for (int i = 0; i < TrapNum; i++) {
@@ -53,9 +52,33 @@ void CTrapManager::Exit() {
 	}
 }
 
-void CTrapManager::Request(VECTOR pos, bool hit,TrapType type)
+void CTrapManager::Request(VECTOR pos, bool hit, TrapType type)
 {
-	for (int i = 0;i < TrapNum;i++) {
-		m_trap[i]->Request(pos,hit);
+	switch (type)
+	{
+	case Spike:
+		m_trap[Spike]->Request(pos, hit);
+		break;
+	case Net:
+		m_trap[Net]->Request(pos, hit);
+		break;
+	case TrapNum:
+		break;
+	default:
+		break;
 	}
+}
+
+CSpike& CTrapManager::GetSpike(int i)
+{
+	CSpikeManager* spikeMgr =dynamic_cast<CSpikeManager*>(m_trap[Spike]);
+
+	return spikeMgr->GetSpike(i);
+}
+
+CNet& CTrapManager::GetNet(int i)
+{
+	CNetManager* netManager = dynamic_cast<CNetManager*>(m_trap[Net]);
+
+	return netManager->GetNet(i);
 }

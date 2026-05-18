@@ -56,9 +56,6 @@ void CPlayer::Step(VECTOR camera_rot, float dt) {
 
 	MoveExec(dt);
 
-
-
-
 }
 
 
