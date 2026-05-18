@@ -182,11 +182,23 @@
     <ClCompile Include="src\game\Enemy\Enemy.cpp">
       <Filter>ソース ファイル\game\enemy</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\Trap\TrapManager.cpp">
+    <ClCompile Include="src\game\Trap\SpikeManager.cpp">
       <Filter>ソース ファイル\game\Trap</Filter>
     </ClCompile>
     <ClCompile Include="src\game\Trap\Spike.cpp">
       <Filter>ソース ファイル\game\Trap</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Trap\Net.cpp">
+      <Filter>ソース ファイル\game\Trap</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Trap\NetManager.cpp">
+      <Filter>ソース ファイル\game\Trap</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Trap\TrapManager.cpp">
+      <Filter>ソース ファイル\game\Trap</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Player\Inventory.cpp">
+      <Filter>ソース ファイル\game\player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -259,10 +271,25 @@
     <ClInclude Include="src\game\Enemy\Enemy.h">
       <Filter>ヘッダー ファイル\game\enemy</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\Trap\TrapManager.h">
+    <ClInclude Include="src\game\Trap\SpikeManager.h">
       <Filter>ヘッダー ファイル\game\Trap</Filter>
     </ClInclude>
     <ClInclude Include="src\game\Trap\Spike.h">
+      <Filter>ヘッダー ファイル\game\Trap</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Trap\Net.h">
+      <Filter>ヘッダー ファイル\game\Trap</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Trap\NetManager.h">
+      <Filter>ヘッダー ファイル\game\Trap</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Trap\TrapManager.h">
+      <Filter>ヘッダー ファイル\game\Trap</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Player\Inventory.h">
+      <Filter>ヘッダー ファイル\game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Trap\TrapManagerbase.h">
       <Filter>ヘッダー ファイル\game\Trap</Filter>
     </ClInclude>
   </ItemGroup>

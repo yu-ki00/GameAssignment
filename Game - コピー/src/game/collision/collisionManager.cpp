@@ -1,70 +1,64 @@
 #include"collisionManager.h"
-void CCollisionManager::CheckHitPlayerToStage(CPlayer& player,CField& field) {
-	bool isGround=false;
-	VECTOR result{ 0.0f };
-	bool isHitFlag = false;
+void CCollisionManager::CheckHitPlayerToStage(CPlayer& player, CField& field) {
+
+	bool isGround = false;
+	VECTOR result = VGet(0, 0, 0);
+
 	VECTOR pl_pos = player.GetPos();
 	float pl_rad = PLAYER_RADIUS;
-	float scale = 0.0f;
-	int hndl = field.GetHndl();
-	//当たり判定情報が格納される構造体
-	MV1_COLL_RESULT_POLY_DIM col;
 
-	col = MV1CollCheck_Sphere(field.GetHndl(), -1, pl_pos, pl_rad);
+	float maxPush = 0.0f;
 
-	if (col.HitNum != 0) {
+	VECTOR pos = pl_pos;
 
-		isHitFlag = true;
+	for (int loop = 0; loop < 3; loop++) {
 
-		VECTOR nownorm = { 0 };
+		VECTOR totalPush = VGet(0, 0, 0);
 
-		float nowsize = 0.0f;
+		for (auto& data : field.GetStage()) {
 
-		for (int i = 0; i < col.HitNum; i++) {
+			if (!data.m_isActive) continue;
+			float len = VSize(VSub(pos, data.m_pos));
+			if (len > 200)continue;
 
-			VECTOR Normal = col.Dim[i].Normal;
+			MV1_COLL_RESULT_POLY_DIM col;
+			col = MV1CollCheck_Sphere(data.m_hndl, -1, pos, pl_rad);
 
-			VECTOR v = VSub(pl_pos, col.Dim[i].HitPosition);
-			float len = VSize(v);
+			if (col.HitNum != 0) {
 
-			len = pl_rad - len;
+				for (int i = 0; i < col.HitNum; i++) {
 
-			v = VScale(Normal, len);
+					VECTOR Normal = col.Dim[i].Normal;
 
-			nownorm = VAdd(nownorm, v);
-			if (Normal.y >= 0.5) {
+					VECTOR v = VSub(pos, col.Dim[i].HitPosition);
+					float len = VSize(v);
 
+					len = pl_rad - len;
 
+					VECTOR push = VScale(Normal, len);
 
-				isGround = true;
+					totalPush = VAdd(totalPush, push);
+
+					if (Normal.y >= 0.5f) {
+						isGround = true;
+					}
+				}
+				MV1CollResultPolyDimTerminate(col);
 			}
-			else if (Normal.y <= -0.7) {
 
-			}
 
-			nowsize = VSize(result);
-
-			if (nowsize >= scale) {
-
-				result = nownorm;
-
-				result.y = result.y;
-
-				scale = nowsize;
-			}
-			if (isGround) {
-				player.SetIsGround(true);
-			}
-			else
-				player.SetIsGround(false);
 		}
-	}
-	else
-		player.SetIsGround(false);
-	MV1CollResultPolyDimTerminate(col);
-}
+		totalPush.y = (int)totalPush.y;
 
-VECTOR CCollisionManager::CheckHitEyeToStage(CPlayer& player, CField& field, CameraManager& camera) {
+		pos = VAdd(pos, totalPush);
+	}
+	// プレイヤーを押し出す
+	player.SetPos(pos);
+
+	// 接地判定
+	player.SetIsGround(isGround);
+}
+CCollisionManager::HitResult CCollisionManager::CheckHitEyeToStage(CPlayer& player, CField& field, CameraManager& camera) {
 	bool isHit = false;
 
 	//カメラマネージャーからプレイカメラを取得
@@ -74,17 +68,63 @@ VECTOR CCollisionManager::CheckHitEyeToStage(CPlayer& player, CField& field, Cam
 	VECTOR eye_pos = play.GetTarget();
 
 	//カメラの視線の終点を取得
-	VECTOR eye_end = VAdd(eye_pos,VScale(play.GetVec(), 300));
+	VECTOR eye_end = VAdd(eye_pos, VScale(play.GetVec(), 300));
+	for (int tileID = 0; tileID < 3; tileID++) {
 
-	//当たり判定情報が格納される構造体
-	MV1_COLL_RESULT_POLY col;
+		VECTOR totalPush = VGet(0, 0, 0);
 
-	//カメラの視線とステージの当たり判定
-	col = MV1CollCheck_Line(field.GetHndl(), -1, eye_pos, eye_end);
+		for (auto& data : field.GetStage()) {
+			float len = VSize(VSub(eye_pos, data.m_pos));
+			if (len > 300)continue;
 
-	if (col.HitFlag) {
-		//衝突地点を取得して値を返す
-		return col.HitPosition;
+			if (!data.m_isActive) continue;
+			//当たり判定情報が格納される構造体
+			MV1_COLL_RESULT_POLY col;
+
+			//カメラの視線とステージの当たり判定
+			col = MV1CollCheck_Line(data.m_hndl, -1, eye_pos, eye_end);
+
+			if (col.HitFlag) {
+				//衝突地点を取得して値を返す
+
+				return { true, data.m_pos };
+			}
+
+		}
+	}
+	return { false, VGet(0.0f, 0.0f, 0.0f) };
+
+}
+
+void CCollisionManager::CheckHitEnemyToSpike(CEnemyManager& enemy, CSpikeManager& spike) {
+	for (int enemyID = 0;enemyID < ENEMY_NUM;enemyID++) {
+		CEnemy& OneEne = enemy.GetEnemy(enemyID);
+		if (!OneEne.GetActive())continue;
+		VECTOR ene_pos = OneEne.GetPos();
+
+
+		for (int spikeID = 0;spikeID < SPIKE_NUM;spikeID++) {
+
+			CSpike& OneSpi = spike.GetSpike(spikeID);
+
+			if (!OneSpi.GetActive())continue;
+
+			MV1_COLL_RESULT_POLY_DIM col;
+
+			col = MV1CollCheck_Sphere(OneSpi.GetHndl(), -1, ene_pos, ENEMY_RADIUS);
+
+			VECTOR aa = MV1GetPosition(OneSpi.GetHndl());
+
+			if (col.HitNum != 0) {
+
+				OneEne.SubHp(1);
+
+				MV1CollResultPolyDimTerminate(col);
+
+			}
+
+		}
 	}
 
 }
+

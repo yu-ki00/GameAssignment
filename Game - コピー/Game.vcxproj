@@ -27,6 +27,7 @@
     <ClCompile Include="src\game\Enemy\EnemyBase.cpp" />
     <ClCompile Include="src\game\Enemy\EnemyManager.cpp" />
     <ClCompile Include="src\game\Main.cpp" />
+    <ClCompile Include="src\game\Player\Inventory.cpp" />
     <ClCompile Include="src\game\Player\Player.cpp" />
     <ClCompile Include="src\game\scene\PlayScene.cpp" />
     <ClCompile Include="src\game\scene\ResultScene.cpp" />
@@ -35,8 +36,11 @@
     <ClCompile Include="src\game\scene\TitleScene.cpp" />
     <ClCompile Include="src\game\stage\field\field.cpp" />
     <ClCompile Include="src\game\stage\sky\sky.cpp" />
+    <ClCompile Include="src\game\Trap\Net.cpp" />
+    <ClCompile Include="src\game\Trap\NetManager.cpp" />
     <ClCompile Include="src\game\Trap\Spike.cpp" />
     <ClCompile Include="src\game\Trap\TrapBase.cpp" />
+    <ClCompile Include="src\game\Trap\SpikeManager.cpp" />
     <ClCompile Include="src\game\Trap\TrapManager.cpp" />
     <ClCompile Include="src\lib\collision\collision.cpp" />
     <ClCompile Include="src\lib\debug\fps.cpp" />
@@ -54,6 +58,7 @@
     <ClInclude Include="src\game\Enemy\Enemy.h" />
     <ClInclude Include="src\game\Enemy\EnemyBase.h" />
     <ClInclude Include="src\game\Enemy\EnemyManager.h" />
+    <ClInclude Include="src\game\Player\Inventory.h" />
     <ClInclude Include="src\game\Player\Player.h" />
     <ClInclude Include="src\game\scene\PlayScene.h" />
     <ClInclude Include="src\game\scene\ResultScene.h" />
@@ -62,9 +67,13 @@
     <ClInclude Include="src\game\scene\TitleScene.h" />
     <ClInclude Include="src\game\stage\field\field.h" />
     <ClInclude Include="src\game\stage\sky\sky.h" />
+    <ClInclude Include="src\game\Trap\Net.h" />
+    <ClInclude Include="src\game\Trap\NetManager.h" />
     <ClInclude Include="src\game\Trap\Spike.h" />
     <ClInclude Include="src\game\Trap\TrapBase.h" />
+    <ClInclude Include="src\game\Trap\SpikeManager.h" />
     <ClInclude Include="src\game\Trap\TrapManager.h" />
+    <ClInclude Include="src\game\Trap\TrapManagerbase.h" />
     <ClInclude Include="src\lib\collision\collision.h" />
     <ClInclude Include="src\lib\debug\fps.h" />
     <ClInclude Include="src\lib\input\input.h" />

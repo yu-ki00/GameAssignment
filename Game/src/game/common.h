@@ -15,4 +15,3 @@ static const int WHITE = GetColor(255, 255, 255);
 static const int STAGE_NUM = 3;
 
 static const VECTOR ZERO = { 0.0f,0.0f,0.0f };
-

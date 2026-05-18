@@ -55,6 +55,8 @@ void CPlayScene::Draw()
 
 		m_enemy.Draw();
 
+		m_inventory.Draw();
+
 		auto hit = CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
 
 		VECTOR eye_pos = m_camera.GetPlay().GetTarget();
@@ -106,6 +108,8 @@ void CPlayScene::Init()
 
 	m_enemy.Init();
 
+	m_inventory.Init();
+
 	m_nowTime = 0;
 	m_prevTime = 0;
 	dt = 0;
@@ -152,6 +156,8 @@ int CPlayScene::Step()
 		m_spike.Step();
 
 		m_enemy.Step(m_field.GetSpawnPos(),m_field.GetStartPos());
+
+		m_inventory.Step();
 
 		auto hit = CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
 		if(CInput::IsTrg(KEY_SHOT))

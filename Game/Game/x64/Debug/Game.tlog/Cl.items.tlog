@@ -6,6 +6,7 @@ C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Enemy\Enemy.cpp;C:\Users\2
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Enemy\EnemyBase.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\EnemyBase.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Enemy\EnemyManager.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\EnemyManager.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Main.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\Main.obj
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Player\Inventory.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\Inventory.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Player\Player.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\Player.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\scene\PlayScene.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\PlayScene.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\scene\ResultScene.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\ResultScene.obj
@@ -14,8 +15,11 @@ C:\Users\2409419\Desktop\GameAssignment\Game\src\game\scene\SceneManager.cpp;C:\
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\scene\TitleScene.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\TitleScene.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\stage\field\field.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\field.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\stage\sky\sky.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\sky.obj
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Trap\Net.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\Net.obj
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Trap\NetManager.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\NetManager.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Trap\Spike.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\Spike.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Trap\TrapBase.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\TrapBase.obj
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Trap\SpikeManager.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\SpikeManager.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Trap\TrapManager.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\TrapManager.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\lib\collision\collision.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\collision.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\lib\debug\fps.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\fps.obj

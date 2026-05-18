@@ -1,14 +1,18 @@
 #pragma once
-#include"TrapBase.h"
-#include"Spike.h"
+#include"TrapManagerbase.h"
+enum TrapType {
+	Spike,
+	Net,
+
+	TrapNum
+};
 class CTrapManager {
 private:
 
-	CSpike m_spike;
-
+	CTrapManagerBase* m_trap[TrapNum];
 public:
 	CTrapManager();
-	
+
 	~CTrapManager();
 
 	void Init();
@@ -20,4 +24,8 @@ public:
 	void Draw();
 
 	void Exit();
+
+	void Update();
+
+	void Request(VECTOR pos, bool hit,TrapType type);
 };

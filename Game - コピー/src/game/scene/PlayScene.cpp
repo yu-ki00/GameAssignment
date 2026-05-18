@@ -50,16 +50,33 @@ void CPlayScene::Draw()
 		m_field.Draw();
 
 		m_sky.Draw();
-		DrawFormatString(10, 10, RED, "ÉQÅ[ÉÄ");
 
-		DrawFormatString(10, 32, RED, "%f,%f,%f", m_player.GetTop().x, m_player.GetTop().y, m_player.GetTop().z);
-		VECTOR pos=CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
-		DrawFormatString(10, 64, RED, "%f,%f,%f", pos.x, pos.y, pos.z);
+		m_spike.Draw();
+
+		m_enemy.Draw();
+
+		m_inventory.Draw();
+
+		auto hit = CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
 
 		VECTOR eye_pos = m_camera.GetPlay().GetTarget();
 		VECTOR eye_end = VAdd(eye_pos, VScale(m_camera.GetPlay().GetVec(), 300));
 
 		DrawLine3D(eye_pos, eye_end, RED);
+#ifdef DEBUG
+		DrawFormatString(10, 10, RED, "ÉQÅ[ÉÄ");
+		DrawFormatString(10, 32, RED, "%f,%f,%f", m_player.GetTop().x, m_player.GetTop().y, m_player.GetTop().z);
+		VECTOR pos = hit.position;
+		DrawFormatString(10, 64, RED, "%f,%f,%f", pos.x, pos.y, pos.z);
+		if(m_player.GetIsGround())
+		DrawFormatString(10, 96, RED, "Ç¬Ç¢ÇƒÇÈÇÊ");
+
+
+#endif // DEBUG
+
+
+
+
 		break;
 	case CPlayScene::END:
 		break;
@@ -85,7 +102,13 @@ void CPlayScene::Init()
 
 	m_sky.Init();
 
+	m_spike.Init();
+
 	m_field.Init();
+
+	m_enemy.Init();
+
+	m_inventory.Init();
 
 	m_nowTime = 0;
 	m_prevTime = 0;
@@ -102,6 +125,9 @@ void CPlayScene::Load()
 
 	m_field.Load();
 
+	m_spike.Load();
+
+	m_enemy.Load();
 }
 
 //----------------------
@@ -127,12 +153,27 @@ int CPlayScene::Step()
 
 		m_sky.Step(m_player.GetPos());
 
+		m_spike.Step();
+
+		m_enemy.Step(m_field.GetSpawnPos(),m_field.GetStartPos());
+
+		m_inventory.Step();
+
+		auto hit = CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
+		if(CInput::IsTrg(KEY_SHOT))
+			m_spike.Request(hit.position,hit.isHit);
+
 		CCollisionManager::CheckHitPlayerToStage(m_player, m_field);
+		CCollisionManager::CheckHitEnemyToSpike(m_enemy, m_spike);
 		m_sky.Update();
 
 		m_field.Update();
+		
+		m_spike.Update();
 
 		m_camera.Update();
+
+		m_enemy.Update();
 
 		if (CInput::IsTrg(KEY_SELECT))
 		{
@@ -160,6 +201,10 @@ void CPlayScene::Exit()
 {
 	m_sky.Exit();
 
+	m_spike.Exit();
+
 	m_field.Exit();
+
+	m_enemy.Exit();
 
 }

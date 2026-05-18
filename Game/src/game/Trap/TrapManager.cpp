@@ -1,71 +1,61 @@
 #include"TrapManager.h"
-#include"../collision/collisionManager.h"
-using namespace std;
+#include"SpikeManager.h"
+#include"NetManager.h"
 
-
-CSpikeManager::CSpikeManager() {
-
-	Init();
-
+CTrapManager::CTrapManager() {
+	for (int i = 0; i < TrapNum; i++) {
+		m_trap[i] = nullptr;
+	}
+	m_trap[0] = new CSpikeManager;
+	m_trap[1] = new CNetManager;
 }
 
-CSpikeManager::~CSpikeManager() {
-
-}
-
-void CSpikeManager::Init() {
-
-
-	for (int i = 0; i < SPIKE_NUM; i++) {
-		m_spike[i].Init();
-
+CTrapManager::~CTrapManager() {
+	for (int i = 0; i < TrapNum; i++)
+	{
+		delete m_trap[i];
 	}
 }
 
-void CSpikeManager::Load() {
-	int hndl = MV1LoadModel(SPIKE_MODEL_PATH);
-	for (int i = 0; i < SPIKE_NUM; i++) {
-		m_spike[i].Load(hndl);
-
-	}
-	MV1DeleteModel(hndl);
-}
-
-void CSpikeManager::Step() {
-	for (int i = 0; i < SPIKE_NUM; i++) {
-		m_spike[i].Step();
-
+void CTrapManager::Init() {
+	for (int i = 0;i < TrapNum;i++) {
+		m_trap[i]->Init();
 	}
 }
 
-void CSpikeManager::Draw() {
-	for (int i = 0; i < SPIKE_NUM; i++) {
-		m_spike[i].Draw();
-
+void CTrapManager::Load() {
+	for (int i = 0;i < TrapNum;i++) {
+		m_trap[i]->Load();
 	}
 }
 
-void CSpikeManager::Update() {
-	for (int i = 0; i < SPIKE_NUM; i++) {
-		m_spike[i].Update();
-
+void CTrapManager::Draw() {
+	for (int i = 0;i < TrapNum;i++) {
+		m_trap[i]->Draw();
 	}
 }
 
-void CSpikeManager::Exit() {
-	for (int i = 0; i < SPIKE_NUM; i++) {
-		m_spike[i].Exit();
-
+void CTrapManager::Step() {
+	for (int i = 0;i < TrapNum;i++) {
+		m_trap[i]->Step();
 	}
 }
 
-void CSpikeManager::Request(VECTOR pos,bool hit) {
-	if (hit) {
-		for (int i = 0; i < SPIKE_NUM; i++) {
-			if (!m_spike[i].GetActive()) {
-				m_spike[i].Request(pos);
-				break;
-			}
-		}
+void CTrapManager::Update() {
+	for (int i = 0;i < TrapNum;i++) {
+		m_trap[i]->Update();
+	}
+}
+
+void CTrapManager::Exit() {
+	for (int i = 0;i < TrapNum;i++) {
+		m_trap[i]->Exit();
+	}
+}
+
+void CTrapManager::Request(VECTOR pos, bool hit,TrapType type)
+{
+	for (int i = 0;i < TrapNum;i++) {
+		m_trap[i]->Request(pos,hit);
 	}
 }

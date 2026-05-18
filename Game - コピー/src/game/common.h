@@ -1,5 +1,6 @@
 #pragma once
 #include<DxLib.h>
+#define DEBUG
 static const int WINDOW_SIZE_X = 1600;
 
 static const int WINDOW_SIZE_Y = 900;
@@ -14,4 +15,3 @@ static const int WHITE = GetColor(255, 255, 255);
 static const int STAGE_NUM = 3;
 
 static const VECTOR ZERO = { 0.0f,0.0f,0.0f };
-

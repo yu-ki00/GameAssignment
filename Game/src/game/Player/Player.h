@@ -16,7 +16,6 @@ static const float MAX_SPEED = 300.0f;	//最大速度
 static const float AIR_DRAG = 8.0f;		//空気抵抗係数
 static const int INETIALBOOST = 200;	//慣性ジャンプ
 static const float ANIM_SPD = 1.0f;
-static const int INERTIAL_BOOST = 150.0f;
 
 class CPlayer :public CObject3D {
 private:

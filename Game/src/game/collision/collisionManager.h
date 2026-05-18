@@ -4,7 +4,8 @@
 #include"../stage/field/field.h"
 #include"../Enemy/EnemyManager.h"
 #include"../Camera/CameraManager.h"
-#include"../Trap/TrapManager.h"
+#include"../Trap/SpikeManager.h"
+#include"../Player/Inventory.h"
 class CCollisionManager {
 public:
 	struct HitResult {

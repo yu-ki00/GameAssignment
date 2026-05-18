@@ -15,10 +15,10 @@ void CSpike::Init() {
 
 void CSpike::Load(int originHndl) {
 	if (m_hndl == -1) {
-		MV1DuplicateModel(originHndl);
+		m_hndl=MV1DuplicateModel(originHndl);
+		MV1SetupCollInfo(m_hndl);
 	}
 
-	MV1SetupCollInfo(m_hndl);	// ÉRÉäÉWÉáÉìèÓïÒç\íz
 }
 
 void CSpike::Step() {
@@ -31,10 +31,23 @@ void CSpike::Draw() {
 	}
 }
 
+void CSpike::Update() {
+	CObject3D::Update();
+	MV1RefreshCollInfo(m_hndl);
+}
+
 void CSpike::Exit(){
 	if (m_hndl != -1) {
 		MV1DeleteModel(m_hndl);
 		
 		m_hndl = -1;
 	}
+}
+
+void CSpike::Request(VECTOR pos) {
+	m_isActive = true;
+
+	m_pos = pos;
+
+
 }

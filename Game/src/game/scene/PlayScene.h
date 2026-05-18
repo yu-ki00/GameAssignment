@@ -4,8 +4,9 @@
 #include"../stage/sky/sky.h"
 #include"../stage//field/field.h"
 #include"scenebase.h"
-#include"../Trap/TrapManager.h"
+#include"../Trap/SpikeManager.h"
 #include"../Enemy/EnemyManager.h"
+#include"../Player/Inventory.h"
 
 class CPlayScene :CSceneBase{
 private:
@@ -25,6 +26,8 @@ private:
 	CSpikeManager m_spike;
 
 	CEnemyManager m_enemy;
+
+	CInventory m_inventory;
 
 	float dt;
 

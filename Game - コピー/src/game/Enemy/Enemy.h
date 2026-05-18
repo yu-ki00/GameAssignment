@@ -1,15 +1,27 @@
 #pragma once
 #include"../common.h"
-#include"../../lib/Object/Object3D.h"
-class CEnemyBase :public CObject3D {
+#include"EnemyBase.h"
+static const float ENEMY_RADIUS = 100;
+
+static const int ENEMY_HP = 200;
+class CEnemy :public CEnemyBase {
 private:
-	void RequestEnemy();
+	enum tagState {
+		NORMAL,
+		FIRE,
+		DAMAGE
+	};
+	int m_hp;
+
 public:
-	CEnemyBase();
-	~CEnemyBase();
-	virtual void Init();
-	virtual void Load();
-	virtual void Step();
-	virtual void Draw();
-	virtual void Exit();
+	CEnemy();
+	~CEnemy();
+	void Init();
+	void Load(int originHndl);
+	void Step(VECTOR endpos);
+	void Draw();
+	void Exit();
+	void Request(VECTOR pos);
+	VECTOR GetCenter();
+	void SubHp(int sub) { m_hp-=sub; }
 };

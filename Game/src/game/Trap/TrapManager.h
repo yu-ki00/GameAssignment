@@ -1,18 +1,19 @@
 #pragma once
-#include"TrapBase.h"
-#include"Spike.h"
+#include"TrapManagerbase.h"
+enum TrapType {
+	Spike,
+	Net,
 
-static const char SPIKE_MODEL_PATH[] = { "Data/Model/trap/spike.mv1" };
-static const int SPIKE_NUM = 10;
-class CSpikeManager {
+	TrapNum
+};
+class CTrapManager {
 private:
 
-	CSpike m_spike[SPIKE_NUM];
-
+	CTrapManagerBase* m_trap[TrapNum];
 public:
-	CSpikeManager();
-	
-	~CSpikeManager();
+	CTrapManager();
+
+	~CTrapManager();
 
 	void Init();
 
@@ -26,7 +27,5 @@ public:
 
 	void Update();
 
-	void Request(VECTOR pos, bool hit);
-
-	CSpike& GetSpike(int i) { return m_spike[i]; }
+	void Request(VECTOR pos, bool hit,TrapType type);
 };
