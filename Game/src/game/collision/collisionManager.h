@@ -21,4 +21,7 @@ public:
 
 	static void CheckHitEnemyToNet(CEnemyManager& enemy, CTrapManager& trap);
 
+	static void CheckHitEyeToEnemy(CEnemyManager& enemy, CPlayer& player, CameraManager& camera);
+
+
 };

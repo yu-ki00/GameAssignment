@@ -9,19 +9,19 @@ public:
 	//	width		:	四角形の横幅
 	//	height		:	四角形の縦幅
 	//	@return		:	true=当たった　false=当たっていない
-	static bool ChekHitDotToSquare(VECTOR dotPos, VECTOR squarePos,int width, int height);
+	static bool ChekHitDotToSquare(VECTOR dotPos, VECTOR squarePos, int width, int height);
 
 	// 矩形同士の当たり判定
 	//	squarePos	:	矩形の中心座標
 	//	width		:	矩形の横幅
 	//	height		:	矩形の縦幅
 	//	@return		:	true=当たった　false=当たっていない
-	static bool CheckHitBoxToBox(VECTOR BoxPos1, VECTOR BoxSize1,VECTOR BoxPos2, VECTOR BoxSize2);
+	static bool CheckHitBoxToBox(VECTOR BoxPos1, VECTOR BoxSize1, VECTOR BoxPos2, VECTOR BoxSize2);
 	// 円同士の当たり判定
 	//	circlePos	:	円の中心座標
 	//	radius		:	円の半径
 	//	@return		:	true=当たった　false=当たっていない
-	static bool CheckHitSphereToSphere(VECTOR circlePos1, int radius1,VECTOR circlePos2, int radius2);
+	static bool CheckHitSphereToSphere(VECTOR circlePos1, int radius1, VECTOR circlePos2, int radius2);
 
 	//ボックスと線の当たり判定
 	//	BoxPos		:	ボックスの中心座標
@@ -49,5 +49,7 @@ public:
 	//	center		:	ボックスの中心点
 	//	size		:	ボックスのサイズ
 	static bool TriangleToBox(VECTOR p0, VECTOR& p1, VECTOR p2, VECTOR center, float size);
+
+	static bool CheckHitLineToSphere(VECTOR SpherePos, int radius, VECTOR LineStart, VECTOR LineEnd);
 
 };

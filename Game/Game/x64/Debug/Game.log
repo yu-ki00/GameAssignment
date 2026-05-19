@@ -1,15 +1,2 @@
-﻿  PlayCamera.cpp
-  Enemy.cpp
-  EnemyManager.cpp
-  Main.cpp
-  Player.cpp
-  NetManager.cpp
-  SpikeManager.cpp
-  collisionManager.cpp
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(51,31): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-  PlayScene.cpp
-  ResultScene.cpp
-  SceneManager.cpp
-  TitleScene.cpp
-  コードを生成中...
+﻿  Enemy.cpp
   Game.vcxproj -> C:\Users\2409419\Desktop\GameAssignment\Game\x64\Debug\Game.exe

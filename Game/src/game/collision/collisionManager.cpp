@@ -1,4 +1,5 @@
 #include"collisionManager.h"
+#include"../../lib/input/input.h"
 void CCollisionManager::CheckHitPlayerToStage(CPlayer& player, CField& field) {
 
 	bool isGround = false;
@@ -102,6 +103,7 @@ void CCollisionManager::CheckHitEnemyToSpike(CEnemyManager& enemy, CTrapManager&
 	for (int enemyID = 0;enemyID < ENEMY_NUM;enemyID++) {
 		CEnemy& OneEne = enemy.GetEnemy(enemyID);
 		if (!OneEne.GetActive())continue;
+		if (OneEne.GetState() == CEnemy::DAMAGE)continue;
 		VECTOR ene_pos = OneEne.GetPos();
 
 
@@ -120,6 +122,8 @@ void CCollisionManager::CheckHitEnemyToSpike(CEnemyManager& enemy, CTrapManager&
 			if (col.HitNum != 0) {
 
 				OneEne.SubHp(1);
+
+				OneEne.HitDamage();
 
 				MV1CollResultPolyDimTerminate(col);
 
@@ -164,4 +168,31 @@ void CCollisionManager::CheckHitEnemyToNet(CEnemyManager& enemy, CTrapManager& t
 		}
 	}
 
+}
+
+void CCollisionManager::CheckHitEyeToEnemy(CEnemyManager& enemy, CPlayer& player, CameraManager& camera) {
+	//カメラマネージャーからプレイカメラを取得
+	PlayCamera& play = camera.GetPlay();
+
+	//カメラの現在地を取得
+	VECTOR eye_pos = play.GetTarget();
+
+	//カメラの視線の終点を取得
+	VECTOR eye_end = VAdd(eye_pos, VScale(play.GetVec(), 300));
+	
+	for (int enemyID = 0;enemyID < ENEMY_NUM;enemyID++) {
+
+		CEnemy& OneEne = enemy.GetEnemy(enemyID);
+
+		if (!OneEne.GetActive())continue;
+		if (OneEne.GetState() == CEnemy::DAMAGE)continue;
+
+		VECTOR ene_pos = OneEne.GetCenter();
+
+		if (Collision::CheckHitLineToSphere(ene_pos, ENEMY_RADIUS, eye_pos, eye_end)) {
+			if(CInput::IsTrg(KEY_SHOT))
+				OneEne.KnockBack();
+		}
+
+	}
 }
