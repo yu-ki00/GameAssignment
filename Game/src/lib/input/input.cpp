@@ -27,7 +27,7 @@ void CInput::Update() {
 
 	if ((GetMouseInput() & MOUSE_INPUT_RIGHT))g_inputData.m_nowKey |= MOUSE_RIGHT;
 
-	if (CheckHitKey(KEY_INPUT_Z) || (GetMouseInput() & MOUSE_INPUT_LEFT))g_inputData.m_nowKey |= KEY_SHOT;
+	if ((GetMouseInput() & MOUSE_INPUT_LEFT))g_inputData.m_nowKey |= KEY_SHOT;
 
 	if (CheckHitKey(KEY_INPUT_SPACE))g_inputData.m_nowKey |= KEY_JUMP;
 
@@ -36,6 +36,8 @@ void CInput::Update() {
 	if (CheckHitKey(KEY_INPUT_Q))g_inputData.m_nowKey |= KEY_Q;
 
 	if (CheckHitKey(KEY_INPUT_LSHIFT))g_inputData.m_nowKey |= KEY_SHIFT;
+
+	if (CheckHitKey(KEY_INPUT_Z))g_inputData.m_nowKey |= KEY_Z;
 
 }
 bool CInput::IsRep(unsigned int key)

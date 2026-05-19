@@ -1,7 +1,7 @@
 #pragma once
 #include"../common.h"
 #include"EnemyBase.h"
-static const float ENEMY_RADIUS = 100;
+static const float ENEMY_RADIUS = 40;
 
 static const int ENEMY_HP = 200;
 

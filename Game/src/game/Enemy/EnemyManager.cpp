@@ -35,13 +35,20 @@ void CEnemyManager::Load() {
 void CEnemyManager::Step(VECTOR startpos, VECTOR endpos) {
 
 	m_waitTime++;
+	int pop = 0;
 	for (int i = 0; i < ENEMY_NUM; i++) {
 
 		if (m_waitTime >= WAIT_TIME && !m_enemy[i].GetActive()) {
-			m_waitTime = 0;
 
-			m_enemy[i].Request(startpos);
-			break;
+			int ran=GetRand(200)-100;
+			VECTOR aa = VAdd(startpos, VGet((float)ran, 0.0f, 0.0f));
+			m_enemy[i].Request(aa);
+			pop++;
+			if (pop == 2) {
+				m_waitTime = 0;
+				break;
+			}
+			
 		}
 	}
 	for (int i = 0; i < ENEMY_NUM; i++) {

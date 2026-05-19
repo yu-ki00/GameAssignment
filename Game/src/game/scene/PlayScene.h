@@ -11,6 +11,11 @@
 
 class CPlayScene :CSceneBase{
 private:
+	enum tagState {
+		TRAP,
+		BATTLE,
+		LAST,
+	};
 
 	int m_hndl;
 
@@ -37,6 +42,8 @@ private:
 	int m_prevTime;
 
 	int m_nowTime;
+
+	tagState m_turn;
 
 public:
 	CPlayScene();

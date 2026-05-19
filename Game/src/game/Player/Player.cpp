@@ -26,7 +26,7 @@ void CPlayer::Init() {
 
 	m_pos = START_POS;
 
-	m_rot = { 0.0f,DX_PI_F,0.0f };
+	m_rot = { 0.0f,0.0f,0.0f };
 
 
 }

@@ -114,6 +114,8 @@ void CPlayScene::Init()
 	m_prevTime = 0;
 	dt = 0;
 
+	m_turn = TRAP;
+
 }
 
 //----------------------
@@ -144,7 +146,7 @@ int CPlayScene::Step()
 	case CPlayScene::LOAD:
 		break;
 	case CPlayScene::MAIN:
-		
+
 		if (m_camera.GetID() == m_camera.ID_PLAY) {
 			m_player.Step(m_camera.GetRot(),dt);
 
@@ -155,13 +157,28 @@ int CPlayScene::Step()
 
 		m_trap.Step();
 
-		m_enemy.Step(m_field.GetSpawnPos(),m_field.GetStartPos());
 
-		m_inventory.Step();
+		switch (m_turn)
+		{
+		case CPlayScene::TRAP:
+			m_inventory.Step();
+			auto hit = CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
+			if (CInput::IsTrg(KEY_SHOT))
+				m_trap.Request(hit.position, hit.isHit, m_inventory.GetTrap());
+			if (CInput::IsTrg(KEY_Z))
+				m_turn = BATTLE;
+			break;
+		case CPlayScene::BATTLE:
+			m_enemy.Step(m_field.GetSpawnPos(), m_field.GetStartPos());
+			if (CInput::IsTrg(KEY_Z))
+				m_turn = TRAP;
+			break;
+		case CPlayScene::LAST:
+			break;
+		default:
+			break;
+		}
 
-		auto hit = CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
-		if(CInput::IsTrg(KEY_SHOT))
-			m_trap.Request(hit.position,hit.isHit,m_inventory.GetTrap());
 
 		CCollisionManager::CheckHitPlayerToStage(m_player, m_field);
 		CCollisionManager::CheckHitEnemyToSpike(m_enemy, m_trap);
