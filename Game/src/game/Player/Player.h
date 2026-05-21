@@ -9,13 +9,14 @@ static const float PLAYER_SPEED = 100.0f;
 static const float PLAYER_RADIUS = 10;
 static const float JUMP_POWER = 10;
 static const VECTOR START_POS = { 0,10,0 };
-static const float JUMP_SPEED = 300.0f;	//ジャンプ速度
+static const float JUMP_SPEED = 100.0f;	//ジャンプ速度
 const float MOVE_ACCEL = 10000.0f;		//移動加速度
 const float FRICTION = 10.0f;			//地面摩擦
 static const float MAX_SPEED = 300.0f;	//最大速度
 static const float AIR_DRAG = 8.0f;		//空気抵抗係数
 static const int INETIALBOOST = 200;	//慣性ジャンプ
 static const float ANIM_SPD = 1.0f;
+static const float AIR_ACCEL = 20.0f;
 
 class CPlayer :public CObject3D {
 private:
@@ -44,7 +45,7 @@ public:
 	void Load();
 
 	//毎フレームする処理
-	void Step(VECTOR camerarot,float dt);
+	void Step(VECTOR camerarot, float dt);
 
 	VECTOR GetTop() { return VGet(m_pos.x, m_pos.y + m_size.y, m_pos.z); }
 

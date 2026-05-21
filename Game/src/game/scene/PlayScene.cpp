@@ -130,6 +130,8 @@ void CPlayScene::Load()
 	m_trap.Load();
 
 	m_enemy.Load();
+
+	m_player.Load(m_field.GetStartPos());
 }
 
 //----------------------
@@ -183,6 +185,8 @@ int CPlayScene::Step()
 		CCollisionManager::CheckHitPlayerToStage(m_player, m_field);
 		CCollisionManager::CheckHitEnemyToSpike(m_enemy, m_trap);
 		CCollisionManager::CheckHitEnemyToNet(m_enemy, m_trap);
+		CCollisionManager::CheckHitEyeToEnemy(m_enemy, m_player, m_camera);
+		CCollisionManager::CheckHitEnemyToStage(m_enemy, m_field);
 		m_sky.Update();
 
 		m_field.Update();

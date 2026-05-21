@@ -171,6 +171,10 @@ void CCollisionManager::CheckHitEnemyToNet(CEnemyManager& enemy, CTrapManager& t
 }
 
 void CCollisionManager::CheckHitEyeToEnemy(CEnemyManager& enemy, CPlayer& player, CameraManager& camera) {
+
+	bool isHit = false;
+
+	int EnemyID = 0;
 	//カメラマネージャーからプレイカメラを取得
 	PlayCamera& play = camera.GetPlay();
 
@@ -190,9 +194,78 @@ void CCollisionManager::CheckHitEyeToEnemy(CEnemyManager& enemy, CPlayer& player
 		VECTOR ene_pos = OneEne.GetCenter();
 
 		if (Collision::CheckHitLineToSphere(ene_pos, ENEMY_RADIUS, eye_pos, eye_end)) {
-			if(CInput::IsTrg(KEY_SHOT))
-				OneEne.KnockBack();
+			VECTOR vec = VSub(eye_end, eye_pos);
+			vec = VNorm(vec);
+			vec.y = 0.0f;
+
+			if (CInput::IsTrg(KEY_SHOT)) {
+				OneEne.KnockBack(vec);
+			}
 		}
 
+	}
+}
+
+void CCollisionManager::CheckHitEnemyToStage(CEnemyManager& enemy, CField& field) {
+
+	for (int enemyID = 0;enemyID < ENEMY_NUM;enemyID++) {
+
+		bool isGround = false;
+		CEnemy& OneEne = enemy.GetEnemy(enemyID);
+
+		if (!OneEne.GetActive())continue;
+
+		VECTOR ene_pos = OneEne.GetCenter();
+		float ene_rad = ENEMY_RADIUS;
+
+		float maxPush = 0.0f;
+
+		VECTOR pos = ene_pos;
+
+		for (int loop = 0; loop < 3; loop++) {
+
+			VECTOR totalPush = VGet(0, 0, 0);
+
+			for (auto& data : field.GetStage()) {
+
+				if (!data.m_isActive) continue;
+				float len = VSize(VSub(pos, data.m_pos));
+				if (len > 200)continue;
+
+				MV1_COLL_RESULT_POLY_DIM col;
+				col = MV1CollCheck_Sphere(data.m_hndl, -1, pos, ene_rad);
+
+				if (col.HitNum != 0) {
+
+					for (int i = 0; i < col.HitNum; i++) {
+
+						VECTOR Normal = col.Dim[i].Normal;
+
+						VECTOR v = VSub(pos, col.Dim[i].HitPosition);
+						float len = VSize(v);
+
+						len = ene_rad - len;
+
+						VECTOR push = VScale(Normal, len);
+
+						totalPush = VAdd(totalPush, push);
+
+						if (Normal.y >= 0.5f) {
+							isGround = true;
+						}
+					}
+					MV1CollResultPolyDimTerminate(col);
+				}
+
+
+			}
+			totalPush.y = (int)totalPush.y;
+
+			pos = VAdd(pos, totalPush);
+
+		}
+		pos.y -= ENEMY_RADIUS;
+		OneEne.SetPos(pos);
+	
 	}
 }

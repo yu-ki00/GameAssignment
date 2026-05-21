@@ -13,6 +13,7 @@ void CEnemy::Init() {
 	m_hp = ENEMY_HP;
 	m_isActive = false;
 	m_isKnock = false;
+	
 }
 
 void CEnemy::Load(int originHndl) {
@@ -33,6 +34,13 @@ void CEnemy::Step(VECTOR endpos) {
 		m_pos = VAdd(m_pos, SPEED);
 		if (m_hp <= 0) {
 			m_isActive = false;
+		}
+	}
+	if (m_isKnock) {
+		m_knockTime--;
+		m_pos = VAdd(m_pos, m_knockPow);
+		if (m_knockTime<=0) {
+			m_isKnock = false;
 		}
 	}
 	switch (m_state)
@@ -113,6 +121,8 @@ void CEnemy::IsFire() {
 	m_fireTime = 180;
 }
 
-void CEnemy::KnockBack() {
-
+void CEnemy::KnockBack(VECTOR vec) {
+	m_knockPow = VScale(vec, 15);
+	m_knockTime = 30;
+	m_isKnock = true;
 }

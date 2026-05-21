@@ -31,6 +31,10 @@ private:
 
 	bool m_isKnock;
 
+	VECTOR m_knockPow;
+
+	int m_knockTime;
+
 public:
 
 	CEnemy();
@@ -54,5 +58,5 @@ public:
 
 	tagEnemyState GetState() { return m_state; }
 
-	void KnockBack();
+	void KnockBack(VECTOR vec);
 };

@@ -8,6 +8,8 @@
 static const float TILE_SIZE = 200.0f;
 using namespace std;
 static const char FIELD_PATH[] = { "Data/Model/field/field.mv1" };
+
+static const int TILE_NUM = 4;
 class CField {
 private:
 	typedef struct {

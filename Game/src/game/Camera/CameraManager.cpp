@@ -21,7 +21,7 @@ void CameraManager::Init()
 
 	m_debug.Init();
 
-	SetCameraNearFar(30.0f, 10000.0f);
+	SetCameraNearFar(5.0f, 10000.0f);
 
 }
 void CameraManager::Load() {
