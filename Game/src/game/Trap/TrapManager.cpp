@@ -7,6 +7,7 @@ CTrapManager::CTrapManager() {
 	}
 	m_trap[0] = new CSpikeManager;
 	m_trap[1] = new CNetManager;
+	m_trap[2] = new CSpikeManager;
 }
 
 CTrapManager::~CTrapManager() {

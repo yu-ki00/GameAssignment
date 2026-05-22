@@ -5,6 +5,7 @@
 enum TrapType {
 	Spike,
 	Net,
+	Fire,
 
 	TrapNum
 };

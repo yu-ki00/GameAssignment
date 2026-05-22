@@ -42,7 +42,7 @@ public:
 	void Init();
 
 	//モデルロード
-	void Load();
+	void Load(VECTOR pos);
 
 	//毎フレームする処理
 	void Step(VECTOR camerarot, float dt);

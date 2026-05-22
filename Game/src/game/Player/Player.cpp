@@ -31,8 +31,8 @@ void CPlayer::Init() {
 
 }
 //モデルのロード
-void CPlayer::Load() {
-
+void CPlayer::Load(VECTOR pos) {
+	m_pos = pos;
 }
 //毎フレーム呼び出す処理
 void CPlayer::Step(VECTOR camera_rot, float dt) {

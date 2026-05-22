@@ -1,16 +1,4 @@
-﻿  PlayCamera.cpp
-  EnemyManager.cpp
-  Main.cpp
-  Player.cpp
-  NetManager.cpp
-  SpikeManager.cpp
-  collisionManager.cpp
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(52,31): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(196,48): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(262,32): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-  PlayScene.cpp
-  ResultScene.cpp
-  SceneManager.cpp
-  TitleScene.cpp
-  コードを生成中...
+﻿  Inventory.cpp
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Player\Inventory.cpp(66,51): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Player\Inventory.cpp(66,32): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
   Game.vcxproj -> C:\Users\2409419\Desktop\GameAssignment\Game\x64\Debug\Game.exe

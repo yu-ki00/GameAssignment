@@ -132,6 +132,8 @@ void CPlayScene::Load()
 	m_enemy.Load();
 
 	m_player.Load(m_field.GetStartPos());
+
+	m_inventory.Load();
 }
 
 //----------------------
@@ -165,8 +167,10 @@ int CPlayScene::Step()
 		case CPlayScene::TRAP:
 			m_inventory.Step();
 			auto hit = CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
-			if (CInput::IsTrg(KEY_SHOT))
+			if (CInput::IsTrg(KEY_SHOT)) {
 				m_trap.Request(hit.position, hit.isHit, m_inventory.GetTrap());
+				m_inventory.SubGold();
+			}
 			if (CInput::IsTrg(KEY_Z))
 				m_turn = BATTLE;
 			break;
