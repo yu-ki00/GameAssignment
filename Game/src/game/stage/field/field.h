@@ -32,6 +32,8 @@ private:
 	map<int, int> m_modelTable;
 
 	vector<STAGE_DATA> m_stage;
+
+	VECTOR m_startPos;
 public:
 	CField();
 

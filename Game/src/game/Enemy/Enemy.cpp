@@ -1,5 +1,5 @@
 #include"Enemy.h"
-
+#include"math.h"
 CEnemy::CEnemy() {
 	Init();
 }
@@ -13,7 +13,7 @@ void CEnemy::Init() {
 	m_hp = ENEMY_HP;
 	m_isActive = false;
 	m_isKnock = false;
-	
+
 }
 
 void CEnemy::Load(int originHndl) {
@@ -30,8 +30,14 @@ void CEnemy::Step(VECTOR endpos) {
 		speed /= 2;
 	}
 	if (m_isActive) {
-		VECTOR SPEED = VScale(VNorm(VSub(endpos, m_pos)), speed);
-		m_pos = VAdd(m_pos, SPEED);
+		VECTOR diff = VSub(endpos, m_pos);
+
+		VECTOR norm = VNorm(diff);
+		if (VSize(diff) >= 100) {
+			VECTOR SPEED = VScale(norm, speed);
+			m_pos = VAdd(m_pos, SPEED);
+		}
+		m_rot.y = atan2f(norm.x, norm.z);
 		if (m_hp <= 0) {
 			m_isActive = false;
 		}
@@ -39,7 +45,7 @@ void CEnemy::Step(VECTOR endpos) {
 	if (m_isKnock) {
 		m_knockTime--;
 		m_pos = VAdd(m_pos, m_knockPow);
-		if (m_knockTime<=0) {
+		if (m_knockTime <= 0) {
 			m_isKnock = false;
 		}
 	}
@@ -109,14 +115,14 @@ VECTOR CEnemy::GetCenter() {
 
 }
 
-void CEnemy::HitDamage() 
-{ 
+void CEnemy::HitDamage()
+{
 	m_state = DAMAGE;
 	m_damageTime = 2;
 
 }
 
-void CEnemy::IsFire() {
+void CEnemy::SetFire() {
 	m_state = FIRE;
 	m_fireTime = 180;
 }

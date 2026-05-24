@@ -60,7 +60,6 @@ void CCollisionManager::CheckHitPlayerToStage(CPlayer& player, CField& field) {
 	player.SetIsGround(isGround);
 }
 
-
 CCollisionManager::HitResult CCollisionManager::CheckHitEyeToStage(CPlayer& player, CField& field, CameraManager& camera) {
 	bool isHit = false;
 
@@ -141,17 +140,17 @@ void CCollisionManager::CheckHitEnemyToNet(CEnemyManager& enemy, CTrapManager& t
 		VECTOR ene_pos = OneEne.GetPos();
 
 
-		for (int spikeID = 0;spikeID < NET_NUM;spikeID++) {
+		for (int netID = 0; netID < NET_NUM; netID++) {
 
-			CNet& OneSpi = trap.GetNet(spikeID);
+			CNet& OneNet = trap.GetNet(netID);
 
-			if (!OneSpi.GetActive())continue;
+			if (!OneNet.GetActive())continue;
 
 			MV1_COLL_RESULT_POLY_DIM col;
 
-			col = MV1CollCheck_Sphere(OneSpi.GetHndl(), -1, ene_pos, ENEMY_RADIUS);
+			col = MV1CollCheck_Sphere(OneNet.GetHndl(), -1, ene_pos, ENEMY_RADIUS);
 
-			VECTOR aa = MV1GetPosition(OneSpi.GetHndl());
+			VECTOR aa = MV1GetPosition(OneNet.GetHndl());
 
 			if (col.HitNum != 0) {
 
@@ -169,6 +168,40 @@ void CCollisionManager::CheckHitEnemyToNet(CEnemyManager& enemy, CTrapManager& t
 	}
 
 }
+
+void CCollisionManager::CheckHitEnemyToFire(CEnemyManager& enemy, CTrapManager& trap) {
+	for (int enemyID = 0; enemyID < ENEMY_NUM; enemyID++) {
+		CEnemy& OneEne = enemy.GetEnemy(enemyID);
+		if (!OneEne.GetActive())continue;
+		VECTOR ene_pos = OneEne.GetPos();
+
+
+		for (int fireID = 0; fireID < FIRE_NUM; fireID++) {
+
+			CFire& OneFire = trap.GetFire(fireID);
+
+			if (!OneFire.GetActive())continue;
+
+			MV1_COLL_RESULT_POLY_DIM col;
+
+			col = MV1CollCheck_Sphere(OneFire.GetHndl(), -1, ene_pos, ENEMY_RADIUS);
+
+			VECTOR aa = MV1GetPosition(OneFire.GetHndl());
+
+			if (col.HitNum != 0) {
+
+				OneEne.SetFire();
+
+				MV1CollResultPolyDimTerminate(col);
+				break;
+
+			}
+
+		}
+	}
+
+}
+
 
 void CCollisionManager::CheckHitEyeToEnemy(CEnemyManager& enemy, CPlayer& player, CameraManager& camera) {
 
@@ -267,5 +300,50 @@ void CCollisionManager::CheckHitEnemyToStage(CEnemyManager& enemy, CField& field
 		pos.y -= ENEMY_RADIUS;
 		OneEne.SetPos(pos);
 	
+	}
+}
+
+void CCollisionManager::CheckHitEnemyToEnemy(CEnemyManager& enemy) {
+	for (int i = 0; i < ENEMY_NUM; i++) {
+
+		CEnemy& OneEne = enemy.GetEnemy(i);
+
+		if (!OneEne.GetActive())continue;
+
+		VECTOR enepos1 = OneEne.GetPos();
+
+		for (int j = 0; j < ENEMY_NUM; j++) {
+
+			if (j == i)continue;
+
+			CEnemy& TwoEne = enemy.GetEnemy(j);
+
+			if (!OneEne.GetActive())continue;
+
+			VECTOR enepos2=TwoEne.GetPos();
+
+			float len = VSize(VSub(enepos2, enepos1));
+
+			if (len < 0)len *= -1;
+
+			if (len >= 80)continue;
+
+			if (Collision::CheckHitSphereToSphere(enepos1, ENEMY_RADIUS, enepos2, ENEMY_RADIUS)) {
+				
+				VECTOR diff = VSub(enepos2,enepos1);
+
+				VECTOR norm = VNorm(diff);
+				
+				VECTOR aa = VScale(norm, ENEMY_RADIUS*2);
+
+				float bb = VSize(aa);
+
+				aa = VSub(aa, diff);
+				aa = VScale(aa, 0.5f);
+
+				OneEne.SetPos(VAdd(enepos1, aa));
+				TwoEne.SetPos(VSub(enepos2, aa));
+			}
+		}
 	}
 }

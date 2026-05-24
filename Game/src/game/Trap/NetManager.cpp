@@ -24,7 +24,7 @@ void CNetManager::Init() {
 
 void CNetManager::Load() {
 	int hndl = MV1LoadModel(NET_MODEL_PATH);
-	for (int i = 0; i < SPIKE_NUM; i++) {
+	for (int i = 0; i < NET_NUM; i++) {
 		m_net[i].Load(hndl);
 
 	}
@@ -53,7 +53,7 @@ void CNetManager::Update() {
 }
 
 void CNetManager::Exit() {
-	for (int i = 0; i < SPIKE_NUM; i++) {
+	for (int i = 0; i < NET_NUM; i++) {
 		m_net[i].Exit();
 
 	}

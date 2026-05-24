@@ -2,6 +2,7 @@
 #include"TrapManagerbase.h"
 #include"SpikeManager.h"
 #include"NetManager.h"
+#include"FireManager.h"
 enum TrapType {
 	Spike,
 	Net,
@@ -35,4 +36,6 @@ public:
 	CSpike& GetSpike(int i);
 
 	CNet& GetNet(int i);
+
+	CFire& GetFire(int i);
 };

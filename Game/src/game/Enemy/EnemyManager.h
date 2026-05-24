@@ -1,7 +1,7 @@
 #pragma once
 #include"Enemy.h"
 static const char ENEMY_MODEL_PATH[] = { "Data/Model/enemy/enemy.mv1" };
-static const int ENEMY_NUM = 10;
+static const int ENEMY_NUM = 2;
 static const int WAIT_TIME=100;
 
 class CEnemyManager {

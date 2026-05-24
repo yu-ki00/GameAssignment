@@ -18,4 +18,8 @@ public:
 	virtual void Draw();
 
 	virtual void Exit();
+
+	virtual void Update();
+
+	virtual void Request(VECTOR pos);
 };

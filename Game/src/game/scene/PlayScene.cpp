@@ -191,6 +191,7 @@ int CPlayScene::Step()
 		CCollisionManager::CheckHitEnemyToNet(m_enemy, m_trap);
 		CCollisionManager::CheckHitEyeToEnemy(m_enemy, m_player, m_camera);
 		CCollisionManager::CheckHitEnemyToStage(m_enemy, m_field);
+		CCollisionManager::CheckHitEnemyToEnemy(m_enemy);
 		m_sky.Update();
 
 		m_field.Update();

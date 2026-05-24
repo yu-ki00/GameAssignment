@@ -54,7 +54,7 @@ public:
 
 	void HitDamage();
 
-	void IsFire();
+	void SetFire();
 
 	tagEnemyState GetState() { return m_state; }
 

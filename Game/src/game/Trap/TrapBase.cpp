@@ -15,10 +15,10 @@ void CTrapBase::Init() {
 
 void CTrapBase::Load(int originHndl) {
 	if (m_hndl == -1) {
-		MV1DuplicateModel(originHndl);
+		m_hndl = MV1DuplicateModel(originHndl);
+		MV1SetupCollInfo(m_hndl);
 	}
 
-	MV1SetupCollInfo(m_hndl);	// ÉRÉäÉWÉáÉìèÓïÒç\íz
 }
 
 void CTrapBase::Step() {
@@ -31,10 +31,23 @@ void CTrapBase::Draw() {
 	}
 }
 
+void CTrapBase::Update() {
+	CObject3D::Update();
+	MV1RefreshCollInfo(m_hndl);
+}
+
 void CTrapBase::Exit() {
 	if (m_hndl != -1) {
 		MV1DeleteModel(m_hndl);
 
 		m_hndl = -1;
 	}
+}
+
+void CTrapBase::Request(VECTOR pos) {
+	m_isActive = true;
+
+	m_pos = pos;
+
+
 }

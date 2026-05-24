@@ -21,9 +21,13 @@ public:
 
 	static void CheckHitEnemyToNet(CEnemyManager& enemy, CTrapManager& trap);
 
+	static void CheckHitEnemyToFire(CEnemyManager& enemy, CTrapManager& trap);
+
 	static void CheckHitEyeToEnemy(CEnemyManager& enemy, CPlayer& player, CameraManager& camera);
 
 	static void CheckHitEnemyToStage(CEnemyManager& enemy, CField& field);
+
+	static void CheckHitEnemyToEnemy(CEnemyManager& enemy);
 
 
 };

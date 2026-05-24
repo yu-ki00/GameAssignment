@@ -224,6 +224,12 @@
     <ClCompile Include="src\game\system\effectData\effectData.cpp">
       <Filter>ソース ファイル\game\system\effectData</Filter>
     </ClCompile>
+    <ClCompile Include="src\game\Trap\Fire.cpp">
+      <Filter>ソース ファイル\game\Trap</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Trap\FireManager.cpp">
+      <Filter>ソース ファイル\game\Trap</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\lib\collision\collision.h">
@@ -321,6 +327,12 @@
     </ClInclude>
     <ClInclude Include="src\game\system\effectData\effectData.h">
       <Filter>ヘッダー ファイル\game\system\effectData</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Trap\Fire.h">
+      <Filter>ヘッダー ファイル\game\Trap</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Trap\FireManager.h">
+      <Filter>ヘッダー ファイル\game\Trap</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
