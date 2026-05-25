@@ -49,21 +49,42 @@ void CPlayScene::Draw()
 	case CPlayScene::MAIN:
 		m_field.Draw();
 
+		m_crystal.Draw();
+
 		m_sky.Draw();
 
 		m_trap.Draw();
 
-		m_enemy.Draw();
+		
 
-		m_inventory.Draw();
+		
 
+
+		switch (m_turn)
+		{
+		case CPlayScene::TRAP:
+			m_trap.DrawA(m_inventory.GetTrap());
+			m_inventory.Draw();
+
+			
+			break;
+		case CPlayScene::BATTLE:
+			m_enemy.Draw();
+			break;
+		case CPlayScene::LAST:
+			break;
+		default:
+			break;
+		}
+#ifdef DEBUG
 		auto hit = CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
+
+		
 
 		VECTOR eye_pos = m_camera.GetPlay().GetTarget();
 		VECTOR eye_end = VAdd(eye_pos, VScale(m_camera.GetPlay().GetVec(), 300));
 
 		DrawLine3D(eye_pos, eye_end, RED);
-#ifdef DEBUG
 		DrawFormatString(10, 10, RED, "ƒQ[ƒ€");
 		DrawFormatString(10, 32, RED, "%f,%f,%f", m_player.GetTop().x, m_player.GetTop().y, m_player.GetTop().z);
 		VECTOR pos = hit.position;
@@ -105,6 +126,7 @@ void CPlayScene::Init()
 	m_trap.Init();
 
 	m_field.Init();
+	m_crystal.Init();
 
 	m_enemy.Init();
 
@@ -128,6 +150,8 @@ void CPlayScene::Load()
 	m_field.Load();
 
 	m_trap.Load();
+	
+	m_crystal.Load(m_field.GetStartPos());
 
 	m_enemy.Load();
 
@@ -158,28 +182,45 @@ int CPlayScene::Step()
 		m_camera.Step(m_player.GetTop());
 
 		m_sky.Step(m_player.GetPos());
-
-		m_trap.Step();
+		auto hit = CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
+		m_trap.Step(hit.position);
+		m_crystal.Step();
 
 
 		switch (m_turn)
 		{
 		case CPlayScene::TRAP:
 			m_inventory.Step();
-			auto hit = CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
+		
 			if (CInput::IsTrg(KEY_SHOT)) {
-				m_trap.Request(hit.position, hit.isHit, m_inventory.GetTrap());
 				m_inventory.SubGold();
+				if (m_inventory.GetGold()>=0) {
+					m_trap.Request(hit.position, hit.isHit, m_inventory.GetTrap());
+				}
+				else {
+					m_inventory.AddGold();
+				}
+				
+
 			}
 			if (CInput::IsTrg(KEY_Z))
 				m_turn = BATTLE;
 			break;
 		case CPlayScene::BATTLE:
-			m_enemy.Step(m_field.GetSpawnPos(), m_field.GetStartPos());
-			if (CInput::IsTrg(KEY_Z))
+
+			m_enemy.Request(m_field.GetSpawnPos());
+
+			m_enemy.Step(m_field.GetStartPos());
+
+			if (m_enemy.IsAllDead()) {
+				m_enemy.Reset();
+				m_trap.Reset();
+				m_inventory.Reset();
 				m_turn = TRAP;
+			}
 			break;
 		case CPlayScene::LAST:
+			
 			break;
 		default:
 			break;
@@ -192,6 +233,7 @@ int CPlayScene::Step()
 		CCollisionManager::CheckHitEyeToEnemy(m_enemy, m_player, m_camera);
 		CCollisionManager::CheckHitEnemyToStage(m_enemy, m_field);
 		CCollisionManager::CheckHitEnemyToEnemy(m_enemy);
+		CCollisionManager::CheckHitEnemyToFire(m_enemy, m_trap);
 		m_sky.Update();
 
 		m_field.Update();
@@ -199,6 +241,8 @@ int CPlayScene::Step()
 		m_trap.Update();
 
 		m_camera.Update();
+
+		m_crystal.Update();
 
 		m_enemy.Update();
 
@@ -231,6 +275,8 @@ void CPlayScene::Exit()
 	m_field.Exit();
 
 	m_enemy.Exit();
+
+	m_crystal.Exit();
 
 
 }

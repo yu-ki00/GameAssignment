@@ -19,15 +19,19 @@ public:
 
 	void Load();
 
-	void Step();
+	void Step(VECTOR pos);
 
 	void Draw();
+
+	void DrawA();
 
 	void Exit();
 
 	void Update();
 
 	void Request(VECTOR pos, bool hit);
+
+	void Reset();
 
 	CNet& GetNet(int i) { return m_net[i]; }
 };

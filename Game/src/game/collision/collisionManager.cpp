@@ -102,7 +102,7 @@ void CCollisionManager::CheckHitEnemyToSpike(CEnemyManager& enemy, CTrapManager&
 	for (int enemyID = 0;enemyID < ENEMY_NUM;enemyID++) {
 		CEnemy& OneEne = enemy.GetEnemy(enemyID);
 		if (!OneEne.GetActive())continue;
-		if (OneEne.GetState() == CEnemy::DAMAGE)continue;
+		if (OneEne.GetIsDamage())continue;
 		VECTOR ene_pos = OneEne.GetPos();
 
 
@@ -208,6 +208,12 @@ void CCollisionManager::CheckHitEyeToEnemy(CEnemyManager& enemy, CPlayer& player
 	bool isHit = false;
 
 	int EnemyID = 0;
+
+	int NearEnemy = 0;
+
+	float min = 999.9f;
+
+	VECTOR knockVec = ZERO;
 	//カメラマネージャーからプレイカメラを取得
 	PlayCamera& play = camera.GetPlay();
 
@@ -222,20 +228,26 @@ void CCollisionManager::CheckHitEyeToEnemy(CEnemyManager& enemy, CPlayer& player
 		CEnemy& OneEne = enemy.GetEnemy(enemyID);
 
 		if (!OneEne.GetActive())continue;
-		if (OneEne.GetState() == CEnemy::DAMAGE)continue;
+		if (OneEne.GetIsDamage())continue;
 
 		VECTOR ene_pos = OneEne.GetCenter();
 
 		if (Collision::CheckHitLineToSphere(ene_pos, ENEMY_RADIUS, eye_pos, eye_end)) {
+
 			VECTOR vec = VSub(eye_end, eye_pos);
+			VECTOR diff = VSub(ene_pos, eye_pos);
+			float len = VSize(diff);
 			vec = VNorm(vec);
 			vec.y = 0.0f;
-
-			if (CInput::IsTrg(KEY_SHOT)) {
-				OneEne.KnockBack(vec);
+			if (len < min) {
+				min = len;
+				NearEnemy = enemyID;
+				knockVec = vec;
 			}
 		}
-
+	}
+	if (CInput::IsTrg(KEY_SHOT)) {
+		enemy.GetEnemy(NearEnemy).KnockBack(knockVec);
 	}
 }
 
@@ -310,7 +322,7 @@ void CCollisionManager::CheckHitEnemyToEnemy(CEnemyManager& enemy) {
 
 		if (!OneEne.GetActive())continue;
 
-		VECTOR enepos1 = OneEne.GetPos();
+		VECTOR enepos1 = OneEne.GetCenter();
 
 		for (int j = 0; j < ENEMY_NUM; j++) {
 
@@ -318,31 +330,33 @@ void CCollisionManager::CheckHitEnemyToEnemy(CEnemyManager& enemy) {
 
 			CEnemy& TwoEne = enemy.GetEnemy(j);
 
-			if (!OneEne.GetActive())continue;
+			if (!TwoEne.GetActive())continue;
 
-			VECTOR enepos2=TwoEne.GetPos();
+			VECTOR enepos2=TwoEne.GetCenter();
 
 			float len = VSize(VSub(enepos2, enepos1));
 
-			if (len < 0)len *= -1;
-
-			if (len >= 80)continue;
+			if (len > 100)continue;
 
 			if (Collision::CheckHitSphereToSphere(enepos1, ENEMY_RADIUS, enepos2, ENEMY_RADIUS)) {
 				
 				VECTOR diff = VSub(enepos2,enepos1);
 
+				float len = VSize(diff);
+
+				if (len <= 0.0001f) continue;
+
 				VECTOR norm = VNorm(diff);
 				
-				VECTOR aa = VScale(norm, ENEMY_RADIUS*2);
+				VECTOR push = VScale(norm, ENEMY_RADIUS*2);
 
-				float bb = VSize(aa);
+				push = VSub(push, diff);
 
-				aa = VSub(aa, diff);
-				aa = VScale(aa, 0.5f);
+				push = VScale(push, 0.5f);
 
-				OneEne.SetPos(VAdd(enepos1, aa));
-				TwoEne.SetPos(VSub(enepos2, aa));
+				OneEne.SetPos(VSub(OneEne.GetPos(), push));
+
+				TwoEne.SetPos(VAdd(TwoEne.GetPos(), push));
 			}
 		}
 	}

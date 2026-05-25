@@ -13,6 +13,8 @@ enum TrapType {
 class CTrapManager {
 private:
 
+	bool m_TrapData;
+
 	CTrapManagerBase* m_trap[TrapNum];
 public:
 	CTrapManager();
@@ -23,9 +25,11 @@ public:
 
 	void Load();
 
-	void Step();
+	void Step(VECTOR pos);
 
 	void Draw();
+
+	void DrawA(TrapType type);
 
 	void Exit();
 
@@ -38,4 +42,6 @@ public:
 	CNet& GetNet(int i);
 
 	CFire& GetFire(int i);
+
+	void Reset();
 };

@@ -34,6 +34,7 @@
     <ClCompile Include="src\game\scene\scenebase.cpp" />
     <ClCompile Include="src\game\scene\SceneManager.cpp" />
     <ClCompile Include="src\game\scene\TitleScene.cpp" />
+    <ClCompile Include="src\game\stage\crystal\crystal.cpp" />
     <ClCompile Include="src\game\stage\field\field.cpp" />
     <ClCompile Include="src\game\stage\sky\sky.cpp" />
     <ClCompile Include="src\game\system\effectData\effectData.cpp" />
@@ -69,6 +70,7 @@
     <ClInclude Include="src\game\scene\scenebase.h" />
     <ClInclude Include="src\game\scene\SceneManager.h" />
     <ClInclude Include="src\game\scene\TitleScene.h" />
+    <ClInclude Include="src\game\stage\crystal\crystal.h" />
     <ClInclude Include="src\game\stage\field\field.h" />
     <ClInclude Include="src\game\stage\sky\sky.h" />
     <ClInclude Include="src\game\system\effectData\effectData.h" />

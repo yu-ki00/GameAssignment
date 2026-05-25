@@ -13,7 +13,9 @@ void CEnemy::Init() {
 	m_hp = ENEMY_HP;
 	m_isActive = false;
 	m_isKnock = false;
-
+	m_isFire = false;
+	m_isDamage = false;
+	m_isDeath = false;
 }
 
 void CEnemy::Load(int originHndl) {
@@ -37,9 +39,10 @@ void CEnemy::Step(VECTOR endpos) {
 			VECTOR SPEED = VScale(norm, speed);
 			m_pos = VAdd(m_pos, SPEED);
 		}
-		m_rot.y = atan2f(norm.x, norm.z);
+		m_rot.y = atan2f(-norm.x, -norm.z);
 		if (m_hp <= 0) {
 			m_isActive = false;
+			m_isDeath = true;
 		}
 	}
 	if (m_isKnock) {
@@ -49,34 +52,26 @@ void CEnemy::Step(VECTOR endpos) {
 			m_isKnock = false;
 		}
 	}
-	switch (m_state)
-	{
-	case CEnemy::NORMAL:
-		break;
-	case CEnemy::FIRE:
-		m_fireTime--;
-		if (m_fireTime % 60 == 0) {
-			m_hp -= 2;
-		}
-		if (m_fireTime <= 0) {
-			m_state = NORMAL;
-		}
-		break;
-	case CEnemy::DAMAGE:
+	if (m_isDamage) {
 		m_damageTime--;
 		if (m_damageTime <= 0)
 		{
-			m_state = NORMAL;
+			m_isDamage = false;
 		}
-		break;
-	default:
-		break;
 	}
+	if (m_isFire) {
+		m_fireTime--;
+			m_hp -= 0.2f;
+		if (m_fireTime <= 0) {
+			m_isFire = false;;
+		}
+	}
+
 }
 
 void CEnemy::Draw() {
 	if (m_isActive) {
-		if (m_state == DAMAGE) {
+		if (m_isDamage) {
 			COLOR_F color = { 1.0f, 0.3f, 0.3f, 0.3f };
 			MV1SetDifColorScale(m_hndl, color);
 		}
@@ -117,18 +112,28 @@ VECTOR CEnemy::GetCenter() {
 
 void CEnemy::HitDamage()
 {
-	m_state = DAMAGE;
-	m_damageTime = 2;
+	m_isDamage = true;
+	m_damageTime = 4;
 
 }
 
 void CEnemy::SetFire() {
-	m_state = FIRE;
+	m_isFire = true;
 	m_fireTime = 180;
+	m_hp -= 0.2;
 }
 
 void CEnemy::KnockBack(VECTOR vec) {
 	m_knockPow = VScale(vec, 15);
 	m_knockTime = 30;
 	m_isKnock = true;
+}
+
+void CEnemy::Reset() {
+	m_hp = ENEMY_HP;
+	m_isActive = false;
+	m_isKnock = false;
+	m_isFire = false;
+	m_isDamage = false;
+	m_isDeath = false;
 }

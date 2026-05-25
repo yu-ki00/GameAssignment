@@ -129,6 +129,15 @@
     <Filter Include="ヘッダー ファイル\game\system\effectData">
       <UniqueIdentifier>{316e9c81-914f-4a70-bfb8-2c8943000443}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\game\stage\crystal">
+      <UniqueIdentifier>{bebe7df7-6d2b-493a-a532-91a9fee91dfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\game\stage\crystal">
+      <UniqueIdentifier>{02ec3e8b-de6d-4837-9a4a-5c2c304c7561}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\game\stage\gate">
+      <UniqueIdentifier>{64f3f4fc-3c83-4ba8-8da6-2cef79ca88e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\collision\collision.cpp">
@@ -229,6 +238,9 @@
     </ClCompile>
     <ClCompile Include="src\game\Trap\FireManager.cpp">
       <Filter>ソース ファイル\game\Trap</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\stage\crystal\crystal.cpp">
+      <Filter>ソース ファイル\game\stage\crystal</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -333,6 +345,9 @@
     </ClInclude>
     <ClInclude Include="src\game\Trap\FireManager.h">
       <Filter>ヘッダー ファイル\game\Trap</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\stage\crystal\crystal.h">
+      <Filter>ヘッダー ファイル\game\stage\crystal</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

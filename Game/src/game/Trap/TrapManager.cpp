@@ -34,10 +34,24 @@ void CTrapManager::Draw() {
 		m_trap[i]->Draw();
 	}
 }
+void CTrapManager::DrawA(TrapType type) {
+	switch (type)
+	{
+	case Spike:
+		m_trap[Spike]->DrawA();
+		break;
+	case Net:
+		m_trap[Net]->DrawA();
+		break;
+	case Fire:
+		m_trap[Fire]->DrawA();
+		break;
+	}
+}
 
-void CTrapManager::Step() {
+void CTrapManager::Step(VECTOR pos) {
 	for (int i = 0; i < TrapNum; i++) {
-		m_trap[i]->Step();
+		m_trap[i]->Step(pos);
 	}
 }
 
@@ -91,4 +105,10 @@ CFire& CTrapManager::GetFire(int i)
 	CFireManager* fireManager = dynamic_cast<CFireManager*>(m_trap[Fire]);
 
 	return fireManager->GetFire(i);
+}
+
+void CTrapManager::Reset() {
+	for (int i = 0; i < TrapNum; i++) {
+		m_trap[i]->Reset();
+	}
 }

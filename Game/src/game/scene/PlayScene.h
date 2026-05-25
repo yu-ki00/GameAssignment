@@ -8,6 +8,7 @@
 #include"../Enemy/EnemyManager.h"
 #include"../Player/Inventory.h"
 #include"../Trap/TrapManager.h"
+#include"../stage/crystal/crystal.h"
 
 class CPlayScene :CSceneBase{
 private:
@@ -36,6 +37,8 @@ private:
 	CInventory m_inventory;
 
 	CTrapManager m_trap;
+
+	CCrystal m_crystal;
 
 	float dt;
 

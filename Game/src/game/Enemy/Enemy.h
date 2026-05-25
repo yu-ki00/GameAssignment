@@ -10,20 +10,13 @@ static const float ENEMY_SPEED = 3;
 
 class CEnemy :public CEnemyBase {
 public:
-	enum tagEnemyState {
-		NORMAL,
-		FIRE,
-		DAMAGE
-	};
 private:
 	
-	int m_hp;
+	float m_hp;
 
 	float m_speed;
 
 	bool m_slow;
-
-	tagEnemyState m_state;
 
 	int m_fireTime;
 
@@ -34,6 +27,12 @@ private:
 	VECTOR m_knockPow;
 
 	int m_knockTime;
+
+	bool m_isDamage;
+
+	bool m_isFire;
+
+	bool m_isDeath;
 
 public:
 
@@ -56,7 +55,11 @@ public:
 
 	void SetFire();
 
-	tagEnemyState GetState() { return m_state; }
-
 	void KnockBack(VECTOR vec);
+
+	bool GetIsDamage() { return m_isDamage; }
+
+	bool GetIsDeath() { return m_isDeath; }
+
+	void Reset();
 };

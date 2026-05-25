@@ -100,10 +100,9 @@ void CField::Exit() {
 
 VECTOR CField::GetSpawnPos() {
     for (auto& data : m_stage) {
-
         if (data.m_tileID == 2) {
             return data.m_pos;
-       }
+        }
     }
 }
 

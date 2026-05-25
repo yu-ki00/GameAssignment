@@ -18,7 +18,8 @@ void CEnemyManager::Init() {
 		m_enemy[i].Init();
 
 	}
-	m_waitTime = 0;
+	m_waitTime = WAIT_TIME;
+	m_waveEnemy = 2;
 }
 
 void CEnemyManager::Load() {
@@ -32,25 +33,9 @@ void CEnemyManager::Load() {
 	MV1DeleteModel(hndl);
 }
 
-void CEnemyManager::Step(VECTOR startpos, VECTOR endpos) {
+void CEnemyManager::Step(VECTOR endpos) {
 
-	m_waitTime++;
-	int pop = 0;
-	for (int i = 0; i < ENEMY_NUM; i++) {
 
-		if (m_waitTime >= WAIT_TIME && !m_enemy[i].GetActive()) {
-
-			int ran=GetRand(200)-100;
-			VECTOR aa = VAdd(startpos, VGet((float)ran, 0.0f, 0.0f));
-			m_enemy[i].Request(aa);
-			pop++;
-			if (pop == 2) {
-				m_waitTime = 0;
-				break;
-			}
-			
-		}
-	}
 	for (int i = 0; i < ENEMY_NUM; i++) {
 
 		m_enemy[i].Step(endpos);
@@ -78,4 +63,48 @@ void CEnemyManager::Exit() {
 		m_enemy[i].Exit();
 
 	}
+}
+
+void CEnemyManager::Request(VECTOR startpos) {
+	m_waitTime++;
+
+	int pop = 0;
+
+	for (int i = 0; i < ENEMY_NUM; i++) {
+
+		if (m_waitTime >= WAIT_TIME && !m_enemy[i].GetActive() && !m_enemy[i].GetIsDeath()) {
+
+			int ranx = GetRand(200) - 100;
+
+			int ranz = GetRand(200) - 100;
+
+			VECTOR aa = VAdd(startpos, VGet((float)ranx, 0.0f, (float)ranz));
+
+			m_enemy[i].Request(aa);
+			pop++;
+			if (pop == m_waveEnemy) {
+				m_waitTime = 0;
+				m_waveEnemy++;
+				break;
+			}
+
+		}
+	}
+}
+
+bool CEnemyManager::IsAllDead() {
+	for (int i = 0;i < ENEMY_NUM;i++) {
+		if (!m_enemy[i].GetIsDeath()) {
+			return false;
+		}
+	}
+	return true;
+}
+
+void CEnemyManager::Reset() {
+	for (int i = 0;i < ENEMY_NUM;i++) {
+		m_enemy[i].Reset();
+	}
+	m_waitTime = WAIT_TIME;
+	m_waveEnemy = 2;
 }

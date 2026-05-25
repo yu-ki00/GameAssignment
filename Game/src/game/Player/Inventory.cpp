@@ -1,7 +1,7 @@
 #include "Inventory.h"
 #include"../common.h"
 void CInventory::Init() {
-	m_gold = 500;
+	m_gold = 1000;
 	m_trapNumber = Spike;
 	for (int i = 0;i < TrapNum;i++) {
 		m_trap[i].m_hndl = -1;
@@ -71,6 +71,8 @@ void CInventory::Draw() {
 		DrawBoxAA(m_trap[i].m_pos.x - 50, m_trap[i].m_pos.y - 50, m_trap[i].m_pos.x + 50, m_trap[i].m_pos.y + 50, WHITE, false,p);
 	}
 
+	DrawFormatString(1000, 50, GetColor(255, 255, 0), "%d", m_gold);
+
 }
 
 void CInventory::Exit() {
@@ -95,9 +97,29 @@ void CInventory::SubGold() {
 		m_gold -= 100;
 		break;
 	case Fire:
-		m_gold -= 500;
+		m_gold -= 300;
 		break;
 	default:
 		break;
 	}
+}
+void CInventory::AddGold() {
+	switch (m_trapNumber)
+	{
+	case Spike:
+		m_gold += 200;
+		break;
+	case Net:
+		m_gold += 100;
+		break;
+	case Fire:
+		m_gold += 300;
+		break;
+	default:
+		break;
+	}
+}
+
+void CInventory::Reset() {
+	m_gold = 1000;
 }

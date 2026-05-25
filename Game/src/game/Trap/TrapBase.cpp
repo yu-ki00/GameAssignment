@@ -21,12 +21,24 @@ void CTrapBase::Load(int originHndl) {
 
 }
 
-void CTrapBase::Step() {
-
+void CTrapBase::Step(VECTOR pos) {
+	if (!m_isActive) {
+		m_pos = pos;
+	}
 }
 
 void CTrapBase::Draw() {
 	if (m_isActive) {
+		COLOR_F color = { 1.0f, 1.0f, 1.0f, 1.0f };
+		MV1SetDifColorScale(m_hndl, color);
+		MV1DrawModel(m_hndl);
+	}
+}
+
+void CTrapBase::DrawA() {
+	if (!m_isActive) {
+		COLOR_F color = { 1.0f, 1.0f, 1.0f, 0.05f };
+		MV1SetDifColorScale(m_hndl, color);
 		MV1DrawModel(m_hndl);
 	}
 }
@@ -50,4 +62,8 @@ void CTrapBase::Request(VECTOR pos) {
 	m_pos = pos;
 
 
+}
+
+void CTrapBase::Reset() {
+	m_isActive = false;
 }

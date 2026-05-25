@@ -27,5 +27,11 @@ public:
 
 	void SubGold();
 
+	void AddGold();
+
+	int GetGold() { return m_gold; }
+
 	TrapType GetTrap() { return m_trapNumber; }
+
+	void Reset();
 };

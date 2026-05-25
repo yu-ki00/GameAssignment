@@ -20,7 +20,7 @@ public:
 
 	void Load();
 
-	void Step();
+	void Step(VECTOR pos);
 
 	void Draw();
 
@@ -30,5 +30,9 @@ public:
 
 	void Request(VECTOR pos, bool hit);
 
+	void Reset();
+
 	CSpike& GetSpike(int i) { return m_spike[i]; }
+
+	void DrawA();
 };

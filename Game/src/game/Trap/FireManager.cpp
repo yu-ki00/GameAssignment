@@ -31,9 +31,9 @@ void CFireManager::Load() {
 	MV1DeleteModel(hndl);
 }
 
-void CFireManager::Step() {
+void CFireManager::Step(VECTOR pos) {
 	for (int i = 0; i < FIRE_NUM; i++) {
-		m_fire[i].Step();
+		m_fire[i].Step(pos);
 
 	}
 }
@@ -41,6 +41,12 @@ void CFireManager::Step() {
 void CFireManager::Draw() {
 	for (int i = 0; i < FIRE_NUM; i++) {
 		m_fire[i].Draw();
+
+	}
+}
+void CFireManager::DrawA() {
+	for (int i = 0; i < FIRE_NUM; i++) {
+		m_fire[i].DrawA();
 
 	}
 }
@@ -67,5 +73,11 @@ void CFireManager::Request(VECTOR pos, bool hit) {
 				break;
 			}
 		}
+	}
+}
+
+void CFireManager::Reset() {
+	for (int i = 0;i < FIRE_NUM;i++) {
+		m_fire[i].Reset();
 	}
 }

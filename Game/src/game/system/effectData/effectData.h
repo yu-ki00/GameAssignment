@@ -3,7 +3,7 @@
 
 enum tagEffectKind	//エフェクトの種類
 {
-	EFFECT_COIN_GET,		//コイン獲得エフェクト
+	EFFECT_FIRE,		//コイン獲得エフェクト
 	EFFECT_DIE,				//死亡時エフェクト
 
 	EFFECT_NUM,				//エフェクトの数

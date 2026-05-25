@@ -28,11 +28,12 @@ void CPlayer::Init() {
 
 	m_rot = { 0.0f,0.0f,0.0f };
 
-
 }
 //モデルのロード
 void CPlayer::Load(VECTOR pos) {
-	m_pos = pos;
+
+	m_pos = VGet(pos.x, pos.y, pos.z + 50);
+
 }
 //毎フレーム呼び出す処理
 void CPlayer::Step(VECTOR camera_rot, float dt) {
