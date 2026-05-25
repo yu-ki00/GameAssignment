@@ -17,5 +17,7 @@ public:
 
 	void Step(VECTOR pos);
 
+	void Request(VECTOR pos);
+
 	int GetHndl() { return m_hndl; }
 };

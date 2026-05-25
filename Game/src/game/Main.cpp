@@ -5,6 +5,8 @@
 #include"common.h"
 #include"../lib/debug/fps.h"
 #include"scene/SceneManager.h"
+#include"../lib/effekseer/effekseer.h"
+#include "system/effectData/effectData.h"
 
 
 
@@ -37,6 +39,15 @@ int  WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	SetMouseDispFlag(false);
 
 	CFps::Init();
+
+	//エフェクトの初期化
+	CEffekseerCtrl::Init(10, 2000);
+
+	//エフェクトデータの初期化
+	CEffectData::Init();
+
+	//エフェクトデータのロード
+	CEffectData::Load();
 	// インスタント作成と初期化
 	SceneManager scene;
 
@@ -56,6 +67,8 @@ int  WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		CFps::Calc();
 
 		scene.Loop();
+
+		CEffekseerCtrl::Update();
 		scene.Draw();
 
 
@@ -63,6 +76,8 @@ int  WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		ScreenFlip();		// 描画切り替え
 
 	}
+	//エフェクトの終了処理
+	CEffekseerCtrl::Exit();
 
 	DxLib_End();			// ＤＸライブラリ使用の終了処理
 

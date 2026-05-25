@@ -2,6 +2,8 @@
 #include"../collision/collisionManager.h"
 #include"../../lib/input/PadInput.h"
 #include"../../lib/input/input.h"
+#include "../../lib/effekseer/effekseer.h"
+
 #include"../common.h"
 
 
@@ -76,6 +78,8 @@ void CPlayScene::Draw()
 		default:
 			break;
 		}
+
+		CEffekseerCtrl::Draw();
 #ifdef DEBUG
 		auto hit = CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
 
@@ -278,5 +282,5 @@ void CPlayScene::Exit()
 
 	m_crystal.Exit();
 
-
+	CEffekseerCtrl::StopAll();
 }
