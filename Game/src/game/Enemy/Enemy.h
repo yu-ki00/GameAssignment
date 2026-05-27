@@ -39,12 +39,19 @@ public:
 	CEnemy();
 	~CEnemy();
 	void Init();
+
 	void Load(int originHndl);
+
 	void Step(VECTOR endpos);
+
 	void Draw();
+
 	void Exit();
+
 	void Request(VECTOR pos);
+
 	VECTOR GetCenter();
+
 	void SubHp(int sub) { m_hp-=sub; }
 
 	void SetSlow(bool slow) { m_slow = slow; }

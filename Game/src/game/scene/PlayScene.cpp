@@ -250,7 +250,7 @@ int CPlayScene::Step()
 
 		m_enemy.Update();
 
-		if (CInput::IsTrg(KEY_SELECT))
+		if (!m_crystal.GetActive())
 		{
 
 			m_state = END;

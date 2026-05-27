@@ -361,3 +361,23 @@ void CCollisionManager::CheckHitEnemyToEnemy(CEnemyManager& enemy) {
 		}
 	}
 }
+
+void CCollisionManager::CheckHitEnemyToCrystal(CEnemyManager& enemy, CCrystal& crystal) {
+
+	for (int i = 0; i < ENEMY_NUM; i++) {
+
+		CEnemy& OneEne = enemy.GetEnemy(i);
+
+		if (!OneEne.GetActive())continue;
+
+		VECTOR enepos1 = OneEne.GetCenter();
+		MV1_COLL_RESULT_POLY_DIM col;
+		col = MV1CollCheck_Sphere(crystal.GetHndl(), -1, enepos1, ENEMY_RADIUS);
+		if (col.HitNum > 0) {
+			crystal.SubHp(1);
+		}
+		
+
+		
+	}
+}

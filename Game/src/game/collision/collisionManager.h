@@ -7,6 +7,7 @@
 #include"../Trap/SpikeManager.h"
 #include"../Player/Inventory.h"
 #include"../Trap/TrapManager.h"
+#include"../stage/crystal/crystal.h"
 class CCollisionManager {
 public:
 	struct HitResult {
@@ -28,6 +29,8 @@ public:
 	static void CheckHitEnemyToStage(CEnemyManager& enemy, CField& field);
 
 	static void CheckHitEnemyToEnemy(CEnemyManager& enemy);
+
+	static void CheckHitEnemyToCrystal(CEnemyManager& enemy,CCrystal& crystal);
 
 
 };

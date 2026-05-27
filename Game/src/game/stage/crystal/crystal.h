@@ -17,4 +17,6 @@ public:
 	void Step();
 
 	void SubHp(int sub) { m_hp -= sub; }
+
+	int GetHndl() { return m_hndl; }
 };

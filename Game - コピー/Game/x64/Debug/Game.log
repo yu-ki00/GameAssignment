@@ -1,16 +1,41 @@
-﻿  PlayCamera.cpp
+﻿  CameraManager.cpp
+  DebugCamera.cpp
+  PlayCamera.cpp
+  collisionManager.cpp
+C:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\collision\collisionManager.cpp(51,31): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+  Enemy.cpp
+  EnemyBase.cpp
   EnemyManager.cpp
   Main.cpp
   Inventory.cpp
   Player.cpp
-  NetManager.cpp
-  SpikeManager.cpp
-  TrapManager.cpp
-  collisionManager.cpp
   PlayScene.cpp
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(51,31): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
   ResultScene.cpp
+  scenebase.cpp
   SceneManager.cpp
   TitleScene.cpp
+  field.cpp
+  sky.cpp
+  Net.cpp
+  NetManager.cpp
+  Spike.cpp
   コードを生成中...
-  Game.vcxproj -> C:\Users\2409419\Desktop\GameAssignment\Game\x64\Debug\Game.exe
+C:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\stage\field\field.cpp(116,1): warning C4715: 'CField::GetStartPos': 値を返さないコントロール パスがあります。
+C:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\stage\field\field.cpp(107,1): warning C4715: 'CField::GetSpawnPos': 値を返さないコントロール パスがあります。
+  コンパイル中...
+  TrapBase.cpp
+  SpikeManager.cpp
+  TrapManager.cpp
+  collision.cpp
+  fps.cpp
+  input.cpp
+  PadInput.cpp
+  MyMath.cpp
+C:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\lib\MyMath\MyMath.cpp(115,19): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+  Object3D.cpp
+  コードを生成中...
+C:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\lib\input\PadInput.cpp(259,1): warning C4715: 'CGamePad::StickRot': 値を返さないコントロール パスがあります。
+C:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\lib\input\PadInput.cpp(282,1): warning C4715: 'CGamePad::StickRotY': 値を返さないコントロール パスがあります。
+C:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\lib\input\PadInput.cpp(271,1): warning C4715: 'CGamePad::StickRotX': 値を返さないコントロール パスがあります。
+  LINK : 前回のインクリメンタル リンクで C:\Users\2409419\Desktop\GameAssignment\Game - コピー\x64\Debug\Game.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
+  Game.vcxproj -> C:\Users\2409419\Desktop\GameAssignment\Game - コピー\x64\Debug\Game.exe

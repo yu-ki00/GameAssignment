@@ -19,8 +19,11 @@ void CEnemy::Init() {
 }
 
 void CEnemy::Load(int originHndl) {
+
 	if (m_hndl == -1) {
+
 		m_hndl = MV1DuplicateModel(originHndl);
+
 	}
 
 	MV1SetupCollInfo(m_hndl);	// ƒRƒŠƒWƒ‡ƒ“î•ñ\’z
@@ -113,6 +116,7 @@ VECTOR CEnemy::GetCenter() {
 void CEnemy::HitDamage()
 {
 	m_isDamage = true;
+
 	m_damageTime = 4;
 
 }
@@ -124,7 +128,7 @@ void CEnemy::SetFire() {
 }
 
 void CEnemy::KnockBack(VECTOR vec) {
-	m_knockPow = VScale(vec, 15);
+	m_knockPow = VScale(vec, 3);
 	m_knockTime = 30;
 	m_isKnock = true;
 }
