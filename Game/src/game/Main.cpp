@@ -70,6 +70,7 @@ int  WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 		CEffekseerCtrl::Update();
 		scene.Draw();
+		CFps::PrintFps();
 
 
 

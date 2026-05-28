@@ -74,6 +74,9 @@ void CPlayScene::Draw()
 			m_enemy.Draw();
 			break;
 		case CPlayScene::LAST:
+			SetFontSize(128);
+			DrawFormatString(500, WINDOW_SIZE_Y/2-100, RED, "GAMEOVER");
+			SetFontSize(32);
 			break;
 		default:
 			break;
@@ -224,7 +227,11 @@ int CPlayScene::Step()
 			}
 			break;
 		case CPlayScene::LAST:
-			
+			if (CInput::IsTrg(KEY_Z)) {
+				m_state = END;
+				m_turn = TRAP;
+				return 1;
+			}
 			break;
 		default:
 			break;
@@ -238,6 +245,7 @@ int CPlayScene::Step()
 		CCollisionManager::CheckHitEnemyToStage(m_enemy, m_field);
 		CCollisionManager::CheckHitEnemyToEnemy(m_enemy);
 		CCollisionManager::CheckHitEnemyToFire(m_enemy, m_trap);
+		CCollisionManager::CheckHitEnemyToCrystal(m_enemy, m_crystal);
 		m_sky.Update();
 
 		m_field.Update();
@@ -253,13 +261,14 @@ int CPlayScene::Step()
 		if (!m_crystal.GetActive())
 		{
 
-			m_state = END;
-			return 1;
+			m_turn = LAST;
+
 
 		}
 		break;
 	case CPlayScene::END:
 
+		return 1;
 		break;
 	default:
 		break;

@@ -11,6 +11,7 @@ CCrystal::~CCrystal() {
 void CCrystal::Init() {
 
 	CObject3D::Init();
+	m_hp = 30;
 }
 
 void CCrystal::Load(VECTOR pos) {

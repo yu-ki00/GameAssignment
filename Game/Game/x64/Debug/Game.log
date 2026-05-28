@@ -1,3 +1,2 @@
-﻿  Enemy.cpp
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Enemy\Enemy.cpp(124,10): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+﻿  fps.cpp
   Game.vcxproj -> C:\Users\2409419\Desktop\GameAssignment\Game\x64\Debug\Game.exe

@@ -372,12 +372,9 @@ void CCollisionManager::CheckHitEnemyToCrystal(CEnemyManager& enemy, CCrystal& c
 
 		VECTOR enepos1 = OneEne.GetCenter();
 		MV1_COLL_RESULT_POLY_DIM col;
-		col = MV1CollCheck_Sphere(crystal.GetHndl(), -1, enepos1, ENEMY_RADIUS);
+		col = MV1CollCheck_Sphere(crystal.GetHndl(), -1, enepos1, ENEMY_RADIUS*2);
 		if (col.HitNum > 0) {
 			crystal.SubHp(1);
 		}
-		
-
-		
 	}
 }

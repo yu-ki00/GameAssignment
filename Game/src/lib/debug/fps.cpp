@@ -50,5 +50,5 @@ void CFps::PrintFps() {
 		m_updateFrameRateTime = m_currentTime;
 	}
 	//FPSÇÕèÌÇ…ï\é¶Çë±ÇØÇÈ
-	DrawFormatString(16, 16, RED, "FPS:%.2f", m_frameRate);
+	DrawFormatString(1000, 16, RED, "FPS:%.2f", m_frameRate);
 }
