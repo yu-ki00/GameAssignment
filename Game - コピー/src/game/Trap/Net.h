@@ -10,18 +10,5 @@ public:
 
 	~CNet();
 
-	void Init();
-
-	void Load(int originHndl);
-
-	void Step();
-
-	void Draw();
-
-	void Update();
-
-	void Exit();
-
 	int GetHndl() { return m_hndl; }
-	void Request(VECTOR pos);
 };

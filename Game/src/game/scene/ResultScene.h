@@ -1,6 +1,6 @@
 #pragma once
 #include"scenebase.h"
-static const char RESULT_PATH[] = { "" };
+static const char RESULT_PATH[] = { "Data/graph/Result.png" };
 class CResultScene:public CSceneBase{
 private:
 	int m_hndl;

@@ -26,17 +26,14 @@ void CPlayer::Init() {
 
 	m_pos = START_POS;
 
-	m_rot = { 0.0f,DX_PI_F,0.0f };
-
+	m_rot = { 0.0f,0.0f,0.0f };
 
 }
 //モデルのロード
-void CPlayer::Load() {
-	if (m_hndl == -1) {
+void CPlayer::Load(VECTOR pos) {
 
+	m_pos = VGet(pos.x, pos.y, pos.z + 50);
 
-
-	}
 }
 //毎フレーム呼び出す処理
 void CPlayer::Step(VECTOR camera_rot, float dt) {
@@ -55,9 +52,6 @@ void CPlayer::Step(VECTOR camera_rot, float dt) {
 	}
 
 	MoveExec(dt);
-
-
-
 
 }
 
@@ -172,12 +166,41 @@ void CPlayer::MoveExec(float dt) {
 	JumpExec();
 
 	if (!m_isGround) {
-		//空中では重力と空気抵抗を受ける
-		m_speed.y = -G;
+		m_velocity.y -= G * dt;
 
-		m_velocity.x -= m_velocity.x * AIR_DRAG * dt;
+		//空中制御
+		//入力方向ベクトル
+		VECTOR wishDir = VNorm(VGet(m_speed.x, 0.0f, m_speed.z));
 
-		m_velocity.z -= m_velocity.z * AIR_DRAG * dt;
+		//希望移動ベクトル
+		float wishSpeed = VSize(VGet(m_speed.x, 0.0f, m_speed.z));
+
+		if (wishSpeed > 0.0f) {
+
+			//現在の速度の入力方向成分
+			float currentSpeed = VDot(m_velocity, wishDir);
+
+
+			//追加可能な速度
+			float addSpeed = wishSpeed - currentSpeed;
+
+			if (addSpeed > 0.0f) {
+
+				//空中加速度
+				float airAccel = AIR_ACCEL;
+
+				//加速度
+				float accelSpeed = airAccel * dt * wishSpeed;
+
+				//加速制限
+				if (accelSpeed > addSpeed)
+
+					accelSpeed = addSpeed;
+
+				//加速
+				m_velocity = VAdd(m_velocity, VScale(wishDir, accelSpeed));
+			}
+		}
 
 	}
 	else {

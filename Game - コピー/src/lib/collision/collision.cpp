@@ -290,3 +290,48 @@ bool Collision::TriangleToBox(VECTOR p0, VECTOR& p1, VECTOR p2, VECTOR center, f
 	return true;
 }
 
+bool Collision::CheckHitLineToSphere(VECTOR SpherePos, int radius, VECTOR LineStart, VECTOR LineEnd) {
+	bool ret = false;
+	// 線ベクトル
+	VECTOR line = VSub(LineEnd, LineStart);
+
+	// 始点→球
+	VECTOR toSphere = VSub(SpherePos, LineStart);
+
+	// 線の長さ^2
+	float lineLengthSq =
+		line.x * line.x +
+		line.y * line.y +
+		line.z * line.z;
+
+	// 射影
+	float t =
+		(line.x * toSphere.x +
+			line.y * toSphere.y +
+			line.z * toSphere.z)
+		/ lineLengthSq;
+
+	// 線分に制限
+	if (t < 0.0f) t = 0.0f;
+	if (t > 1.0f) t = 1.0f;
+
+	// 最近接点
+	VECTOR closest = {
+		LineStart.x + line.x * t,
+		LineStart.y + line.y * t,
+		LineStart.z + line.z * t
+	};
+
+	// 球との距離
+	VECTOR diff = VSub(SpherePos, closest);
+
+	float distSq =
+		diff.x * diff.x +
+		diff.y * diff.y +
+		diff.z * diff.z;
+
+	if (distSq <= radius * radius) {
+		ret = true;
+	}
+	return ret;
+}

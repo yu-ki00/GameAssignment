@@ -3,7 +3,6 @@
 #include"../../lib/input/PadInput.h"
 #include"../../lib/input/input.h"
 #include "../../lib/effekseer/effekseer.h"
-
 #include"../common.h"
 
 
@@ -56,11 +55,6 @@ void CPlayScene::Draw()
 		m_sky.Draw();
 
 		m_trap.Draw();
-
-		
-
-		
-
 
 		switch (m_turn)
 		{
@@ -262,7 +256,6 @@ int CPlayScene::Step()
 		{
 
 			m_turn = LAST;
-
 
 		}
 		break;

@@ -13,9 +13,17 @@ public:
 
 	virtual void Load(int originHndl);
 
-	virtual void Step();
+	virtual void Step(VECTOR pos);
 
 	virtual void Draw();
 
 	virtual void Exit();
+
+	virtual void Update();
+
+	virtual void Request(VECTOR pos);
+
+	virtual void Reset();
+
+	virtual void DrawA();
 };

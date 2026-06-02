@@ -24,9 +24,6 @@
     <Filter Include="ヘッダー ファイル\lib\collision">
       <UniqueIdentifier>{47370506-fba6-40e9-9d23-c3a40157a095}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\lib\data">
-      <UniqueIdentifier>{0eda193f-d7fc-443e-9a7d-4d2bcc086558}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\lib\debug">
       <UniqueIdentifier>{7c7e58ce-84b0-44c7-a7df-8c317c13b574}</UniqueIdentifier>
     </Filter>

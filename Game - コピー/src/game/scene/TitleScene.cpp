@@ -62,8 +62,6 @@ void CTitleScene::Init()
 
 	m_endwait = 0;
 	m_hndl = -1;
-	m_keyboard_hndl = -1;
-	m_controler_hndl = -1;
 
 }
 
@@ -77,14 +75,6 @@ void CTitleScene::Load()
 		m_hndl = LoadGraph(TITLE_PATH);
 
 	}
-	if (m_keyboard_hndl == -1)
-	{
-		m_keyboard_hndl = LoadGraph(KEYBOARD_PATH);
-	}
-	if (m_controler_hndl == -1) {
-		m_controler_hndl = LoadGraph(CONTROL_PATH);
-	}
-
 
 
 }

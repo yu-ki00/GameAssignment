@@ -7,9 +7,16 @@
 #include"../Trap/SpikeManager.h"
 #include"../Enemy/EnemyManager.h"
 #include"../Player/Inventory.h"
+#include"../Trap/TrapManager.h"
+#include"../stage/crystal/crystal.h"
 
 class CPlayScene :CSceneBase{
 private:
+	enum tagState {
+		TRAP,
+		BATTLE,
+		LAST,
+	};
 
 	int m_hndl;
 
@@ -29,11 +36,17 @@ private:
 
 	CInventory m_inventory;
 
+	CTrapManager m_trap;
+
+	CCrystal m_crystal;
+
 	float dt;
 
 	int m_prevTime;
 
 	int m_nowTime;
+
+	tagState m_turn;
 
 public:
 	CPlayScene();

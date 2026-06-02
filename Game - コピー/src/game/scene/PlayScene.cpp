@@ -2,6 +2,7 @@
 #include"../collision/collisionManager.h"
 #include"../../lib/input/PadInput.h"
 #include"../../lib/input/input.h"
+#include "../../lib/effekseer/effekseer.h"
 #include"../common.h"
 
 
@@ -49,21 +50,42 @@ void CPlayScene::Draw()
 	case CPlayScene::MAIN:
 		m_field.Draw();
 
+		m_crystal.Draw();
+
 		m_sky.Draw();
 
-		m_spike.Draw();
+		m_trap.Draw();
 
-		m_enemy.Draw();
+		switch (m_turn)
+		{
+		case CPlayScene::TRAP:
+			m_trap.DrawA(m_inventory.GetTrap());
+			m_inventory.Draw();
 
-		m_inventory.Draw();
+			
+			break;
+		case CPlayScene::BATTLE:
+			m_enemy.Draw();
+			break;
+		case CPlayScene::LAST:
+			SetFontSize(128);
+			DrawFormatString(500, WINDOW_SIZE_Y/2-100, RED, "GAMEOVER");
+			SetFontSize(32);
+			break;
+		default:
+			break;
+		}
 
+		CEffekseerCtrl::Draw();
+#ifdef DEBUG
 		auto hit = CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
+
+		
 
 		VECTOR eye_pos = m_camera.GetPlay().GetTarget();
 		VECTOR eye_end = VAdd(eye_pos, VScale(m_camera.GetPlay().GetVec(), 300));
 
 		DrawLine3D(eye_pos, eye_end, RED);
-#ifdef DEBUG
 		DrawFormatString(10, 10, RED, "ƒQ[ƒ€");
 		DrawFormatString(10, 32, RED, "%f,%f,%f", m_player.GetTop().x, m_player.GetTop().y, m_player.GetTop().z);
 		VECTOR pos = hit.position;
@@ -102,9 +124,10 @@ void CPlayScene::Init()
 
 	m_sky.Init();
 
-	m_spike.Init();
+	m_trap.Init();
 
 	m_field.Init();
+	m_crystal.Init();
 
 	m_enemy.Init();
 
@@ -113,6 +136,8 @@ void CPlayScene::Init()
 	m_nowTime = 0;
 	m_prevTime = 0;
 	dt = 0;
+
+	m_turn = TRAP;
 
 }
 
@@ -125,9 +150,15 @@ void CPlayScene::Load()
 
 	m_field.Load();
 
-	m_spike.Load();
+	m_trap.Load();
+	
+	m_crystal.Load(m_field.GetStartPos());
 
 	m_enemy.Load();
+
+	m_player.Load(m_field.GetStartPos());
+
+	m_inventory.Load();
 }
 
 //----------------------
@@ -144,7 +175,7 @@ int CPlayScene::Step()
 	case CPlayScene::LOAD:
 		break;
 	case CPlayScene::MAIN:
-		
+
 		if (m_camera.GetID() == m_camera.ID_PLAY) {
 			m_player.Step(m_camera.GetRot(),dt);
 
@@ -152,41 +183,85 @@ int CPlayScene::Step()
 		m_camera.Step(m_player.GetTop());
 
 		m_sky.Step(m_player.GetPos());
-
-		m_spike.Step();
-
-		m_enemy.Step(m_field.GetSpawnPos(),m_field.GetStartPos());
-
-		m_inventory.Step();
-
 		auto hit = CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
-		if(CInput::IsTrg(KEY_SHOT))
-			m_spike.Request(hit.position,hit.isHit);
+		m_trap.Step(hit.position);
+		m_crystal.Step();
+
+
+		switch (m_turn)
+		{
+		case CPlayScene::TRAP:
+			m_inventory.Step();
+		
+			if (CInput::IsTrg(KEY_SHOT)) {
+				m_inventory.SubGold();
+				if (m_inventory.GetGold()>=0) {
+					m_trap.Request(hit.position, hit.isHit, m_inventory.GetTrap());
+				}
+				else {
+					m_inventory.AddGold();
+				}
+				
+
+			}
+			if (CInput::IsTrg(KEY_Z))
+				m_turn = BATTLE;
+			break;
+		case CPlayScene::BATTLE:
+
+			m_enemy.Request(m_field.GetSpawnPos());
+
+			m_enemy.Step(m_field.GetStartPos());
+
+			if (m_enemy.IsAllDead()) {
+				m_enemy.Reset();
+				m_trap.Reset();
+				m_inventory.Reset();
+				m_turn = TRAP;
+			}
+			break;
+		case CPlayScene::LAST:
+			if (CInput::IsTrg(KEY_Z)) {
+				m_state = END;
+				m_turn = TRAP;
+				return 1;
+			}
+			break;
+		default:
+			break;
+		}
+
 
 		CCollisionManager::CheckHitPlayerToStage(m_player, m_field);
-		CCollisionManager::CheckHitEnemyToSpike(m_enemy, m_spike);
+		CCollisionManager::CheckHitEnemyToSpike(m_enemy, m_trap);
+		CCollisionManager::CheckHitEnemyToNet(m_enemy, m_trap);
+		CCollisionManager::CheckHitEyeToEnemy(m_enemy, m_player, m_camera);
+		CCollisionManager::CheckHitEnemyToStage(m_enemy, m_field);
+		CCollisionManager::CheckHitEnemyToEnemy(m_enemy);
+		CCollisionManager::CheckHitEnemyToFire(m_enemy, m_trap);
+		CCollisionManager::CheckHitEnemyToCrystal(m_enemy, m_crystal);
 		m_sky.Update();
 
 		m_field.Update();
 		
-		m_spike.Update();
+		m_trap.Update();
 
 		m_camera.Update();
 
+		m_crystal.Update();
+
 		m_enemy.Update();
 
-		if (CInput::IsTrg(KEY_SELECT))
+		if (!m_crystal.GetActive())
 		{
 
-			m_state = END;
-			return 1;
+			m_turn = LAST;
 
 		}
 		break;
-
-		break;
 	case CPlayScene::END:
 
+		return 1;
 		break;
 	default:
 		break;
@@ -201,10 +276,13 @@ void CPlayScene::Exit()
 {
 	m_sky.Exit();
 
-	m_spike.Exit();
+	m_trap.Exit();
 
 	m_field.Exit();
 
 	m_enemy.Exit();
 
+	m_crystal.Exit();
+
+	CEffekseerCtrl::StopAll();
 }

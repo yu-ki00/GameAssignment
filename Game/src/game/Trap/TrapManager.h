@@ -4,8 +4,8 @@
 #include"NetManager.h"
 #include"FireManager.h"
 enum TrapType {
-	Spike,
 	Net,
+	Spike,
 	Fire,
 
 	TrapNum

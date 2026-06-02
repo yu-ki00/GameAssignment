@@ -70,7 +70,11 @@ void CResultScene::Init()
 void CResultScene::Load()
 {
 
+	if (m_hndl == -1) {
 
+		m_hndl = LoadGraph(RESULT_PATH);
+
+	}
 
 }
 

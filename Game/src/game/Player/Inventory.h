@@ -3,7 +3,7 @@
 #include"../Trap/TrapManager.h"
 static const int NEED_GOLD[TrapNum]{ 100,200 };
 
-static const char TRAP_GRAPH_PATH[][255]{ "Data/graph/Spike.png","Data/graph/Net.png","Data/graph/Fire.png" };
+static const char TRAP_GRAPH_PATH[][255]{ "Data/graph/Net.png","Data/graph/Spike.png","Data/graph/Fire.png" };
 class CInventory {
 private:
 	int m_gold;

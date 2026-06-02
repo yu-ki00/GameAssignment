@@ -1,41 +1,36 @@
-﻿  CameraManager.cpp
-  DebugCamera.cpp
+﻿  DebugCamera.cpp
   PlayCamera.cpp
-  collisionManager.cpp
-C:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\collision\collisionManager.cpp(51,31): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
   Enemy.cpp
   EnemyBase.cpp
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Enemy\Enemy.cpp(127,10): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
   EnemyManager.cpp
   Main.cpp
   Inventory.cpp
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Player\Inventory.cpp(65,51): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Player\Inventory.cpp(65,32): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
   Player.cpp
-  PlayScene.cpp
-  ResultScene.cpp
-  scenebase.cpp
-  SceneManager.cpp
-  TitleScene.cpp
-  field.cpp
-  sky.cpp
+  Fire.cpp
+  FireManager.cpp
   Net.cpp
   NetManager.cpp
   Spike.cpp
-  コードを生成中...
-C:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\stage\field\field.cpp(116,1): warning C4715: 'CField::GetStartPos': 値を返さないコントロール パスがあります。
-C:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\stage\field\field.cpp(107,1): warning C4715: 'CField::GetSpawnPos': 値を返さないコントロール パスがあります。
-  コンパイル中...
-  TrapBase.cpp
   SpikeManager.cpp
+  TrapBase.cpp
   TrapManager.cpp
-  collision.cpp
-  fps.cpp
-  input.cpp
-  PadInput.cpp
-  MyMath.cpp
-C:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\lib\MyMath\MyMath.cpp(115,19): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-  Object3D.cpp
+  collisionManager.cpp
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(52,31): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(235,48): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(307,32): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(341,74): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(341,51): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+  PlayScene.cpp
+  ResultScene.cpp
+  SceneManager.cpp
   コードを生成中...
-C:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\lib\input\PadInput.cpp(259,1): warning C4715: 'CGamePad::StickRot': 値を返さないコントロール パスがあります。
-C:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\lib\input\PadInput.cpp(282,1): warning C4715: 'CGamePad::StickRotY': 値を返さないコントロール パスがあります。
-C:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\lib\input\PadInput.cpp(271,1): warning C4715: 'CGamePad::StickRotX': 値を返さないコントロール パスがあります。
-  LINK : 前回のインクリメンタル リンクで C:\Users\2409419\Desktop\GameAssignment\Game - コピー\x64\Debug\Game.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
-  Game.vcxproj -> C:\Users\2409419\Desktop\GameAssignment\Game - コピー\x64\Debug\Game.exe
+  コンパイル中...
+  TitleScene.cpp
+  sky.cpp
+  Object3D.cpp
+  fps.cpp
+  コードを生成中...
+  Game.vcxproj -> C:\Users\2409419\Desktop\GameAssignment\Game\x64\Debug\Game.exe

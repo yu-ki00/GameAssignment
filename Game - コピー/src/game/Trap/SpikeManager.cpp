@@ -31,9 +31,9 @@ void CSpikeManager::Load() {
 	MV1DeleteModel(hndl);
 }
 
-void CSpikeManager::Step() {
+void CSpikeManager::Step(VECTOR pos) {
 	for (int i = 0; i < SPIKE_NUM; i++) {
-		m_spike[i].Step();
+		m_spike[i].Step(pos);
 
 	}
 }
@@ -41,6 +41,13 @@ void CSpikeManager::Step() {
 void CSpikeManager::Draw() {
 	for (int i = 0; i < SPIKE_NUM; i++) {
 		m_spike[i].Draw();
+
+	}
+}
+
+void CSpikeManager::DrawA() {
+	for (int i = 0; i < SPIKE_NUM; i++) {
+		m_spike[i].DrawA();
 
 	}
 }
@@ -54,6 +61,7 @@ void CSpikeManager::Update() {
 
 void CSpikeManager::Exit() {
 	for (int i = 0; i < SPIKE_NUM; i++) {
+
 		m_spike[i].Exit();
 
 	}
@@ -63,9 +71,17 @@ void CSpikeManager::Request(VECTOR pos,bool hit) {
 	if (hit) {
 		for (int i = 0; i < SPIKE_NUM; i++) {
 			if (!m_spike[i].GetActive()) {
+
 				m_spike[i].Request(pos);
+
 				break;
 			}
 		}
+	}
+}
+
+void CSpikeManager::Reset() {
+	for (int i = 0;i < SPIKE_NUM;i++) {
+		m_spike[i].Reset();
 	}
 }

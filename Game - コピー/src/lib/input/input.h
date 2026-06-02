@@ -11,6 +11,7 @@
 #define KEY_E		(0b100000000)
 #define KEY_Q		(0b1000000000)
 #define KEY_SHIFT	(0b10000000000)
+#define KEY_Z		(0b100000000000)
 class CInput {
 public:
 	static void Init();

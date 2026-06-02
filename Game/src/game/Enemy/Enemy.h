@@ -3,7 +3,7 @@
 #include"EnemyBase.h"
 static const float ENEMY_RADIUS = 40;
 
-static const int ENEMY_HP = 200;
+static const int ENEMY_HP = 175;
 
 static const float ENEMY_SPEED = 3;
 

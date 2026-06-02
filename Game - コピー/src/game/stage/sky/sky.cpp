@@ -1,7 +1,7 @@
 #include"sky.h"
 #include"../../common.h"
 static const char SKY_MODEL_PATH[] = { "Data/Model/sky/sky.mv1" };
-static const VECTOR SKY_SCALE = { 25,25,25 };
+static const VECTOR SKY_SCALE = { 30,30,30 };
 void CSky::Init() {
 	m_pos = ZERO;
 	m_rot = { 0,0,0 };
@@ -15,7 +15,7 @@ void CSky::Load() {
 	}
 }
 void CSky::Step(VECTOR pos) {
-
+	m_pos = pos;
 }
 void CSky::Update() {
 	MV1SetRotationXYZ(m_hndl, m_rot);

@@ -24,16 +24,16 @@ void CNetManager::Init() {
 
 void CNetManager::Load() {
 	int hndl = MV1LoadModel(NET_MODEL_PATH);
-	for (int i = 0; i < SPIKE_NUM; i++) {
+	for (int i = 0; i < NET_NUM; i++) {
 		m_net[i].Load(hndl);
 
 	}
 	MV1DeleteModel(hndl);
 }
 
-void CNetManager::Step() {
+void CNetManager::Step(VECTOR pos) {
 	for (int i = 0; i < NET_NUM; i++) {
-		m_net[i].Step();
+		m_net[i].Step(pos);
 
 	}
 }
@@ -41,6 +41,13 @@ void CNetManager::Step() {
 void CNetManager::Draw() {
 	for (int i = 0; i < NET_NUM; i++) {
 		m_net[i].Draw();
+
+	}
+}
+
+void CNetManager::DrawA() {
+	for (int i = 0; i < NET_NUM; i++) {
+		m_net[i].DrawA();
 
 	}
 }
@@ -53,7 +60,7 @@ void CNetManager::Update() {
 }
 
 void CNetManager::Exit() {
-	for (int i = 0; i < SPIKE_NUM; i++) {
+	for (int i = 0; i < NET_NUM; i++) {
 		m_net[i].Exit();
 
 	}
@@ -67,5 +74,11 @@ void CNetManager::Request(VECTOR pos, bool hit) {
 				break;
 			}
 		}
+	}
+}
+
+void CNetManager::Reset() {
+	for (int i = 0;i < NET_NUM;i++) {
+		m_net[i].Reset();
 	}
 }

@@ -5,8 +5,8 @@ CTrapManager::CTrapManager() {
 	for (int i = 0; i < TrapNum; i++) {
 		m_trap[i] = nullptr;
 	}
-	m_trap[0] = new CSpikeManager;
-	m_trap[1] = new CNetManager;
+	m_trap[0] = new CNetManager;
+	m_trap[1] = new CSpikeManager;
 	m_trap[2] = new CFireManager;
 }
 
@@ -37,11 +37,11 @@ void CTrapManager::Draw() {
 void CTrapManager::DrawA(TrapType type) {
 	switch (type)
 	{
-	case Spike:
-		m_trap[Spike]->DrawA();
-		break;
 	case Net:
 		m_trap[Net]->DrawA();
+		break;
+	case Spike:
+		m_trap[Spike]->DrawA();
 		break;
 	case Fire:
 		m_trap[Fire]->DrawA();
@@ -71,11 +71,11 @@ void CTrapManager::Request(VECTOR pos, bool hit, TrapType type)
 {
 	switch (type)
 	{
-	case Spike:
-		m_trap[Spike]->Request(pos, hit);
-		break;
 	case Net:
 		m_trap[Net]->Request(pos, hit);
+		break;
+	case Spike:
+		m_trap[Spike]->Request(pos, hit);
 		break;
 	case Fire:
 		m_trap[Fire]->Request(pos, hit);
