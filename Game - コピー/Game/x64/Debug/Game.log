@@ -1,36 +1,52 @@
-﻿  DebugCamera.cpp
+﻿  CameraManager.cpp
+  DebugCamera.cpp
   PlayCamera.cpp
+  collisionManager.cpp
+D:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\collision\collisionManager.cpp(52,31): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+D:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\collision\collisionManager.cpp(235,48): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+D:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\collision\collisionManager.cpp(307,32): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+D:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\collision\collisionManager.cpp(341,74): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+D:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\collision\collisionManager.cpp(341,51): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
   Enemy.cpp
+D:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\Enemy\Enemy.cpp(127,10): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
   EnemyBase.cpp
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Enemy\Enemy.cpp(127,10): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
   EnemyManager.cpp
   Main.cpp
   Inventory.cpp
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Player\Inventory.cpp(65,51): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Player\Inventory.cpp(65,32): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+D:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\Player\Inventory.cpp(65,51): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+D:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\Player\Inventory.cpp(65,32): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
   Player.cpp
+  PlayScene.cpp
+  ResultScene.cpp
+  scenebase.cpp
+  SceneManager.cpp
+  TitleScene.cpp
+  crystal.cpp
+  field.cpp
+D:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\stage\field\field.cpp(109,39): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  sky.cpp
+  effectData.cpp
   Fire.cpp
+  コードを生成中...
+D:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\stage\field\field.cpp(120,1): warning C4715: 'CField::GetStartPos': 値を返さないコントロール パスがあります。
+  コンパイル中...
   FireManager.cpp
   Net.cpp
   NetManager.cpp
   Spike.cpp
-  SpikeManager.cpp
   TrapBase.cpp
+  SpikeManager.cpp
   TrapManager.cpp
-  collisionManager.cpp
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(52,31): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(235,48): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(307,32): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(341,74): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(341,51): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
-  PlayScene.cpp
-  ResultScene.cpp
-  SceneManager.cpp
-  コードを生成中...
-  コンパイル中...
-  TitleScene.cpp
-  sky.cpp
-  Object3D.cpp
+  collision.cpp
   fps.cpp
+  effekseer.cpp
+  input.cpp
+  PadInput.cpp
+  MyMath.cpp
+D:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\lib\MyMath\MyMath.cpp(115,19): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+  Object3D.cpp
   コードを生成中...
-  Game.vcxproj -> C:\Users\2409419\Desktop\GameAssignment\Game\x64\Debug\Game.exe
+D:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\lib\input\PadInput.cpp(259,1): warning C4715: 'CGamePad::StickRot': 値を返さないコントロール パスがあります。
+D:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\lib\input\PadInput.cpp(271,1): warning C4715: 'CGamePad::StickRotX': 値を返さないコントロール パスがあります。
+D:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\lib\input\PadInput.cpp(282,1): warning C4715: 'CGamePad::StickRotY': 値を返さないコントロール パスがあります。
+  Game.vcxproj -> D:\Users\2409419\Desktop\GameAssignment\Game - コピー\x64\Debug\Game.exe

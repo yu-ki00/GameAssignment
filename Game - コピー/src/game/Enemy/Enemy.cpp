@@ -104,6 +104,8 @@ void CEnemy::Request(VECTOR pos) {
 
 	m_hp = ENEMY_HP;
 
+	m_pathIndex = 0;
+
 }
 
 VECTOR CEnemy::GetCenter() {
