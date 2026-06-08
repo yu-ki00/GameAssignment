@@ -22,7 +22,7 @@ public:
 
 	void Load();
 
-	void Step(VECTOR endpos);
+	void Step();
 
 	void Draw();
 
@@ -32,7 +32,7 @@ public:
 
 	CEnemy& GetEnemy(int i) { return m_enemy[i]; }
 
-	void Request(VECTOR startpos);
+	void Request(VECTOR startpos, const vector<VECTOR>& path);
 
 	bool IsAllDead();
 

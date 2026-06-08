@@ -35,6 +35,8 @@ private:
 
 	vector<STAGE_DATA> m_stage;
 
+	vector<vector<int>> m_map;
+
 	VECTOR m_startPos;
 public:
 	CField();
@@ -52,6 +54,16 @@ public:
 	void Update();
 
 	void Exit();
+
+	void CreatePath();
+
+	const vector<VECTOR>& GetPath() const
+	{
+		return m_enemyPath;
+	}
+
+	STAGE_DATA* GetTile(int x, int z);
+
 	const vector<STAGE_DATA>& GetStage() const {
 		return m_stage;
 	}

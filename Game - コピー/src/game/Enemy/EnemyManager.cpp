@@ -33,12 +33,12 @@ void CEnemyManager::Load() {
 	MV1DeleteModel(hndl);
 }
 
-void CEnemyManager::Step(VECTOR endpos) {
+void CEnemyManager::Step() {
 
 
 	for (int i = 0; i < ENEMY_NUM; i++) {
 
-		m_enemy[i].Step(endpos);
+		m_enemy[i].Step();
 
 	}
 }
@@ -65,7 +65,7 @@ void CEnemyManager::Exit() {
 	}
 }
 
-void CEnemyManager::Request(VECTOR startpos) {
+void CEnemyManager::Request(VECTOR startpos,const vector<VECTOR>&path) {
 	m_waitTime++;
 
 	int pop = 0;
@@ -81,6 +81,8 @@ void CEnemyManager::Request(VECTOR startpos) {
 			VECTOR aa = VAdd(startpos, VGet((float)ranx, 0.0f, (float)ranz));
 
 			m_enemy[i].Request(aa);
+
+			m_enemy[i].SetPath(path);
 			pop++;
 			if (pop == m_waveEnemy) {
 				m_waitTime = 0;

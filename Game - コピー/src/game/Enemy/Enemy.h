@@ -1,11 +1,14 @@
 #pragma once
 #include"../common.h"
 #include"EnemyBase.h"
+#include <vector>
 static const float ENEMY_RADIUS = 40;
 
 static const int ENEMY_HP = 175;
 
 static const float ENEMY_SPEED = 3;
+
+using namespace std;
 
 
 class CEnemy :public CEnemyBase {
@@ -36,6 +39,8 @@ private:
 
 	int m_pathIndex;
 
+	vector<VECTOR> m_path;
+
 public:
 
 	CEnemy();
@@ -44,7 +49,7 @@ public:
 
 	void Load(int originHndl);
 
-	void Step(VECTOR endpos);
+	void Step();
 
 	void Draw();
 
@@ -71,4 +76,6 @@ public:
 	bool GetIsDeath() { return m_isDeath; }
 
 	void Reset();
+
+	void SetPath(const vector<VECTOR>& path);
 };
