@@ -13,6 +13,7 @@ void CField::Init() {
     m_modelTable[2] = MV1LoadModel("Data/Model/field/floor.mv1");
     m_modelTable[3] = MV1LoadModel("Data/Model/field/floor.mv1");
     m_modelTable[4] = MV1LoadModel("Data/Model/field/wall.mv1");
+    m_modelTable[5] = MV1LoadModel("Data/Model/field/floor.mv1");
 }
 
 void CField::Load() {
@@ -20,6 +21,7 @@ void CField::Load() {
     string line;
 
     int z = 0;
+    vector<VECTOR>m_pathList;
 
     while (getline(file, line)) {
         stringstream ss(line);
@@ -51,6 +53,7 @@ void CField::Load() {
         }
         z++;
     }
+
 }
 
 void CField::Step() {
@@ -99,11 +102,14 @@ void CField::Exit() {
 }
 
 VECTOR CField::GetSpawnPos() {
+    vector<VECTOR> spawnPos;
     for (auto& data : m_stage) {
         if (data.m_tileID == 2) {
-            return data.m_pos;
+            spawnPos.push_back(data.m_pos);
         }
     }
+    int index=GetRand(spawnPos.size() - 1);
+    return spawnPos[index];
 }
 
 VECTOR CField::GetStartPos() {

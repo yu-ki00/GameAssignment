@@ -9,7 +9,7 @@ static const float TILE_SIZE = 200.0f;
 using namespace std;
 static const char FIELD_PATH[] = { "Data/Model/field/field.mv1" };
 
-static const int TILE_NUM = 4;
+static const int TILE_NUM = 5;
 class CField {
 private:
 	typedef struct {
@@ -32,6 +32,8 @@ private:
 	map<int, int> m_modelTable;
 
 	vector<STAGE_DATA> m_stage;
+
+	int m_cellnum;
 
 	VECTOR m_startPos;
 public:

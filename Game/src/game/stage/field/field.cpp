@@ -13,10 +13,12 @@ void CField::Init() {
     m_modelTable[2] = MV1LoadModel("Data/Model/field/floor.mv1");
     m_modelTable[3] = MV1LoadModel("Data/Model/field/floor.mv1");
     m_modelTable[4] = MV1LoadModel("Data/Model/field/wall.mv1");
+    m_modelTable[5] = MV1LoadModel("Data/Model/field/road.mv1");
+    m_cellnum = 0;
 }
 
 void CField::Load() {
-    ifstream file("Data/CSV/TilePath.csv");
+    ifstream file("Data/CSV/StagePath.csv");
     string line;
 
     int z = 0;
@@ -43,7 +45,7 @@ void CField::Load() {
                 data.m_hndl = MV1DuplicateModel(m_modelTable[tile]);
 
                 data.m_isActive = true;
-
+                m_cellnum++;
                 m_stage.push_back(data);
             }
 
@@ -99,16 +101,19 @@ void CField::Exit() {
 }
 
 VECTOR CField::GetSpawnPos() {
+    vector<VECTOR> spawnPosList;
     for (auto& data : m_stage) {
         if (data.m_tileID == 2) {
-            return data.m_pos;
+            spawnPosList.push_back(data.m_pos);
         }
     }
+    int index = GetRand(static_cast<int>(spawnPosList.size()) - 1);
+
+    return spawnPosList[index];
 }
 
 VECTOR CField::GetStartPos() {
     for (auto& data : m_stage) {
-
         if (data.m_tileID == 3) {
             return data.m_pos;
         }

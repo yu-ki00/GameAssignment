@@ -34,6 +34,8 @@ private:
 
 	bool m_isDeath;
 
+	int m_pathIndex;
+
 public:
 
 	CEnemy();
