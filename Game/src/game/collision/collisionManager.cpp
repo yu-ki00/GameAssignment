@@ -232,7 +232,7 @@ void CCollisionManager::CheckHitEyeToEnemy(CEnemyManager& enemy, CPlayer& player
 
 		VECTOR ene_pos = OneEne.GetCenter();
 
-		if (Collision::CheckHitLineToSphere(ene_pos, ENEMY_RADIUS, eye_pos, eye_end)) {
+		if (Collision::CheckHitLineToSphere(ene_pos, (int)ENEMY_RADIUS, eye_pos, eye_end)) {
 
 			VECTOR vec = VSub(eye_end, eye_pos);
 			VECTOR diff = VSub(ene_pos, eye_pos);
@@ -338,7 +338,7 @@ void CCollisionManager::CheckHitEnemyToEnemy(CEnemyManager& enemy) {
 
 			if (len > 100)continue;
 
-			if (Collision::CheckHitSphereToSphere(enepos1, ENEMY_RADIUS, enepos2, ENEMY_RADIUS)) {
+			if (Collision::CheckHitSphereToSphere(enepos1, (int)ENEMY_RADIUS, enepos2, (int)ENEMY_RADIUS)) {
 				
 				VECTOR diff = VSub(enepos2,enepos1);
 

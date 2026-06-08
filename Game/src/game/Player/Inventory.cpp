@@ -62,7 +62,7 @@ void CInventory::Step() {
 
 void CInventory::Draw() {
 	for (int i = 0;i < TrapNum;i++) {
-		DrawRotaGraph(m_trap[i].m_pos.x, m_trap[i].m_pos.y, 0.4f, 0.0f, m_trap[i].m_hndl, true);
+		DrawRotaGraph((int)m_trap[i].m_pos.x,(int) m_trap[i].m_pos.y, 0.4f, 0.0f, m_trap[i].m_hndl, true);
 		float p = 5.0f;
 		if (i == m_trapNumber) {
 			p = 10.0f;

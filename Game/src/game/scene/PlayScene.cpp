@@ -209,9 +209,9 @@ int CPlayScene::Step()
 			break;
 		case CPlayScene::BATTLE:
 
-			m_enemy.Request(m_field.GetSpawnPos());
+			m_enemy.Request(m_field.GetSpawnPos(),m_field.GetPath());
 
-			m_enemy.Step(m_field.GetStartPos());
+			m_enemy.Step();
 
 			if (m_enemy.IsAllDead()) {
 				m_enemy.Reset();

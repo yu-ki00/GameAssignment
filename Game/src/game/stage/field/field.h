@@ -31,9 +31,11 @@ private:
 	}STAGE_DATA;
 	map<int, int> m_modelTable;
 
+	vector<VECTOR> m_enemyPath;
+
 	vector<STAGE_DATA> m_stage;
 
-	int m_cellnum;
+	vector<vector<int>> m_map;
 
 	VECTOR m_startPos;
 public:
@@ -52,6 +54,16 @@ public:
 	void Update();
 
 	void Exit();
+
+	void CreatePath();
+
+	const vector<VECTOR>& GetPath() const
+	{
+		return m_enemyPath;
+	}
+
+	STAGE_DATA* GetTile(int x, int z);
+
 	const vector<STAGE_DATA>& GetStage() const {
 		return m_stage;
 	}

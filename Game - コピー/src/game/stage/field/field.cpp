@@ -13,7 +13,7 @@ void CField::Init() {
     m_modelTable[2] = MV1LoadModel("Data/Model/field/floor.mv1");
     m_modelTable[3] = MV1LoadModel("Data/Model/field/floor.mv1");
     m_modelTable[4] = MV1LoadModel("Data/Model/field/wall.mv1");
-    m_modelTable[5] = MV1LoadModel("Data/Model/field/floor.mv1");
+    m_modelTable[5] = MV1LoadModel("Data/Model/field/road.mv1");
 }
 
 void CField::Load() {

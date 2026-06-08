@@ -1,2 +1,4 @@
-﻿  Enemy.cpp
+﻿  field.cpp
+C:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\stage\field\field.cpp(113,39): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+C:\Users\2409419\Desktop\GameAssignment\Game - コピー\src\game\stage\field\field.cpp(124,1): warning C4715: 'CField::GetStartPos': 値を返さないコントロール パスがあります。
   Game.vcxproj -> C:\Users\2409419\Desktop\GameAssignment\Game - コピー\x64\Debug\Game.exe

@@ -29,21 +29,52 @@ void CEnemy::Load(int originHndl) {
 	MV1SetupCollInfo(m_hndl);	// ƒRƒŠƒWƒ‡ƒ“î•ñ\’z
 }
 
-void CEnemy::Step(VECTOR endpos) {
+void CEnemy::Step() {
 	float speed = ENEMY_SPEED;
 	if (m_slow) {
 		speed /= 2;
 	}
-	if (m_isActive) {
-		VECTOR diff = VSub(endpos, m_pos);
+	if (m_isActive)
+	{
+		if (m_pathIndex >= m_path.size())
+		{
 
-		VECTOR norm = VNorm(diff);
-		if (VSize(diff) >= 100) {
-			VECTOR SPEED = VScale(norm, speed);
-			m_pos = VAdd(m_pos, SPEED);
+			return;
 		}
-		m_rot.y = atan2f(-norm.x, -norm.z);
-		if (m_hp <= 0) {
+
+		float speed = ENEMY_SPEED;
+
+		if (m_slow)
+		{
+			speed /= 2;
+		}
+
+		VECTOR target = m_path[m_pathIndex];
+
+		VECTOR diff = VSub(target, m_pos);
+
+		float dist = VSize(diff);
+
+		if (dist < 80.0f)
+		{
+			m_pathIndex++;
+		}
+		else
+		{
+			VECTOR norm = VNorm(diff);
+
+			VECTOR move =
+				VScale(norm, speed);
+
+			m_pos =
+				VAdd(m_pos, move);
+
+			m_rot.y =
+				atan2f(-norm.x, -norm.z);
+		}
+
+		if (m_hp <= 0)
+		{
 			m_isActive = false;
 			m_isDeath = true;
 		}
@@ -64,7 +95,7 @@ void CEnemy::Step(VECTOR endpos) {
 	}
 	if (m_isFire) {
 		m_fireTime--;
-			m_hp -= 0.2f;
+		m_hp -= 0.2f;
 		if (m_fireTime <= 0) {
 			m_isFire = false;;
 		}
@@ -104,6 +135,8 @@ void CEnemy::Request(VECTOR pos) {
 
 	m_hp = ENEMY_HP;
 
+	m_pathIndex = 0;
+
 }
 
 VECTOR CEnemy::GetCenter() {
@@ -124,7 +157,7 @@ void CEnemy::HitDamage()
 void CEnemy::SetFire() {
 	m_isFire = true;
 	m_fireTime = 180;
-	m_hp -= 0.2;
+	m_hp -= 0.2f;
 }
 
 void CEnemy::KnockBack(VECTOR vec) {
@@ -140,4 +173,9 @@ void CEnemy::Reset() {
 	m_isFire = false;
 	m_isDamage = false;
 	m_isDeath = false;
+}
+
+void CEnemy::SetPath(const vector<VECTOR>& path) {
+	m_path = path;
+	m_pathIndex = 0;
 }
