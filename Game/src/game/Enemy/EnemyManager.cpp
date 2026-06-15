@@ -78,3 +78,14 @@ void CEnemyManager::Reset() {
 		m_enemy[i]->Reset();
 	}
 }
+bool CEnemyManager::IsAllDead() {
+	bool ret = true;
+	for (int i = 0;i < EnemyNum;i++) {
+		ret=m_enemy[i]->IsAllDead();
+		if (!ret) {
+			return ret;
+		}
+
+	}
+	return ret;
+}

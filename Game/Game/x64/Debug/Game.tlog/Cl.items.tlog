@@ -2,9 +2,10 @@ C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Camera\CameraManager.cpp;C
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Camera\DebugCamera.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\DebugCamera.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Camera\PlayCamera.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\PlayCamera.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\collisionManager.obj
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Enemy\EnemyManager.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\EnemyManager.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Enemy\Goblin.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\Goblin.obj
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Enemy\Enemy2.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\Enemy2.obj
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Enemy\Enemy2Manager.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\Enemy2Manager.obj
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Enemy\HobGoblin.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\HobGoblin.obj
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Enemy\HGoblinManager.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\HGoblinManager.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Enemy\EnemyBase.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\EnemyBase.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Enemy\GoblinManager.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\GoblinManager.obj
 C:\Users\2409419\Desktop\GameAssignment\Game\src\game\Main.cpp;C:\Users\2409419\Desktop\GameAssignment\Game\Game\x64\Debug\Main.obj

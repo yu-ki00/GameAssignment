@@ -9,6 +9,7 @@
 #include"../Player/Inventory.h"
 #include"../Trap/TrapManager.h"
 #include"../stage/crystal/crystal.h"
+#include"../Enemy/EnemyManager.h"
 
 class CPlayScene :CSceneBase{
 private:
@@ -32,7 +33,7 @@ private:
 
 	CSpikeManager m_spike;
 
-	CGoblinManager m_enemy;
+	CEnemyManager m_enemy;
 
 	CInventory m_inventory;
 

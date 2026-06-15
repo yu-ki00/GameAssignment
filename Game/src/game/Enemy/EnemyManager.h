@@ -36,4 +36,6 @@ public:
 	CHGoblin& GetHGoblin(int i);
 
 	void Reset();
+
+	bool IsAllDead();
 };

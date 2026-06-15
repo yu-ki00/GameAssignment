@@ -1,24 +1,2 @@
-﻿  PlayCamera.cpp
-  collisionManager.cpp
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(52,31): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(307,32): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-  EnemyManager.cpp
-  HobGoblin.cpp
-  HGoblinManager.cpp
-  GoblinManager.cpp
-  Main.cpp
-  Player.cpp
-  PlayScene.cpp
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\scene\PlayScene.cpp(236,22): error C2664: 'void CCollisionManager::CheckHitEnemyToSpike(CEnemyManager &,CTrapManager &)': 引数 1 を 'CGoblinManager' から 'CEnemyManager &' へ変換できません。
-      C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.h(22,14):
-      'CCollisionManager::CheckHitEnemyToSpike' の宣言を確認してください
-      C:\Users\2409419\Desktop\GameAssignment\Game\src\game\scene\PlayScene.cpp(236,22):
-      引数リスト '(CGoblinManager, CTrapManager)' を一致させようとしているとき
-  
-  ResultScene.cpp
-  SceneManager.cpp
-  TitleScene.cpp
-  FireManager.cpp
-  NetManager.cpp
-  SpikeManager.cpp
-  コードを生成中...
+﻿  EnemyManager.cpp
+  Game.vcxproj -> C:\Users\2409419\Desktop\GameAssignment\Game\x64\Debug\Game.exe

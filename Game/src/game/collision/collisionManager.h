@@ -19,19 +19,19 @@ public:
 
 	static HitResult CheckHitEyeToStage(CPlayer& player, CField& field,CameraManager& camera);
 
-	static void CheckHitEnemyToSpike(CGoblinManager& enemy, CTrapManager& trap);
+	static void CheckHitEnemyToSpike(CEnemyManager& enemy, CTrapManager& trap);
 
-	static void CheckHitEnemyToNet(CGoblinManager& enemy, CTrapManager& trap);
+	static void CheckHitEnemyToNet(CEnemyManager& enemy, CTrapManager& trap);
 
-	static void CheckHitEnemyToFire(CGoblinManager& enemy, CTrapManager& trap);
+	static void CheckHitEnemyToFire(CEnemyManager& enemy, CTrapManager& trap);
 
-	static void CheckHitEyeToEnemy(CGoblinManager& enemy, CPlayer& player, CameraManager& camera);
+	static void CheckHitEyeToEnemy(CEnemyManager& enemy, CPlayer& player, CameraManager& camera);
 
-	static void CheckHitEnemyToStage(CGoblinManager& enemy, CField& field);
+	static void CheckHitEnemyToStage(CEnemyManager& enemy, CField& field);
 
-	static void CheckHitEnemyToEnemy(CGoblinManager& enemy);
+	static void CheckHitEnemyToEnemy(CEnemyManager& enemy);
 
-	static void CheckHitEnemyToCrystal(CGoblinManager& enemy,CCrystal& crystal);
+	static void CheckHitEnemyToCrystal(CEnemyManager& enemy,CCrystal& crystal);
 
 
 };

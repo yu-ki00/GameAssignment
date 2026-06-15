@@ -98,7 +98,7 @@ CCollisionManager::HitResult CCollisionManager::CheckHitEyeToStage(CPlayer& play
 
 }
 
-void CCollisionManager::CheckHitEnemyToSpike(CGoblinManager& enemy, CTrapManager& trap) {
+void CCollisionManager::CheckHitEnemyToSpike(CEnemyManager& enemy, CTrapManager& trap) {
 	for (int enemyID = 0;enemyID < GOBLIN_NUM;enemyID++) {
 		CGoblin& OneEne = enemy.GetGoblin(enemyID);
 		if (!OneEne.GetActive())continue;
@@ -133,7 +133,7 @@ void CCollisionManager::CheckHitEnemyToSpike(CGoblinManager& enemy, CTrapManager
 
 }
 
-void CCollisionManager::CheckHitEnemyToNet(CGoblinManager& enemy, CTrapManager& trap) {
+void CCollisionManager::CheckHitEnemyToNet(CEnemyManager& enemy, CTrapManager& trap) {
 	for (int enemyID = 0;enemyID < GOBLIN_NUM;enemyID++) {
 		CGoblin& OneEne = enemy.GetGoblin(enemyID);
 		if (!OneEne.GetActive())continue;
@@ -169,7 +169,7 @@ void CCollisionManager::CheckHitEnemyToNet(CGoblinManager& enemy, CTrapManager& 
 
 }
 
-void CCollisionManager::CheckHitEnemyToFire(CGoblinManager& enemy, CTrapManager& trap) {
+void CCollisionManager::CheckHitEnemyToFire(CEnemyManager& enemy, CTrapManager& trap) {
 	for (int enemyID = 0; enemyID < GOBLIN_NUM; enemyID++) {
 		CGoblin& OneEne = enemy.GetGoblin(enemyID);
 		if (!OneEne.GetActive())continue;
@@ -203,7 +203,7 @@ void CCollisionManager::CheckHitEnemyToFire(CGoblinManager& enemy, CTrapManager&
 }
 
 
-void CCollisionManager::CheckHitEyeToEnemy(CGoblinManager& enemy, CPlayer& player, CameraManager& camera) {
+void CCollisionManager::CheckHitEyeToEnemy(CEnemyManager& enemy, CPlayer& player, CameraManager& camera) {
 
 	bool isHit = false;
 
@@ -251,7 +251,7 @@ void CCollisionManager::CheckHitEyeToEnemy(CGoblinManager& enemy, CPlayer& playe
 	}
 }
 
-void CCollisionManager::CheckHitEnemyToStage(CGoblinManager& enemy, CField& field) {
+void CCollisionManager::CheckHitEnemyToStage(CEnemyManager& enemy, CField& field) {
 
 	for (int enemyID = 0;enemyID < GOBLIN_NUM;enemyID++) {
 
@@ -315,7 +315,7 @@ void CCollisionManager::CheckHitEnemyToStage(CGoblinManager& enemy, CField& fiel
 	}
 }
 
-void CCollisionManager::CheckHitEnemyToEnemy(CGoblinManager& enemy) {
+void CCollisionManager::CheckHitEnemyToEnemy(CEnemyManager& enemy) {
 	for (int i = 0; i < GOBLIN_NUM; i++) {
 
 		CGoblin& OneEne = enemy.GetGoblin(i);
@@ -362,7 +362,7 @@ void CCollisionManager::CheckHitEnemyToEnemy(CGoblinManager& enemy) {
 	}
 }
 
-void CCollisionManager::CheckHitEnemyToCrystal(CGoblinManager& enemy, CCrystal& crystal) {
+void CCollisionManager::CheckHitEnemyToCrystal(CEnemyManager& enemy, CCrystal& crystal) {
 
 	for (int i = 0; i < GOBLIN_NUM; i++) {
 

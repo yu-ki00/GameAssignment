@@ -9,13 +9,20 @@ CHGoblin::~CHGoblin() {
 }
 
 void CHGoblin::Init() {
+
 	CObject3D::Init();
+
 	m_hp = HGOBLIN_HP;
+
 	m_isActive = false;
+
 	m_isKnock = false;
+
 	m_isFire = false;
+
 	m_isDamage = false;
-	m_isDeath = false;
+
+	m_isDeath = true;
 }
 
 void CHGoblin::Load(int originHndl) {
@@ -152,5 +159,5 @@ void CHGoblin::Reset() {
 	m_isKnock = false;
 	m_isFire = false;
 	m_isDamage = false;
-	m_isDeath = false;
+	m_isDeath = true;
 }

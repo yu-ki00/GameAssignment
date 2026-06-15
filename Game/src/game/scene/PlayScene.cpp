@@ -209,7 +209,7 @@ int CPlayScene::Step()
 			break;
 		case CPlayScene::BATTLE:
 
-			m_enemy.Request(m_field.GetSpawnPos(),m_field.GetPath());
+			m_enemy.Request(m_field.GetSpawnPos(),m_field.GetPath(),Gob);
 
 			m_enemy.Step();
 
