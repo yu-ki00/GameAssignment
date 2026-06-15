@@ -2,12 +2,13 @@
 #include"../../lib/collision/collision.h"
 #include"../Player/Player.h"
 #include"../stage/field/field.h"
-#include"../Enemy/EnemyManager.h"
+#include"../Enemy/GoblinManager.h"
 #include"../Camera/CameraManager.h"
 #include"../Trap/SpikeManager.h"
 #include"../Player/Inventory.h"
 #include"../Trap/TrapManager.h"
 #include"../stage/crystal/crystal.h"
+#include"../Enemy/EnemyManager.h"
 class CCollisionManager {
 public:
 	struct HitResult {
@@ -18,19 +19,19 @@ public:
 
 	static HitResult CheckHitEyeToStage(CPlayer& player, CField& field,CameraManager& camera);
 
-	static void CheckHitEnemyToSpike(CEnemyManager& enemy, CTrapManager& trap);
+	static void CheckHitEnemyToSpike(CGoblinManager& enemy, CTrapManager& trap);
 
-	static void CheckHitEnemyToNet(CEnemyManager& enemy, CTrapManager& trap);
+	static void CheckHitEnemyToNet(CGoblinManager& enemy, CTrapManager& trap);
 
-	static void CheckHitEnemyToFire(CEnemyManager& enemy, CTrapManager& trap);
+	static void CheckHitEnemyToFire(CGoblinManager& enemy, CTrapManager& trap);
 
-	static void CheckHitEyeToEnemy(CEnemyManager& enemy, CPlayer& player, CameraManager& camera);
+	static void CheckHitEyeToEnemy(CGoblinManager& enemy, CPlayer& player, CameraManager& camera);
 
-	static void CheckHitEnemyToStage(CEnemyManager& enemy, CField& field);
+	static void CheckHitEnemyToStage(CGoblinManager& enemy, CField& field);
 
-	static void CheckHitEnemyToEnemy(CEnemyManager& enemy);
+	static void CheckHitEnemyToEnemy(CGoblinManager& enemy);
 
-	static void CheckHitEnemyToCrystal(CEnemyManager& enemy,CCrystal& crystal);
+	static void CheckHitEnemyToCrystal(CGoblinManager& enemy,CCrystal& crystal);
 
 
 };

@@ -1,112 +1,80 @@
 #include"EnemyManager.h"
-#include"../collision/collisionManager.h"
 
 CEnemyManager::CEnemyManager() {
-
-	Init();
-
-
+	for (int i = 0;i < EnemyNum;i++) {
+		m_enemy[i] = nullptr;
+	}
+	m_enemy[0] = new CGoblinManager;
+	m_enemy[1] = new CHGManager;
 }
-
 CEnemyManager::~CEnemyManager() {
-
+	for (int i = 0;i < EnemyNum;i++) {
+		delete m_enemy[i];
+	}
 }
 
 void CEnemyManager::Init() {
-	for (int i = 0; i < ENEMY_NUM; i++) {
-
-		m_enemy[i].Init();
-
+	for (int i = 0;i < EnemyNum;i++) {
+		m_enemy[i]->Init();
 	}
-	m_waitTime = WAIT_TIME;
-	m_waveEnemy = 2;
 }
 
 void CEnemyManager::Load() {
-
-	int hndl = MV1LoadModel(ENEMY_MODEL_PATH);
-
-	for (int i = 0; i < ENEMY_NUM; i++) {
-
-		m_enemy[i].Load(hndl);
+	for (int i = 0;i < EnemyNum;i++) {
+		m_enemy[i]->Load();
 	}
-	MV1DeleteModel(hndl);
 }
 
 void CEnemyManager::Step() {
-
-
-	for (int i = 0; i < ENEMY_NUM; i++) {
-
-		m_enemy[i].Step();
-
+	for (int i = 0;i < EnemyNum;i++) {
+		m_enemy[i]->Step();
 	}
 }
 
 void CEnemyManager::Draw() {
-
-	for (int i = 0; i < ENEMY_NUM; i++) {
-		m_enemy[i].Draw();
-
-	}
-}
-
-void CEnemyManager::Update() {
-	for (int i = 0; i < ENEMY_NUM; i++) {
-		m_enemy[i].Update();
-
+	for (int i = 0;i < EnemyNum;i++) {
+		m_enemy[i]->Draw();
 	}
 }
 
 void CEnemyManager::Exit() {
-	for (int i = 0; i < ENEMY_NUM; i++) {
-		m_enemy[i].Exit();
-
+	for (int i = 0;i < EnemyNum;i++) {
+		m_enemy[i]->Exit();
 	}
 }
 
-void CEnemyManager::Request(VECTOR startpos,const vector<VECTOR>&path) {
-	m_waitTime++;
-
-	int pop = 0;
-
-	for (int i = 0; i < ENEMY_NUM; i++) {
-
-		if (m_waitTime >= WAIT_TIME && !m_enemy[i].GetActive() && !m_enemy[i].GetIsDeath()) {
-
-			int ranx = GetRand(200) - 100;
-
-			int ranz = GetRand(200) - 100;
-
-			VECTOR aa = VAdd(startpos, VGet((float)ranx, 0.0f, (float)ranz));
-
-			m_enemy[i].Request(aa);
-
-			m_enemy[i].SetPath(path);
-			pop++;
-			if (pop == m_waveEnemy) {
-				m_waitTime = 0;
-				m_waveEnemy++;
-				break;
-			}
-
-		}
+void CEnemyManager::Update() {
+	for (int i = 0;i < EnemyNum;i++) {
+		m_enemy[i]->Update();
 	}
 }
 
-bool CEnemyManager::IsAllDead() {
-	for (int i = 0;i < ENEMY_NUM;i++) {
-		if (!m_enemy[i].GetIsDeath()) {
-			return false;
-		}
+void CEnemyManager::Request(VECTOR startpos, const vector<VECTOR>& path,EnemyType enemy) {
+	switch (enemy)
+	{
+	case Gob:
+		m_enemy[Gob]->Request(startpos, path);
+		break;
+	case HGob:
+		m_enemy[HGob]->Request(startpos, path);
+		break;
+	default:
+		break;
 	}
-	return true;
+}
+
+CGoblin& CEnemyManager::GetGoblin(int i) {
+	CGoblinManager* goblinMgr = dynamic_cast<CGoblinManager*>(m_enemy[Gob]);
+	return goblinMgr->GetGoblin(i);
+}
+
+CHGoblin& CEnemyManager::GetHGoblin(int i) {
+	CHGManager* HGMgr = dynamic_cast<CHGManager*>(m_enemy[HGob]);
+	return HGMgr->GetHGoblin(i);
 }
 
 void CEnemyManager::Reset() {
-	for (int i = 0;i < ENEMY_NUM;i++) {
-		m_enemy[i].Reset();
+	for (int i = 0;i < EnemyNum;i++) {
+		m_enemy[i]->Reset();
 	}
-	m_waitTime = WAIT_TIME;
-	m_waveEnemy = 2;
 }
