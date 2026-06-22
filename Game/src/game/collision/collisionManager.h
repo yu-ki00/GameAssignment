@@ -32,6 +32,8 @@ public:
 	static void CheckHitEnemyToEnemy(CEnemyManager& enemy);
 
 	static void CheckHitEnemyToCrystal(CEnemyManager& enemy,CCrystal& crystal);
+	template <typename T>
+	static void CheckEnemyToStage(T& enemy, CField& field, float radius);
 
 
 };

@@ -39,4 +39,10 @@ public:
 
 	void Reset();
 
+	int GetEnemyNum() { return GOBLIN_NUM; }
+
+	CEnemyBase* GetEnemy(int index);
+
+
+
 };

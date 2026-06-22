@@ -22,7 +22,9 @@ void CHGoblin::Init() {
 
 	m_isDamage = false;
 
-	m_isDeath = true;
+	m_isDeath = false;
+
+	m_scale = VScale(m_scale, 1.5);
 }
 
 void CHGoblin::Load(int originHndl) {
@@ -159,5 +161,5 @@ void CHGoblin::Reset() {
 	m_isKnock = false;
 	m_isFire = false;
 	m_isDamage = false;
-	m_isDeath = true;
+	m_isDeath = false;
 }

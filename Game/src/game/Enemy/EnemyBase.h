@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 class CEnemyBase:public CObject3D {
-private:
+protected:
 	float m_hp;
 
 	float m_speed;
@@ -56,4 +56,8 @@ public:
 	virtual bool GetIsDeath() { return m_isDeath; }
 
 	virtual void SetPath(const vector<VECTOR>& path);
+	
+	virtual VECTOR GetCenter()=0;
+
+	virtual float GetRadius() = 0;
 };

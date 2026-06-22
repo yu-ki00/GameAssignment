@@ -3,24 +3,64 @@
   "WorkspaceRootPath": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\collision\\collisionManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\collision\\collisionManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyBase.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\EnemyBase.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\EnemyManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\Goblin.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\Goblin.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\HobGoblin.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\HobGoblin.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\GoblinManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\GoblinManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\scene\\PlayScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\scene\\PlayScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\collision\\collisionManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\collision\\collisionManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\HobGoblin.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\HobGoblin.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\Goblin.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\Goblin.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\HGoblinManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\HGoblinManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\HobGoblin.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\HobGoblin.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\Goblin.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\Goblin.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyBase.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\EnemyBase.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\HGoblinManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\HGoblinManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\scene\\PlayScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\scene\\PlayScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\EnemyManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyManagerBase.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\EnemyManagerBase.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\GoblinManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -31,20 +71,20 @@
       "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\collision\\collisionManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\scene\\PlayScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\scene\\PlayScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\stage\\field\\field.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\stage\\field\\field.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\HGoblinManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\HGoblinManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Player\\Inventory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Player\\Inventory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\EnemyManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\scene\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\scene\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyManagerBase.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\EnemyManagerBase.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Player\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Player\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Trap\\TrapBase.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -63,44 +103,12 @@
       "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Trap\\TrapManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\HGoblinManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\HGoblinManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyBase.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\EnemyBase.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\GoblinManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\GoblinManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\Goblin.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\Goblin.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Trap\\TrapManagerbase.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Trap\\TrapManagerbase.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Trap\\SpikeManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Trap\\SpikeManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\HobGoblin.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\HobGoblin.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyBase.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Enemy\\EnemyBase.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Player\\Inventory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Player\\Inventory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Player\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BB9B4B7F-74ED-44BA-AA74-C47F5CF6950E}|Game.vcxproj|solutionrelative:src\\game\\Player\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -110,11 +118,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
+              "Title": "field.cpp",
+              "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\stage\\field\\field.cpp",
+              "RelativeDocumentMoniker": "src\\game\\stage\\field\\field.cpp",
+              "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\stage\\field\\field.cpp",
+              "RelativeToolTip": "src\\game\\stage\\field\\field.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-22T01:06:20.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "SceneManager.cpp",
+              "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\scene\\SceneManager.cpp",
+              "RelativeDocumentMoniker": "src\\game\\scene\\SceneManager.cpp",
+              "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\scene\\SceneManager.cpp",
+              "RelativeToolTip": "src\\game\\scene\\SceneManager.cpp",
+              "ViewState": "AgIAADQAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-18T02:49:31.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "Spike.cpp",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Trap\\Spike.cpp",
               "RelativeDocumentMoniker": "src\\game\\Trap\\Spike.cpp",
@@ -122,12 +155,11 @@
               "RelativeToolTip": "src\\game\\Trap\\Spike.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-06-15T02:33:02.341Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-15T02:33:02.341Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 23,
               "Title": "SpikeManager.cpp",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Trap\\SpikeManager.cpp",
               "RelativeDocumentMoniker": "src\\game\\Trap\\SpikeManager.cpp",
@@ -135,12 +167,11 @@
               "RelativeToolTip": "src\\game\\Trap\\SpikeManager.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-06-15T02:33:01.674Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-15T02:33:01.674Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 21,
               "Title": "TrapBase.cpp",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Trap\\TrapBase.cpp",
               "RelativeDocumentMoniker": "src\\game\\Trap\\TrapBase.cpp",
@@ -148,12 +179,11 @@
               "RelativeToolTip": "src\\game\\Trap\\TrapBase.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-06-15T02:33:00.895Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-15T02:33:00.895Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 24,
               "Title": "TrapManager.cpp",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Trap\\TrapManager.cpp",
               "RelativeDocumentMoniker": "src\\game\\Trap\\TrapManager.cpp",
@@ -161,12 +191,11 @@
               "RelativeToolTip": "src\\game\\Trap\\TrapManager.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-06-15T02:32:59.579Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-15T02:32:59.579Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 26,
               "Title": "SpikeManager.h",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Trap\\SpikeManager.h",
               "RelativeDocumentMoniker": "src\\game\\Trap\\SpikeManager.h",
@@ -178,85 +207,85 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "EnemyManager.h",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyManager.h",
               "RelativeDocumentMoniker": "src\\game\\Enemy\\EnemyManager.h",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyManager.h",
               "RelativeToolTip": "src\\game\\Enemy\\EnemyManager.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvyMAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-06-15T01:54:04.081Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "EnemyManager.cpp",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyManager.cpp",
               "RelativeDocumentMoniker": "src\\game\\Enemy\\EnemyManager.cpp",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyManager.cpp",
               "RelativeToolTip": "src\\game\\Enemy\\EnemyManager.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-06-15T01:53:39.991Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "PlayScene.cpp",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\scene\\PlayScene.cpp",
               "RelativeDocumentMoniker": "src\\game\\scene\\PlayScene.cpp",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\scene\\PlayScene.cpp",
               "RelativeToolTip": "src\\game\\scene\\PlayScene.cpp",
-              "ViewState": "AgIAAMIAAAAAAAAAAAAkwNcAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAMQAAAAAAAAAAAAhwOkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-06-15T01:43:54.875Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "PlayScene.h",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\scene\\PlayScene.h",
               "RelativeDocumentMoniker": "src\\game\\scene\\PlayScene.h",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\scene\\PlayScene.h",
               "RelativeToolTip": "src\\game\\scene\\PlayScene.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-06-15T01:43:35.396Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 16,
               "Title": "collisionManager.h",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\collision\\collisionManager.h",
               "RelativeDocumentMoniker": "src\\game\\collision\\collisionManager.h",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\collision\\collisionManager.h",
               "RelativeToolTip": "src\\game\\collision\\collisionManager.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvyEAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAIwCQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-06-15T01:41:28.389Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "collisionManager.cpp",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\collision\\collisionManager.cpp",
               "RelativeDocumentMoniker": "src\\game\\collision\\collisionManager.cpp",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\collision\\collisionManager.cpp",
               "RelativeToolTip": "src\\game\\collision\\collisionManager.cpp",
-              "ViewState": "AgIAAP8AAAAAAAAAAAAkwGYBAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAMgAAAAAAAAAAAAhwNkAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-06-15T01:41:26.559Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 25,
               "Title": "TrapManagerbase.h",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Trap\\TrapManagerbase.h",
               "RelativeDocumentMoniker": "src\\game\\Trap\\TrapManagerbase.h",
@@ -268,57 +297,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "EnemyManagerBase.h",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyManagerBase.h",
               "RelativeDocumentMoniker": "src\\game\\Enemy\\EnemyManagerBase.h",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyManagerBase.h",
               "RelativeToolTip": "src\\game\\Enemy\\EnemyManagerBase.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvxAAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-06-15T01:04:13.154Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 11,
               "Title": "HGoblinManager.h",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\HGoblinManager.h",
               "RelativeDocumentMoniker": "src\\game\\Enemy\\HGoblinManager.h",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\HGoblinManager.h",
               "RelativeToolTip": "src\\game\\Enemy\\HGoblinManager.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-15T01:00:41.394Z"
+              "WhenOpened": "2026-06-15T01:00:41.394Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "HGoblinManager.cpp",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\HGoblinManager.cpp",
               "RelativeDocumentMoniker": "src\\game\\Enemy\\HGoblinManager.cpp",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\HGoblinManager.cpp",
               "RelativeToolTip": "src\\game\\Enemy\\HGoblinManager.cpp",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAhwGMAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAFAAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-06-15T01:00:26.551Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 3,
               "Title": "GoblinManager.cpp",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\GoblinManager.cpp",
               "RelativeDocumentMoniker": "src\\game\\Enemy\\GoblinManager.cpp",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\GoblinManager.cpp",
               "RelativeToolTip": "src\\game\\Enemy\\GoblinManager.cpp",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAB4AAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-06-15T00:48:13.286Z"
+              "WhenOpened": "2026-06-15T00:48:13.286Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 20,
               "Title": "Player.cpp",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Player\\Player.cpp",
               "RelativeDocumentMoniker": "src\\game\\Player\\Player.cpp",
@@ -330,99 +361,104 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 15,
               "Title": "GoblinManager.h",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\GoblinManager.h",
               "RelativeDocumentMoniker": "src\\game\\Enemy\\GoblinManager.h",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\GoblinManager.h",
               "RelativeToolTip": "src\\game\\Enemy\\GoblinManager.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACkAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-06-15T00:53:55.281Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 10,
               "Title": "EnemyBase.h",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyBase.h",
               "RelativeDocumentMoniker": "src\\game\\Enemy\\EnemyBase.h",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyBase.h",
               "RelativeToolTip": "src\\game\\Enemy\\EnemyBase.h",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAD0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-15T00:50:41.135Z"
+              "WhenOpened": "2026-06-15T00:50:41.135Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 18,
               "Title": "Inventory.cpp",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Player\\Inventory.cpp",
               "RelativeDocumentMoniker": "src\\game\\Player\\Inventory.cpp",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Player\\Inventory.cpp",
               "RelativeToolTip": "src\\game\\Player\\Inventory.cpp",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAowGgAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAowGQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-06-15T00:50:22.087Z"
+              "WhenOpened": "2026-06-15T00:50:22.087Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Goblin.cpp",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\Goblin.cpp",
               "RelativeDocumentMoniker": "src\\game\\Enemy\\Goblin.cpp",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\Goblin.cpp",
               "RelativeToolTip": "src\\game\\Enemy\\Goblin.cpp",
-              "ViewState": "AgIAAI8AAAAAAAAAAAAkwKwAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-06-15T00:50:05.565Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 1,
               "Title": "EnemyBase.cpp",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyBase.cpp",
               "RelativeDocumentMoniker": "src\\game\\Enemy\\EnemyBase.cpp",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\EnemyBase.cpp",
               "RelativeToolTip": "src\\game\\Enemy\\EnemyBase.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAACAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAhwCsAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-06-15T00:50:04.66Z"
+              "WhenOpened": "2026-06-15T00:50:04.66Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 9,
               "Title": "Goblin.h",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\Goblin.h",
               "RelativeDocumentMoniker": "src\\game\\Enemy\\Goblin.h",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\Goblin.h",
               "RelativeToolTip": "src\\game\\Enemy\\Goblin.h",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAEMAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAADkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-15T00:49:41.886Z"
+              "WhenOpened": "2026-06-15T00:49:41.886Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 8,
               "Title": "HobGoblin.h",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\HobGoblin.h",
               "RelativeDocumentMoniker": "src\\game\\Enemy\\HobGoblin.h",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\HobGoblin.h",
               "RelativeToolTip": "src\\game\\Enemy\\HobGoblin.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-15T00:49:38.558Z"
+              "WhenOpened": "2026-06-15T00:49:38.558Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "HobGoblin.cpp",
               "DocumentMoniker": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\HobGoblin.cpp",
               "RelativeDocumentMoniker": "src\\game\\Enemy\\HobGoblin.cpp",
               "ToolTip": "C:\\Users\\2409419\\Desktop\\GameAssignment\\Game\\src\\game\\Enemy\\HobGoblin.cpp",
               "RelativeToolTip": "src\\game\\Enemy\\HobGoblin.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-06-15T00:49:07.26Z",
               "EditorCaption": ""

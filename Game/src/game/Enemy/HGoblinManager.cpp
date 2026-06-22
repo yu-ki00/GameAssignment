@@ -110,3 +110,7 @@ void CHGManager::Reset() {
 	m_waitTime = WAIT_TIME2;
 	m_waveEnemy = 2;
 }
+
+CEnemyBase* CHGManager::GetEnemy(int i) {
+	return &m_hg[i];
+}

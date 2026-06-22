@@ -110,3 +110,6 @@ void CGoblinManager::Reset() {
 	m_waitTime = WAIT_TIME;
 	m_waveEnemy = 2;
 }
+CEnemyBase* CGoblinManager::GetEnemy(int i) {
+	return &m_goblin[i];
+}

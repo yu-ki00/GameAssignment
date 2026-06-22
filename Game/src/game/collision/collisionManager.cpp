@@ -222,7 +222,7 @@ void CCollisionManager::CheckHitEyeToEnemy(CEnemyManager& enemy, CPlayer& player
 
 	//ÉJÉÅÉâÇÃéãê¸ÇÃèIì_ÇéÊìæ
 	VECTOR eye_end = VAdd(eye_pos, VScale(play.GetVec(), 300));
-	
+
 	for (int enemyID = 0;enemyID < GOBLIN_NUM;enemyID++) {
 
 		CGoblin& OneEne = enemy.GetGoblin(enemyID);
@@ -252,111 +252,85 @@ void CCollisionManager::CheckHitEyeToEnemy(CEnemyManager& enemy, CPlayer& player
 }
 
 void CCollisionManager::CheckHitEnemyToStage(CEnemyManager& enemy, CField& field) {
+	for (int enemyindex = 0;enemyindex < EnemyNum;enemyindex++) {
 
-	for (int enemyID = 0;enemyID < GOBLIN_NUM;enemyID++) {
-
-		bool isGround = false;
-		CGoblin& OneEne = enemy.GetGoblin(enemyID);
-
-		if (!OneEne.GetActive())continue;
-
-		VECTOR ene_pos = OneEne.GetCenter();
-		float ene_rad = GOBLIN_RADIUS;
-
-		float maxPush = 0.0f;
-
-		VECTOR pos = ene_pos;
-
-		for (int loop = 0; loop < 3; loop++) {
-
-			VECTOR totalPush = VGet(0, 0, 0);
-
-			for (auto& data : field.GetStage()) {
-
-				if (!data.m_isActive) continue;
-				float len = VSize(VSub(pos, data.m_pos));
-				if (len > 200)continue;
-
-				MV1_COLL_RESULT_POLY_DIM col;
-				col = MV1CollCheck_Sphere(data.m_hndl, -1, pos, ene_rad);
-
-				if (col.HitNum != 0) {
-
-					for (int i = 0; i < col.HitNum; i++) {
-
-						VECTOR Normal = col.Dim[i].Normal;
-
-						VECTOR v = VSub(pos, col.Dim[i].HitPosition);
-						float len = VSize(v);
-
-						len = ene_rad - len;
-
-						VECTOR push = VScale(Normal, len);
-
-						totalPush = VAdd(totalPush, push);
-
-						if (Normal.y >= 0.5f) {
-							isGround = true;
-						}
-					}
-					MV1CollResultPolyDimTerminate(col);
-				}
-
-
+		for (int enemyID = 0;enemyID < ENEMY_NUM[enemyindex];enemyID++) {
+			switch (enemyindex)
+			{
+			case 0: 
+			{
+				auto& goblin = enemy.GetGoblin(enemyID);
+				CheckEnemyToStage(goblin, field, GOBLIN_RADIUS);
+				break;
 			}
-			totalPush.y = (int)totalPush.y;
-
-			pos = VAdd(pos, totalPush);
-
+			case 1: 
+			{
+				auto& hgoblin = enemy.GetHGoblin(enemyID);
+				CheckEnemyToStage(hgoblin, field, HGOBLIN_RADIUS);
+				break;
+			}
+			default:
+				break;
+			}
 		}
-		pos.y -= GOBLIN_RADIUS;
-		OneEne.SetPos(pos);
-	
 	}
 }
 
 void CCollisionManager::CheckHitEnemyToEnemy(CEnemyManager& enemy) {
-	for (int i = 0; i < GOBLIN_NUM; i++) {
 
-		CGoblin& OneEne = enemy.GetGoblin(i);
+	for (int typeA = 0; typeA < EnemyNum; typeA++)
+	{
+		for (int i = 0; i < enemy.GetManager(typeA)->GetEnemyNum(); i++)
+		{
+			//ìñÇΩÇËîªíËÇÇ∆ÇÈÇPëÃñ⁄
+			CEnemyBase* one = enemy.GetManager(typeA)->GetEnemy(i);
 
-		if (!OneEne.GetActive())continue;
+			if (!one->GetActive())
+				continue;
+			VECTOR enepos1 = one->GetCenter();
 
-		VECTOR enepos1 = OneEne.GetCenter();
+			for (int typeB = typeA; typeB < EnemyNum; typeB++)
+			{
+				int start = 0;
 
-		for (int j = 0; j < GOBLIN_NUM; j++) {
+				if (typeA == typeB)
+					start = i + 1;
 
-			if (j == i)continue;
+				for (int j = start; j < enemy.GetManager(typeB)->GetEnemyNum(); j++)
+				{
+					//ìñÇΩÇËîªíËÇÇ∆ÇÈÇQëÃñ⁄
+					CEnemyBase* two = enemy.GetManager(typeB)->GetEnemy(j);
 
-			CGoblin& TwoEne = enemy.GetGoblin(j);
+					if (!two->GetActive())
+						continue;
 
-			if (!TwoEne.GetActive())continue;
+					VECTOR enepos2 = two->GetCenter();
 
-			VECTOR enepos2=TwoEne.GetCenter();
+					float len = VSize(VSub(enepos2, enepos1));
 
-			float len = VSize(VSub(enepos2, enepos1));
+					if (len > 100)continue;
 
-			if (len > 100)continue;
+					if (Collision::CheckHitSphereToSphere(enepos1, (int)one->GetRadius(), enepos2, (int)two->GetRadius())) {
 
-			if (Collision::CheckHitSphereToSphere(enepos1, (int)GOBLIN_RADIUS, enepos2, (int)GOBLIN_RADIUS)) {
-				
-				VECTOR diff = VSub(enepos2,enepos1);
+						VECTOR diff = VSub(enepos2, enepos1);
 
-				float len = VSize(diff);
+						float dist = VSize(diff);
 
-				if (len <= 0.0001f) continue;
+						if (dist <= 0.0001f) continue;
 
-				VECTOR norm = VNorm(diff);
-				
-				VECTOR push = VScale(norm, GOBLIN_RADIUS*2);
+						VECTOR norm = VNorm(diff);
 
-				push = VSub(push, diff);
+						VECTOR push = VScale(norm, GOBLIN_RADIUS * 2);
 
-				push = VScale(push, 0.5f);
+						push = VSub(push, diff);
 
-				OneEne.SetPos(VSub(OneEne.GetPos(), push));
+						push = VScale(push, 0.5f);
 
-				TwoEne.SetPos(VAdd(TwoEne.GetPos(), push));
+						one->SetPos(VSub(one->GetPos(), push));
+
+						two->SetPos(VAdd(two->GetPos(), push));
+					}
+				}
 			}
 		}
 	}
@@ -372,9 +346,58 @@ void CCollisionManager::CheckHitEnemyToCrystal(CEnemyManager& enemy, CCrystal& c
 
 		VECTOR enepos1 = OneEne.GetCenter();
 		MV1_COLL_RESULT_POLY_DIM col;
-		col = MV1CollCheck_Sphere(crystal.GetHndl(), -1, enepos1, GOBLIN_RADIUS*2);
+		col = MV1CollCheck_Sphere(crystal.GetHndl(), -1, enepos1, GOBLIN_RADIUS * 2);
 		if (col.HitNum > 0) {
 			crystal.SubHp(1);
 		}
 	}
+}
+
+template <typename T>
+void  CCollisionManager::CheckEnemyToStage(T& enemy, CField& field, float radius)
+{
+	if (!enemy.GetActive()) return;
+
+	VECTOR pos = enemy.GetCenter();
+
+
+
+	for (int loop = 0; loop < 3; loop++)
+	{
+		VECTOR totalPush = VGet(0, 0, 0);
+
+		for (auto& data : field.GetStage()) {
+
+			if (!data.m_isActive) continue;
+			float stageDistance = VSize(VSub(pos, data.m_pos));
+			if (stageDistance > 200)continue;
+
+			MV1_COLL_RESULT_POLY_DIM col;
+			col = MV1CollCheck_Sphere(data.m_hndl, -1, pos, radius);
+
+			if (col.HitNum != 0) {
+
+				for (int i = 0; i < col.HitNum; i++) {
+
+					VECTOR Normal = col.Dim[i].Normal;
+
+					VECTOR v = VSub(pos, col.Dim[i].HitPosition);
+					float hitDistance = VSize(v);
+
+					hitDistance = radius - hitDistance;
+
+					VECTOR push = VScale(Normal, hitDistance);
+
+					totalPush = VAdd(totalPush, push);
+				}
+				MV1CollResultPolyDimTerminate(col);
+			}
+		}
+		totalPush.y = (int)totalPush.y;
+
+		pos = VAdd(pos, totalPush);
+	}
+
+	pos.y -= radius;
+	enemy.SetPos(pos);
 }

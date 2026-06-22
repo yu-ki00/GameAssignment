@@ -1,7 +1,7 @@
 #pragma once
 #include"../common.h"
 #include"EnemyBase.h"
-static const float HGOBLIN_RADIUS = 40;
+static const float HGOBLIN_RADIUS = 60;
 
 static const int HGOBLIN_HP = 250;
 
@@ -11,31 +11,6 @@ class CHGoblin :public CEnemyBase {
 public:
 private:
 
-	float m_hp;
-
-	float m_speed;
-
-	bool m_slow;
-
-	int m_fireTime;
-
-	int m_damageTime;
-
-	bool m_isKnock;
-
-	VECTOR m_knockPow;
-
-	int m_knockTime;
-
-	bool m_isDamage;
-
-	bool m_isFire;
-
-	bool m_isDeath;
-
-	int m_pathIndex;
-
-	vector<VECTOR> m_path;
 
 public:
 
@@ -56,4 +31,6 @@ public:
 	VECTOR GetCenter();
 
 	void Reset();
+
+	float GetRadius() { return HGOBLIN_RADIUS; }
 };

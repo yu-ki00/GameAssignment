@@ -40,4 +40,9 @@ public:
 
 	void Reset();
 
+	int GetEnemyNum() { return HG_NUM; }
+
+	CEnemyBase* GetEnemy(int i);
+
+
 };

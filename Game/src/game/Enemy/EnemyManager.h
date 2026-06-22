@@ -38,4 +38,9 @@ public:
 	void Reset();
 
 	bool IsAllDead();
+
+	CEnemyManagerBase* GetManager(int type)
+	{
+		return m_enemy[type];
+	}
 };

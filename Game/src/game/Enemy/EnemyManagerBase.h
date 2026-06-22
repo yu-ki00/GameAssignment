@@ -2,6 +2,7 @@
 #include<DxLib.h>
 #include<vector>
 using namespace std;
+static const int ENEMY_NUM[2] = { 14 ,14 };
 class CEnemyManagerBase {
 private:
 
@@ -23,5 +24,9 @@ public:
 	virtual bool IsAllDead() = 0;
 
 	virtual void Reset() = 0;
+
+	virtual int GetEnemyNum() = 0;
+
+	virtual CEnemyBase* GetEnemy(int i) = 0;
 
 };
