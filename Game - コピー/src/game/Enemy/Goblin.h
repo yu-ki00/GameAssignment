@@ -1,50 +1,26 @@
 #pragma once
 #include"../common.h"
 #include"EnemyBase.h"
-#include <vector>
-static const float ENEMY_RADIUS = 40;
 
-static const int ENEMY_HP = 175;
+static const float GOBLIN_RADIUS = 40;
 
-static const float ENEMY_SPEED = 3;
+static const int GOBLIN_HP = 175;
 
-using namespace std;
+static const float GOBLIN_SPEED = 3;
 
 
-class CEnemy :public CEnemyBase {
+
+
+class CGoblin :public CEnemyBase {
 public:
 private:
 	
-	float m_hp;
 
-	float m_speed;
-
-	bool m_slow;
-
-	int m_fireTime;
-
-	int m_damageTime;
-
-	bool m_isKnock;
-
-	VECTOR m_knockPow;
-
-	int m_knockTime;
-
-	bool m_isDamage;
-
-	bool m_isFire;
-
-	bool m_isDeath;
-
-	int m_pathIndex;
-
-	vector<VECTOR> m_path;
 
 public:
 
-	CEnemy();
-	~CEnemy();
+	CGoblin();
+	~CGoblin();
 	void Init();
 
 	void Load(int originHndl);
@@ -78,4 +54,7 @@ public:
 	void Reset();
 
 	void SetPath(const vector<VECTOR>& path);
+
+	float GetRadius() { return GOBLIN_RADIUS; }
+
 };

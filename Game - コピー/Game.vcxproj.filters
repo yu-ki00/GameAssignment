@@ -132,9 +132,6 @@
     <Filter Include="ソース ファイル\game\stage\crystal">
       <UniqueIdentifier>{02ec3e8b-de6d-4837-9a4a-5c2c304c7561}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\game\stage\gate">
-      <UniqueIdentifier>{64f3f4fc-3c83-4ba8-8da6-2cef79ca88e2}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\collision\collision.cpp">
@@ -200,10 +197,10 @@
     <ClCompile Include="src\game\Enemy\EnemyBase.cpp">
       <Filter>ソース ファイル\game\enemy</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\Enemy\EnemyManager.cpp">
+    <ClCompile Include="src\game\Enemy\GoblinManager.cpp">
       <Filter>ソース ファイル\game\enemy</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\Enemy\Enemy.cpp">
+    <ClCompile Include="src\game\Enemy\Goblin.cpp">
       <Filter>ソース ファイル\game\enemy</Filter>
     </ClCompile>
     <ClCompile Include="src\game\Trap\SpikeManager.cpp">
@@ -238,6 +235,15 @@
     </ClCompile>
     <ClCompile Include="src\game\stage\crystal\crystal.cpp">
       <Filter>ソース ファイル\game\stage\crystal</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Enemy\HobGoblin.cpp">
+      <Filter>ソース ファイル\game\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Enemy\HGoblinManager.cpp">
+      <Filter>ソース ファイル\game\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Enemy\EnemyManager.cpp">
+      <Filter>ソース ファイル\game\enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -301,13 +307,13 @@
     <ClInclude Include="src\game\stage\field\field.h">
       <Filter>ヘッダー ファイル\game\stage\field</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\Enemy\EnemyManager.h">
+    <ClInclude Include="src\game\Enemy\GoblinManager.h">
       <Filter>ヘッダー ファイル\game\enemy</Filter>
     </ClInclude>
     <ClInclude Include="src\game\Enemy\EnemyBase.h">
       <Filter>ヘッダー ファイル\game\enemy</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\Enemy\Enemy.h">
+    <ClInclude Include="src\game\Enemy\Goblin.h">
       <Filter>ヘッダー ファイル\game\enemy</Filter>
     </ClInclude>
     <ClInclude Include="src\game\Trap\SpikeManager.h">
@@ -345,6 +351,18 @@
     </ClInclude>
     <ClInclude Include="src\game\stage\crystal\crystal.h">
       <Filter>ヘッダー ファイル\game\stage\crystal</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Enemy\HobGoblin.h">
+      <Filter>ヘッダー ファイル\game\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Enemy\HGoblinManager.h">
+      <Filter>ヘッダー ファイル\game\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Enemy\EnemyManagerBase.h">
+      <Filter>ヘッダー ファイル\game\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Enemy\EnemyManager.h">
+      <Filter>ヘッダー ファイル\game\enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

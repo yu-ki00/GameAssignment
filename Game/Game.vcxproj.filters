@@ -132,9 +132,6 @@
     <Filter Include="ソース ファイル\game\stage\crystal">
       <UniqueIdentifier>{02ec3e8b-de6d-4837-9a4a-5c2c304c7561}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\game\stage\gate">
-      <UniqueIdentifier>{64f3f4fc-3c83-4ba8-8da6-2cef79ca88e2}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\collision\collision.cpp">

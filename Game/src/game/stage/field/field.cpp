@@ -1,4 +1,5 @@
 #include"field.h"
+#include"../../common.h"
 using namespace std;
 CField::CField() {
 	Init();
@@ -43,6 +44,7 @@ void CField::Load() {
                 data.m_cellZ = z;
 
                 data.m_hndl = MV1DuplicateModel(m_modelTable[tile]);
+
 
                 data.m_isActive = true;
 
@@ -103,6 +105,7 @@ void CField::Exit() {
     m_modelTable.clear();
 }
 
+//エネミー出現位置
 VECTOR CField::GetSpawnPos() {
     vector<VECTOR> spawnPos;
     for (auto& data : m_stage) {
@@ -114,6 +117,7 @@ VECTOR CField::GetSpawnPos() {
     return spawnPos[index];
 }
 
+//クリスタル出現位置
 VECTOR CField::GetStartPos() {
     for (auto& data : m_stage) {
 

@@ -1,21 +1,20 @@
 #pragma once
-#include"Enemy.h"
-static const char ENEMY_MODEL_PATH[] = { "Data/Model/enemy/enemy.mv1" };
-static const int ENEMY_NUM = 14;
-static const int WAIT_TIME=500;
+#include"HGoblinManager.h"
+#include"GoblinManager.h"
+#include"EnemyManagerBase.h"
+enum EnemyType {
+	Gob,
+	HGob,
+
+	EnemyNum
+};
 
 class CEnemyManager {
 private:
-
-	CEnemy m_enemy[ENEMY_NUM];
-
-	int m_waitTime;
-
-	int m_waveEnemy;
+	CEnemyManagerBase* m_enemy[EnemyNum];
 
 public:
 	CEnemyManager();
-
 	~CEnemyManager();
 
 	void Init();
@@ -30,12 +29,18 @@ public:
 
 	void Update();
 
-	CEnemy& GetEnemy(int i) { return m_enemy[i]; }
+	void Request(VECTOR startpos, const vector<VECTOR>& path,EnemyType enemy);
 
-	void Request(VECTOR startpos, const vector<VECTOR>& path);
+	CGoblin& GetGoblin(int i);
 
-	bool IsAllDead();
+	CHGoblin& GetHGoblin(int i);
 
 	void Reset();
 
+	bool IsAllDead();
+
+	CEnemyManagerBase* GetManager(int type)
+	{
+		return m_enemy[type];
+	}
 };

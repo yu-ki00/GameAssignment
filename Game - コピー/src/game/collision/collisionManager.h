@@ -2,12 +2,13 @@
 #include"../../lib/collision/collision.h"
 #include"../Player/Player.h"
 #include"../stage/field/field.h"
-#include"../Enemy/EnemyManager.h"
+#include"../Enemy/GoblinManager.h"
 #include"../Camera/CameraManager.h"
 #include"../Trap/SpikeManager.h"
 #include"../Player/Inventory.h"
 #include"../Trap/TrapManager.h"
 #include"../stage/crystal/crystal.h"
+#include"../Enemy/EnemyManager.h"
 class CCollisionManager {
 public:
 	struct HitResult {
@@ -31,6 +32,8 @@ public:
 	static void CheckHitEnemyToEnemy(CEnemyManager& enemy);
 
 	static void CheckHitEnemyToCrystal(CEnemyManager& enemy,CCrystal& crystal);
+	template <typename T>
+	static void CheckEnemyToStage(T& enemy, CField& field, float radius);
 
 
 };

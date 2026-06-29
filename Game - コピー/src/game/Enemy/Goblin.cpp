@@ -1,24 +1,23 @@
-#include"Enemy.h"
+#include"Goblin.h"
 #include"math.h"
-CEnemy::CEnemy() {
+CGoblin::CGoblin() {
 	Init();
 }
 
-CEnemy::~CEnemy() {
+CGoblin::~CGoblin() {
 	Exit();
 }
 
-void CEnemy::Init() {
-	CObject3D::Init();
-	m_hp = ENEMY_HP;
-	m_isActive = false;
+void CGoblin::Init() {
+	CEnemyBase::Init();
+	m_hp = GOBLIN_HP;
 	m_isKnock = false;
 	m_isFire = false;
 	m_isDamage = false;
 	m_isDeath = false;
 }
 
-void CEnemy::Load(int originHndl) {
+void CGoblin::Load(int originHndl) {
 
 	if (m_hndl == -1) {
 
@@ -29,8 +28,8 @@ void CEnemy::Load(int originHndl) {
 	MV1SetupCollInfo(m_hndl);	// ÉRÉäÉWÉáÉìèÓïÒç\íz
 }
 
-void CEnemy::Step() {
-	float speed = ENEMY_SPEED;
+void CGoblin::Step() {
+	float speed = GOBLIN_SPEED;
 	if (m_slow) {
 		speed /= 2;
 	}
@@ -42,7 +41,7 @@ void CEnemy::Step() {
 			return;
 		}
 
-		float speed = ENEMY_SPEED;
+		float speed = GOBLIN_SPEED;
 
 		if (m_slow)
 		{
@@ -103,7 +102,7 @@ void CEnemy::Step() {
 
 }
 
-void CEnemy::Draw() {
+void CGoblin::Draw() {
 	if (m_isActive) {
 		if (m_isDamage) {
 			COLOR_F color = { 1.0f, 0.3f, 0.3f, 0.3f };
@@ -114,11 +113,11 @@ void CEnemy::Draw() {
 			MV1SetDifColorScale(m_hndl, color);
 		}
 		MV1DrawModel(m_hndl);
-		DrawSphere3D(GetCenter(), ENEMY_RADIUS, 8, RED, RED, true);
+		DrawSphere3D(GetCenter(), GOBLIN_RADIUS, 8, RED, RED, true);
 	}
 }
 
-void CEnemy::Exit() {
+void CGoblin::Exit() {
 	if (m_hndl != -1) {
 		MV1DeleteModel(m_hndl);
 
@@ -127,26 +126,26 @@ void CEnemy::Exit() {
 	}
 }
 
-void CEnemy::Request(VECTOR pos) {
+void CGoblin::Request(VECTOR pos) {
 
 	m_isActive = true;
 
 	m_pos = pos;
 
-	m_hp = ENEMY_HP;
+	m_hp = GOBLIN_HP;
 
 	m_pathIndex = 0;
 
 }
 
-VECTOR CEnemy::GetCenter() {
+VECTOR CGoblin::GetCenter() {
 	VECTOR center = m_pos;
-	center.y += ENEMY_RADIUS;
+	center.y += GOBLIN_RADIUS;
 	return center;
 
 }
 
-void CEnemy::HitDamage()
+void CGoblin::HitDamage()
 {
 	m_isDamage = true;
 
@@ -154,20 +153,20 @@ void CEnemy::HitDamage()
 
 }
 
-void CEnemy::SetFire() {
+void CGoblin::SetFire() {
 	m_isFire = true;
 	m_fireTime = 180;
 	m_hp -= 0.2f;
 }
 
-void CEnemy::KnockBack(VECTOR vec) {
+void CGoblin::KnockBack(VECTOR vec) {
 	m_knockPow = VScale(vec, 3);
 	m_knockTime = 30;
 	m_isKnock = true;
 }
 
-void CEnemy::Reset() {
-	m_hp = ENEMY_HP;
+void CGoblin::Reset() {
+	m_hp = GOBLIN_HP;
 	m_isActive = false;
 	m_isKnock = false;
 	m_isFire = false;
@@ -175,7 +174,7 @@ void CEnemy::Reset() {
 	m_isDeath = false;
 }
 
-void CEnemy::SetPath(const vector<VECTOR>& path) {
+void CGoblin::SetPath(const vector<VECTOR>& path) {
 	m_path = path;
 	m_pathIndex = 0;
 }

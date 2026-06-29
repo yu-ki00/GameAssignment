@@ -38,3 +38,28 @@ void CEnemyBase::Exit() {
 		m_hndl = -1;
 	}
 }
+
+void CEnemyBase::HitDamage()
+{
+	m_isDamage = true;
+
+	m_damageTime = 4;
+
+}
+
+void CEnemyBase::SetFire() {
+	m_isFire = true;
+	m_fireTime = 180;
+	m_hp -= 0.2f;
+}
+
+void CEnemyBase::KnockBack(VECTOR vec) {
+	m_knockPow = VScale(vec, 3);
+	m_knockTime = 30;
+	m_isKnock = true;
+}
+
+void CEnemyBase::SetPath(const vector<VECTOR>& path) {
+	m_path = path;
+	m_pathIndex = 0;
+}

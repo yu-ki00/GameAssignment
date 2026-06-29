@@ -9,9 +9,8 @@ CGoblin::~CGoblin() {
 }
 
 void CGoblin::Init() {
-	CObject3D::Init();
+	CEnemyBase::Init();
 	m_hp = GOBLIN_HP;
-	m_isActive = false;
 	m_isKnock = false;
 	m_isFire = false;
 	m_isDamage = false;

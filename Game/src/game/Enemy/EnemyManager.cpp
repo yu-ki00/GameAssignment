@@ -7,6 +7,7 @@ CEnemyManager::CEnemyManager() {
 	m_enemy[0] = new CGoblinManager;
 	m_enemy[1] = new CHGManager;
 }
+
 CEnemyManager::~CEnemyManager() {
 	for (int i = 0;i < EnemyNum;i++) {
 		delete m_enemy[i];

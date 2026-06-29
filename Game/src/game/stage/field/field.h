@@ -10,6 +10,9 @@ using namespace std;
 static const char FIELD_PATH[] = { "Data/Model/field/field.mv1" };
 
 static const int TILE_NUM = 5;
+
+
+
 class CField {
 private:
 	typedef struct {
@@ -29,6 +32,8 @@ private:
 
 		int m_cellZ;
 	}STAGE_DATA;
+
+
 	map<int, int> m_modelTable;
 
 	vector<VECTOR> m_enemyPath;
@@ -71,4 +76,5 @@ public:
 	VECTOR GetSpawnPos();
 
 	VECTOR GetStartPos();
+
 };

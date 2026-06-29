@@ -5,10 +5,11 @@
 #include"../stage//field/field.h"
 #include"scenebase.h"
 #include"../Trap/SpikeManager.h"
-#include"../Enemy/EnemyManager.h"
+#include"../Enemy/GoblinManager.h"
 #include"../Player/Inventory.h"
 #include"../Trap/TrapManager.h"
 #include"../stage/crystal/crystal.h"
+#include"../Enemy/EnemyManager.h"
 
 class CPlayScene :CSceneBase{
 private:
