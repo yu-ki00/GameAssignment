@@ -3,7 +3,7 @@
 #include"MyMath.h"
 
 
-float GetDistance(float PosX, float PosY, float posx, float posy) {  //‚Q“_ŠÔ‚Ì‹——£
+float CMyMath::GetDistance(float PosX, float PosY, float posx, float posy) {  //‚Q“_ŠÔ‚Ì‹——£
 	float x, y;
 	float num;
 	x = posx - PosX;
@@ -11,51 +11,51 @@ float GetDistance(float PosX, float PosY, float posx, float posy) {  //‚Q“_ŠÔ‚Ì‹
 	num = (x * x) + (y * y);
 	return sqrtf(num);
 }
-VECTOR AddVector(VECTOR A, VECTOR B) {
+VECTOR CMyMath::AddVector(VECTOR A, VECTOR B) {
 	VECTOR res;
 	res.x = A.x + B.x;
 	res.y = A.y + B.y;
 	res.z = A.z + B.z;
 	return res;
 }
-VECTOR SubVector(VECTOR A, VECTOR B) {
+VECTOR CMyMath::SubVector(VECTOR A, VECTOR B) {
 	A.x -= B.x;
 	A.y -= B.y;
 	A.z -= B.z;
 	return A;
 }
-VECTOR CreateVec(VECTOR endPos, VECTOR startPos) {
+VECTOR CMyMath::CreateVec(VECTOR endPos, VECTOR startPos) {
 	VECTOR res;
 	res.x = endPos.x - startPos.x;
 	res.y = endPos.y - startPos.y;
 	res.z = endPos.z - startPos.z;
 	return res;
 }
-float GetVecLength(VECTOR vec) {
+float CMyMath::GetVecLength(VECTOR vec) {
 	float len;
 	len = sqrtf(vec.x * vec.x + vec.y * vec.y + vec.z * vec.z);
 	return len;
 }
-VECTOR VecNorm(VECTOR vec, float length) {
+VECTOR CMyMath::VecNorm(VECTOR vec, float length) {
 	VECTOR res;
 	res.x = vec.x / length;
 	res.y = vec.y / length;
 	res.z = vec.z / length;
 	return res;
 }
-VECTOR VecScale(VECTOR vec, float scale) {
+VECTOR CMyMath::VecScale(VECTOR vec, float scale) {
 	VECTOR res;
 	res.x = vec.x * scale;
 	res.y = vec.y * scale;
 	res.z = vec.z * scale;
 	return res;
 }
-float VecDot(VECTOR vec1, VECTOR vec2) {
+float CMyMath::VecDot(VECTOR vec1, VECTOR vec2) {
 	float ret;
 	ret = vec1.x * vec2.x + vec1.y * vec2.y + vec1.z * vec2.z;
 	return ret;
 }
-MATRIX GetIdentityMatrix() {
+MATRIX CMyMath::GetIdentityMatrix() {
 	MATRIX ret = { 0 };
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
@@ -69,14 +69,14 @@ MATRIX GetIdentityMatrix() {
 	}
 	return ret;
 }
-MATRIX GetTranslateMatrix(VECTOR trans) {
+MATRIX CMyMath::GetTranslateMatrix(VECTOR trans) {
 	MATRIX ret = GetIdentityMatrix();
 	ret.m[0][3] = trans.x;
 	ret.m[1][3] = trans.y;
 	ret.m[2][3] = trans.z;
 	return ret;
 }
-MATRIX GetTranslateVecMatrix(float x, float y, float z) {
+MATRIX CMyMath::GetTranslateVecMatrix(float x, float y, float z) {
 	MATRIX ret = GetIdentityMatrix();
 	ret.m[0][3] = x;
 	ret.m[1][3] = y;
@@ -84,7 +84,7 @@ MATRIX GetTranslateVecMatrix(float x, float y, float z) {
 	return ret;
 }
 
-MATRIX GetScaleMatrix(VECTOR scale) {
+MATRIX CMyMath::GetScaleMatrix(VECTOR scale) {
 	MATRIX ret = GetIdentityMatrix();
 	ret.m[0][0] = scale.x;
 	ret.m[1][1] = scale.y;
@@ -92,7 +92,7 @@ MATRIX GetScaleMatrix(VECTOR scale) {
 	return ret;
 }
 //XŽ²‰ñ“]s—ñ‚ðŽæ“¾‚·‚é
-MATRIX GetPitchMatrix(float radx) {
+MATRIX CMyMath::GetPitchMatrix(float radx) {
 	MATRIX ret = GetIdentityMatrix();
 	ret.m[1][1] = cosf(radx);
 	ret.m[1][2] = -(sinf(radx));
@@ -101,7 +101,7 @@ MATRIX GetPitchMatrix(float radx) {
 	return ret;
 }
 //YŽ²‰ñ“]s—ñ‚ðŽæ“¾‚·‚é
-MATRIX GetYawMatrix(float rady) {
+MATRIX CMyMath::GetYawMatrix(float rady) {
 	MATRIX ret = GetIdentityMatrix();
 	ret.m[0][0] = cosf(rady);
 	ret.m[0][2] = sinf(rady);
@@ -110,7 +110,7 @@ MATRIX GetYawMatrix(float rady) {
 	return ret;
 }
 //ZŽ²‰ñ“]s—ñ‚ðŽæ“¾‚·‚é
-MATRIX GetRollMatrix(float radz) {
+MATRIX CMyMath::GetRollMatrix(float radz) {
 	MATRIX ret = GetIdentityMatrix();
 	ret.m[0][0] = cos(radz);
 	ret.m[0][1] = -(sinf(radz));
@@ -120,7 +120,7 @@ MATRIX GetRollMatrix(float radz) {
 
 }
 //ˆø”‚Å“n‚³‚ê‚½‚Q‚Â‚Ìs—ñ‚ð‘«‚µŽZ‚·‚é
-MATRIX MatAdd(MATRIX Mat1, MATRIX Mat2) {
+MATRIX CMyMath::MatAdd(MATRIX Mat1, MATRIX Mat2) {
 	MATRIX ret = { 0 };
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
@@ -130,7 +130,7 @@ MATRIX MatAdd(MATRIX Mat1, MATRIX Mat2) {
 	return ret;
 }
 //ˆø”‚Å“n‚³‚ê‚½s—ñ‚ðƒXƒJƒ‰[”{‚·‚é
-MATRIX MatScale(MATRIX Mat, float scal) {
+MATRIX CMyMath::MatScale(MATRIX Mat, float scal) {
 	MATRIX ret = { 0 };
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
@@ -140,7 +140,7 @@ MATRIX MatScale(MATRIX Mat, float scal) {
 	return ret;
 }
 //ˆø”‚Å“n‚³‚ê‚½‚Q‚Â‚Ìs—ñ‚ÌŠ|‚¯ŽZ‚ðs‚¤
-MATRIX MatMult(MATRIX Mat1, MATRIX Mat2) {
+MATRIX CMyMath::MatMult(MATRIX Mat1, MATRIX Mat2) {
 	MATRIX ret = { 0 };
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
@@ -152,7 +152,7 @@ MATRIX MatMult(MATRIX Mat1, MATRIX Mat2) {
 	return ret;
 }
 //s—ñ~ƒxƒNƒgƒ‹‚ðs‚¤i•ÏŠ·ŒvŽZj
-VECTOR MatTransform(MATRIX Mat, VECTOR vec) {
+VECTOR CMyMath::MatTransform(MATRIX Mat, VECTOR vec) {
 	VECTOR ret = { 0,0,0 };
 	float work[4] = { 0 };
 	float ret_buf[4] = { 0 };
@@ -174,7 +174,7 @@ VECTOR MatTransform(MATRIX Mat, VECTOR vec) {
 
 }
 //s—ñ“]’u‚ðs‚¤
-MATRIX MatTranspose(MATRIX Mat) {
+MATRIX CMyMath::MatTranspose(MATRIX Mat) {
 	MATRIX ret = GetIdentityMatrix();
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
@@ -183,9 +183,9 @@ MATRIX MatTranspose(MATRIX Mat) {
 	}
 	return ret;
 }
-float DegRad(float deg) { return deg * (DX_PI_F / 180); }
+float CMyMath::DegRad(float deg) { return deg * (DX_PI_F / 180); }
 
-inline float clamp(float v, float minV, float maxV)
+inline float CMyMath::clamp(float v, float minV, float maxV)
 {
 	if (v < minV) return minV;
 	if (v > maxV) return maxV;

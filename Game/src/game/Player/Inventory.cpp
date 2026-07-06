@@ -1,5 +1,7 @@
 #include "Inventory.h"
 #include"../common.h"
+
+//初期化
 void CInventory::Init() {
 	m_gold = 1000;
 	m_trapNumber = Net;
@@ -18,12 +20,14 @@ void CInventory::Init() {
 	}
 }
 
+//ロード
 void CInventory::Load() {
 	for (int i = 0;i < TrapNum;i++) {
 		m_trap[i].m_hndl = LoadGraph(TRAP_GRAPH_PATH[i]);
 	}
 }
 
+//毎フレーム動く処理
 void CInventory::Step() {
 	int wheel = GetMouseWheelRotVol();
 	if (wheel > 0) {
@@ -60,6 +64,7 @@ void CInventory::Step() {
 	}
 }
 
+//描画
 void CInventory::Draw() {
 	for (int i = 0;i < TrapNum;i++) {
 		DrawRotaGraph((int)m_trap[i].m_pos.x,(int) m_trap[i].m_pos.y, 0.4f, 0.0f, m_trap[i].m_hndl, true);
@@ -74,6 +79,7 @@ void CInventory::Draw() {
 
 }
 
+//終了
 void CInventory::Exit() {
 	for (int i = 0;i < TrapNum;i++) {
 
@@ -86,6 +92,7 @@ void CInventory::Exit() {
 	}
 }
 
+//ゴールドを減らす
 void CInventory::SubGold() {
 	switch (m_trapNumber)
 	{
@@ -102,6 +109,8 @@ void CInventory::SubGold() {
 		break;
 	}
 }
+
+//ゴールドを増やす
 void CInventory::AddGold() {
 	switch (m_trapNumber)
 	{
@@ -119,6 +128,7 @@ void CInventory::AddGold() {
 	}
 }
 
+//リセット
 void CInventory::Reset() {
 	m_gold = 1000;
 }

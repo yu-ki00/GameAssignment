@@ -11,6 +11,7 @@
 #include"../stage/crystal/crystal.h"
 #include"../Enemy/EnemyManager.h"
 
+
 class CPlayScene :CSceneBase{
 private:
 	enum tagState {

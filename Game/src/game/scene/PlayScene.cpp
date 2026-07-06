@@ -207,10 +207,14 @@ int CPlayScene::Step()
 			if (CInput::IsTrg(KEY_Z))
 				m_turn = BATTLE;
 			break;
-		case CPlayScene::BATTLE:
+		case CPlayScene::BATTLE: {
+			int lane = GetRand(m_field.GetPathNum() - 1);
 
-			m_enemy.Request(m_field.GetSpawnPos(),m_field.GetPath(),HGob);
-			m_enemy.Request(m_field.GetSpawnPos(), m_field.GetPath(), Gob);
+			const auto& data = m_field.GetPathData(lane);
+
+
+			m_enemy.Request(data.spawnPos, data.path, Gob);
+			//m_enemy.Request(m_field.GetSpawnPos(),m_field.GetPath(),HGob);
 
 			m_enemy.Step();
 
@@ -221,6 +225,7 @@ int CPlayScene::Step()
 				m_turn = TRAP;
 			}
 			break;
+		}
 		case CPlayScene::LAST:
 			if (CInput::IsTrg(KEY_Z)) {
 				m_state = END;

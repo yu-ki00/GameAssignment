@@ -15,6 +15,8 @@ void CGoblin::Init() {
 	m_isFire = false;
 	m_isDamage = false;
 	m_isDeath = false;
+	m_pathIndex = 0;
+	m_path.clear();
 }
 
 void CGoblin::Load(int originHndl) {
@@ -29,10 +31,6 @@ void CGoblin::Load(int originHndl) {
 }
 
 void CGoblin::Step() {
-	float speed = GOBLIN_SPEED;
-	if (m_slow) {
-		speed /= 2;
-	}
 	if (m_isActive)
 	{
 		if (m_pathIndex >= m_path.size())

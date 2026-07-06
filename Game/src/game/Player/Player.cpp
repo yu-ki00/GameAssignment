@@ -91,7 +91,7 @@ void CPlayer::MoveExec(float dt) {
 
 		float move_deg = 45.0f;
 
-		move_vec = DegRad(move_deg);
+		move_vec = CMyMath::DegRad(move_deg);
 
 
 	}
@@ -101,7 +101,7 @@ void CPlayer::MoveExec(float dt) {
 
 		float move_deg = 135.0f;
 
-		move_vec = DegRad(move_deg);
+		move_vec = CMyMath::DegRad(move_deg);
 	}
 
 	else if (CInput::IsRep(KEY_DOWN) && CInput::IsRep(KEY_RIGHT)) {
@@ -110,7 +110,7 @@ void CPlayer::MoveExec(float dt) {
 
 		float move_deg = 135.0f;
 
-		move_vec = DegRad(move_deg);
+		move_vec = CMyMath::DegRad(move_deg);
 
 	}
 
@@ -120,7 +120,7 @@ void CPlayer::MoveExec(float dt) {
 
 		float move_deg = 45.0f;
 
-		move_vec = DegRad(move_deg);
+		move_vec = CMyMath::DegRad(move_deg);
 
 	}
 
@@ -141,7 +141,7 @@ void CPlayer::MoveExec(float dt) {
 
 		float move_deg = 90.0f;
 
-		move_vec = DegRad(move_deg);
+		move_vec = CMyMath::DegRad(move_deg);
 
 	}
 
@@ -151,7 +151,7 @@ void CPlayer::MoveExec(float dt) {
 
 		float move_deg = 90.0f;
 
-		move_vec = DegRad(move_deg);
+		move_vec = CMyMath::DegRad(move_deg);
 
 	}
 	if (ACCEL != 0) {

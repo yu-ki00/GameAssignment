@@ -4,15 +4,27 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <queue>
 #include <map>
+#include <set>
+
 static const float TILE_SIZE = 200.0f;
 using namespace std;
 static const char FIELD_PATH[] = { "Data/Model/field/field.mv1" };
 
 static const int TILE_NUM = 5;
 
+struct PATH_DATA
+{
+	VECTOR spawnPos;
+	vector<VECTOR> path;
+};
 
-
+struct NODE
+{
+	int x;
+	int z;
+};
 class CField {
 private:
 	typedef struct {
@@ -43,6 +55,10 @@ private:
 	vector<vector<int>> m_map;
 
 	VECTOR m_startPos;
+
+	vector<vector<VECTOR>> m_path;
+
+	vector<PATH_DATA> m_enemyPaths;
 public:
 	CField();
 
@@ -60,7 +76,7 @@ public:
 
 	void Exit();
 
-	void CreatePath();
+	vector<VECTOR> CreatePath(const STAGE_DATA& start);
 
 	const vector<VECTOR>& GetPath() const
 	{
@@ -76,5 +92,8 @@ public:
 	VECTOR GetSpawnPos();
 
 	VECTOR GetStartPos();
+
+	int GetPathNum() const { return (int)m_enemyPaths.size(); }
+	const PATH_DATA& GetPathData(int index) const { return m_enemyPaths[index]; }
 
 };

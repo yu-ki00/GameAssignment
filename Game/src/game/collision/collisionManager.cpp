@@ -325,6 +325,7 @@ void CCollisionManager::CheckHitEnemyToEnemy(CEnemyManager& enemy) {
 						push = VSub(push, diff);
 
 						push = VScale(push, 0.5f);
+						push.y = 0;
 
 						one->SetPos(VSub(one->GetPos(), push));
 
