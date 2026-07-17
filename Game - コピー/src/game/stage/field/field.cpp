@@ -56,7 +56,25 @@ void CField::Load() {
         }
         z++;
     }
-    CreatePath();
+    m_enemyPaths.clear();
+
+    for (auto& data : m_stage)
+    {
+        // スポーン地点なら
+        if (data.m_tileID == 2)
+        {
+            PATH_DATA pathData;
+
+            // スポーン位置
+            pathData.spawnPos = data.m_pos;
+
+            // このスポーン地点からゴールまでの経路を作成
+            pathData.path = CreatePath(data);
+
+            // 経路を保存
+            m_enemyPaths.push_back(pathData);
+        }
+    }
 
 }
 
@@ -136,74 +154,135 @@ CField::STAGE_DATA* CField::GetTile(int x, int z) {
     return nullptr;
 }
 
-void CField::CreatePath() {
-    m_enemyPath.clear();
+vector<VECTOR> CField::CreatePath(const STAGE_DATA& start) {
+    // 最終的に返す経路
+    std::vector<VECTOR> path;
 
-    STAGE_DATA* start = nullptr;
-    for (auto& data : m_stage) {
-        
-        if (data.m_tileID == 2) {
-            start = &data;
+    // BFSで使用する座標
+    struct NODE
+    {
+        int x;
+        int z;
+    };
+
+    // 探索待ちのマスを入れるキュー
+    std::queue<NODE> q;
+
+    // 子マス ← 親マス の対応を保存する
+    // ゴールからスタートまで経路を逆に辿るために使う
+    std::map<std::pair<int, int>, std::pair<int, int>> parent;
+
+    // 探索済みのマス
+    std::set<std::pair<int, int>> visited;
+
+    // スタート座標
+    int sx = start.m_cellX;
+    int sz = start.m_cellZ;
+
+    // スタートを探索開始
+    q.push({ sx, sz });
+
+    // スタートを探索済みにする
+    visited.insert({ sx, sz });
+
+    // ゴール座標
+    int goalX = -1;
+    int goalZ = -1;
+
+    // 右・左・下・上
+    int dx[4] = { 1,-1,0,0 };
+    int dz[4] = { 0,0,1,-1 };
+
+    // キューが空になるまで探索
+    while (!q.empty())
+    {
+        // 一番先頭のマスを取り出す
+        NODE now = q.front();
+        q.pop();
+
+        // 現在のマス取得
+        STAGE_DATA* tile = GetTile(now.x, now.z);
+
+        // ゴールなら探索終了
+        if (tile && tile->m_tileID == 3)
+        {
+            goalX = now.x;
+            goalZ = now.z;
             break;
         }
-    }
-    if (!start)return;
-    int x = start->m_cellX;
-    int z = start->m_cellZ;
 
-    m_enemyPath.push_back(start->m_pos);
+        // 四方向を調べる
+        for (int i = 0; i < 4; i++)
+        {
+            int nx = now.x + dx[i];
+            int nz = now.z + dz[i];
 
-    vector<pair<int, int>> visited;
-
-    visited.push_back({ x,z });
-
-    while (true) {
-        bool found = false;
-
-        int dx[4] = { 1,-1,0,0 };
-
-        int dz[4] = { 0,0,1,-1 };
-
-        for (int i = 0;i < 4;i++) {
-            int nx = x + dx[i];
-
-            int nz = z + dz[i];
-
-            bool already = false;
-
-            for (auto& v : visited) {
-                if (v.first == nx && v.second == nz) {
-                    already = true;
-                    break;
-                }
-            }
-
-            if (already)
+            // 既に探索済みなら無視
+            if (visited.count({ nx,nz }))
                 continue;
 
-            STAGE_DATA* tile = GetTile(nx, nz);
+            // 隣のマス取得
+            STAGE_DATA* next = GetTile(nx, nz);
 
-            if (!tile)
+            // マスが存在しない
+            if (!next)
                 continue;
 
-            if (tile->m_tileID == 5 || tile->m_tileID == 3) {
-                m_enemyPath.push_back(tile->m_pos);
+            // 道またはゴールなら進める
+            if (next->m_tileID == 5 ||
+                next->m_tileID == 3)
+            {
+                // 探索済みにする
+                visited.insert({ nx,nz });
 
-                visited.push_back({ nx,nz });
+                // このマスへ来る前のマスを保存
+                parent[{ nx, nz }] = { now.x,now.z };
 
-                x = nx;
-
-                z = nz;
-
-                found = true;
-                if (tile->m_tileID == 3) {
-                    return;
-                }
-                break;
+                // 次に探索する
+                q.push({ nx,nz });
             }
         }
-        if (!found)
-            return;
     }
+
+    // ゴールが見つからなかった
+    if (goalX == -1)
+        return path;
+
+    // ゴールからスタートまで逆順で保存
+    std::vector<std::pair<int, int>> reversePath;
+
+    int x = goalX;
+    int z = goalZ;
+
+    // ゴールを追加
+    reversePath.push_back({ x,z });
+
+    // スタートまで親を辿る
+    while (!(x == sx && z == sz))
+    {
+        auto p = parent[{ x, z }];
+
+        x = p.first;
+        z = p.second;
+
+        reversePath.push_back({ x,z });
+    }
+
+    // 逆順なのでスタート→ゴールになるように並び替える
+    for (int i = (int)reversePath.size() - 1; i >= 0; i--)
+    {
+        auto p = reversePath[i];
+
+        STAGE_DATA* tile = GetTile(p.first, p.second);
+
+        if (tile)
+        {
+            // ワールド座標を経路に追加
+            path.push_back(tile->m_pos);
+        }
+    }
+
+    // 完成した経路を返す
+    return path;
 
 }

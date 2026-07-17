@@ -62,14 +62,14 @@ void CPlayScene::Draw()
 			m_trap.DrawA(m_inventory.GetTrap());
 			m_inventory.Draw();
 
-			
+
 			break;
 		case CPlayScene::BATTLE:
 			m_enemy.Draw();
 			break;
 		case CPlayScene::LAST:
 			SetFontSize(128);
-			DrawFormatString(500, WINDOW_SIZE_Y/2-100, RED, "GAMEOVER");
+			DrawFormatString(500, WINDOW_SIZE_Y / 2 - 100, RED, "GAMEOVER");
 			SetFontSize(32);
 			break;
 		default:
@@ -80,7 +80,7 @@ void CPlayScene::Draw()
 #ifdef DEBUG
 		auto hit = CCollisionManager::CheckHitEyeToStage(m_player, m_field, m_camera);
 
-		
+
 
 		VECTOR eye_pos = m_camera.GetPlay().GetTarget();
 		VECTOR eye_end = VAdd(eye_pos, VScale(m_camera.GetPlay().GetVec(), 300));
@@ -90,8 +90,8 @@ void CPlayScene::Draw()
 		DrawFormatString(10, 32, RED, "%f,%f,%f", m_player.GetTop().x, m_player.GetTop().y, m_player.GetTop().z);
 		VECTOR pos = hit.position;
 		DrawFormatString(10, 64, RED, "%f,%f,%f", pos.x, pos.y, pos.z);
-		if(m_player.GetIsGround())
-		DrawFormatString(10, 96, RED, "‚Â‚¢‚Ä‚é‚æ");
+		if (m_player.GetIsGround())
+			DrawFormatString(10, 96, RED, "‚Â‚¢‚Ä‚é‚æ");
 
 
 #endif // DEBUG
@@ -151,7 +151,7 @@ void CPlayScene::Load()
 	m_field.Load();
 
 	m_trap.Load();
-	
+
 	m_crystal.Load(m_field.GetStartPos());
 
 	m_enemy.Load();
@@ -177,7 +177,7 @@ int CPlayScene::Step()
 	case CPlayScene::MAIN:
 
 		if (m_camera.GetID() == m_camera.ID_PLAY) {
-			m_player.Step(m_camera.GetRot(),dt);
+			m_player.Step(m_camera.GetRot(), dt);
 
 		}
 		m_camera.Step(m_player.GetTop());
@@ -192,25 +192,29 @@ int CPlayScene::Step()
 		{
 		case CPlayScene::TRAP:
 			m_inventory.Step();
-		
+
 			if (CInput::IsTrg(KEY_SHOT)) {
 				m_inventory.SubGold();
-				if (m_inventory.GetGold()>=0) {
+				if (m_inventory.GetGold() >= 0) {
 					m_trap.Request(hit.position, hit.isHit, m_inventory.GetTrap());
 				}
 				else {
 					m_inventory.AddGold();
 				}
-				
+
 
 			}
 			if (CInput::IsTrg(KEY_Z))
 				m_turn = BATTLE;
 			break;
 		case CPlayScene::BATTLE:
+		{
+			//m_enemy.Request(m_field.GetSpawnPos(),m_field.GetPath(),HGob);
+			int lane = GetRand(m_field.GetPathNum() - 1);
 
-			m_enemy.Request(m_field.GetSpawnPos(),m_field.GetPath(),HGob);
-			m_enemy.Request(m_field.GetSpawnPos(), m_field.GetPath(), Gob);
+			const auto& data = m_field.GetPathData(lane);
+
+			m_enemy.Request(data.spawnPos, data.path, Gob);
 
 			m_enemy.Step();
 
@@ -221,6 +225,7 @@ int CPlayScene::Step()
 				m_turn = TRAP;
 			}
 			break;
+		}
 		case CPlayScene::LAST:
 			if (CInput::IsTrg(KEY_Z)) {
 				m_state = END;
@@ -244,7 +249,7 @@ int CPlayScene::Step()
 		m_sky.Update();
 
 		m_field.Update();
-		
+
 		m_trap.Update();
 
 		m_camera.Update();

@@ -35,6 +35,9 @@ void CGoblin::Step() {
 	}
 	if (m_isActive)
 	{
+		printfDx("PathSize=%d Index=%d\n",
+			(int)m_path.size(),
+			m_pathIndex);
 		if (m_pathIndex >= m_path.size())
 		{
 

@@ -1,4 +1,18 @@
-﻿  field.cpp
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\stage\field\field.cpp(124,39): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-C:\Users\2409419\Desktop\GameAssignment\Game\src\game\stage\field\field.cpp(136,1): warning C4715: 'CField::GetStartPos': 値を返さないコントロール パスがあります。
+﻿  Goblin.cpp
+  GoblinManager.cpp
+  HobGoblin.cpp
+  collisionManager.cpp
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(52,31): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(397,31): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+      C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(397,31):
+      テンプレートインスタンス化コンテキスト (最初に最も古いもの) は
+          C:\Users\2409419\Desktop\GameAssignment\Game\src\game\collision\collisionManager.cpp(263,5):
+          コンパイル対象の関数 テンプレート インスタンス化 'void CCollisionManager::CheckEnemyToStage<CGoblin>(T &,CField &,float)' のリファレンスを確認してください
+          with
+          [
+              T=CGoblin
+          ]
+  
+  コードを生成中...
+  LINK : 前回のインクリメンタル リンクで C:\Users\2409419\Desktop\GameAssignment\Game\x64\Debug\Game.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
   Game.vcxproj -> C:\Users\2409419\Desktop\GameAssignment\Game\x64\Debug\Game.exe

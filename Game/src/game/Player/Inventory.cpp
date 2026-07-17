@@ -3,7 +3,7 @@
 
 //‰Šú‰»
 void CInventory::Init() {
-	m_gold = 1000;
+	m_gold = 5000;
 	m_trapNumber = Net;
 	for (int i = 0;i < TrapNum;i++) {
 		m_trap[i].m_hndl = -1;
